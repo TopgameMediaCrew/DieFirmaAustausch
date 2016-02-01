@@ -65,8 +65,10 @@ class Projekt implements Aenderbar, JsonSerializable {
         $pdo = DbConnect::connect(); 
         $stmt = $pdo->prepare("INSERT INTO bbqfirma.projekt(name) "
                 . "VALUES(:name)");
-        if ($stmt->execute([':name' => $id->getName()])) {
-            echo "Projekt wurde hinzugefügt.";
+        if ($id->getName() == '') {
+            echo 'kein Eintrag';
+        } else {
+        $stmt->execute([':name' => $id->getName()]);
         } 
     }
 

@@ -24,9 +24,9 @@ class AbteilungController {
                 $out = self::transformUpdate();
                 break;
             case 'insert':
-                echo '<pre>';
-                print_r($_POST);
-                echo '</pre>';
+//                echo '<pre>';
+//                print_r($_POST);
+//                echo '</pre>';
                 $out = new Abteilung($_POST['abteilung'],'');
                 $out = Abteilung::insert($out);
                 $out = Abteilung::getAll();
@@ -42,8 +42,8 @@ class AbteilungController {
         $i = 0;
         foreach ($out as $abteilung) {
             $returnOut[$i]['abteilungName'] = $abteilung->getName();
-            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $abteilung->getId());
-            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $abteilung->getId());
+            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $abteilung->getId(),'editAbteilung','bearbeiten');
+            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $abteilung->getId(),'editAbteilung','löschen');
             $i++;
         }
         return $returnOut;
@@ -55,12 +55,13 @@ class AbteilungController {
             $returnOut=[];
             $linkeSpalte=[];
             $rechteSpalte=[];
-            $returnOut = [];
+       
             
         $linkeSpalte=Abteilung::getNames();
         array_push($linkeSpalte, HTML::buildInput('hidden','id',''));
-        $rechteSpalte[0]=HTML::buildInput('text','abteilung','',NULL,'name');
-        array_push($rechteSpalte, HTML::buildButton('OK','ok', 'OK','OK'));
+       // HTML::buildInput($type, $name, $value, $readonly, $id, $class, $placeholder)
+        $rechteSpalte[0]=HTML::buildInput('text','name','',NULL,'name');
+        array_push($rechteSpalte, HTML::buildButton('OK','ok', 'insertAbteilung','OK'));
         $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
         return $returnOut;
         }else{

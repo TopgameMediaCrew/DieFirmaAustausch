@@ -4,7 +4,7 @@ $(document).ready(function () {
 //        alert(this.value);
 //        alert(this.id);
 //        alert(this.className);
-        
+
         if (this.value == 'bearbeiten') {
             var aTableEdit = getMenuOptions(this.className);
             alert('bearbeiten');
@@ -14,8 +14,54 @@ $(document).ready(function () {
             alert(this.value);
             alert(this.id);
         } else if (this.className == 'insertHersteller') {
-            alert('insertHersteller');
+            var value = document.getElementById('name').value;
+            $.post("index.php", {
+                ajax: "true",
+                action: "insert",
+                area: "Hersteller",
+                view: "listeHersteller",
+                hersteller: value
+                        // hersteller: "test"
+            },
+            function (data, status) {
+             //   alert(data);
+                $('#content').html(data);
+            });
+        } else if (this.className == 'insertAbteilung') {
+            
+           
+            var value = document.getElementById('name').value;
+            $.post("index.php", {
+                ajax: "true",
+                action: "insert",
+                area: "Abteilung",
+                view: "listeAbteilung",
+                abteilung: value
+                        // hersteller: "test"
+            },
+            function (data, status) {
+                alert(data);
+                $('#content').html(data);
+            });
+        } else if (this.className == 'insertProjekt') {
+             //alert('insertProjekt');
+            var value = document.getElementById('name').value;
+            $.post("index.php", {
+                ajax: "true",
+                action: "insert",
+                area: "Projekt",
+                view: "listeProjekt",
+                projekt: value
+                        // hersteller: "test"
+            },
+            function (data, status) {
+             //   alert(data);
+                $('#content').html(data);
+            });
+        
+        
         }
+
 
         $.post("index.php",
                 {
@@ -25,10 +71,10 @@ $(document).ready(function () {
                     view: aTableEdit[2],
                     id: this.id
                 },
-                function (data, status) {
+        function (data, status) {
 //                    alert(data);
-                    $('#content').html(data);
-                });
+            $('#content').html(data);
+        });
     });
 
     $('a.menuItem').off('click');
@@ -57,7 +103,7 @@ $(document).ready(function () {
                 options = ['showList', 'Mitarbeiter', 'listeMitarbeiter'];
                 break;
             case 'menuMitarbeiterNeuAnlegen' :
-                
+
                 break;
             case 'menuAbteilungAnzeigen' :
                 options = ['showList', 'Abteilung', 'listeAbteilung'];
@@ -83,7 +129,7 @@ $(document).ready(function () {
                 options = ['showList', 'Projekt', 'listeProjekt'];
                 break;
             case 'menuProjekteNeuAnlegen' :
-
+                options = ['showInsert', 'Projekt', 'insertProjekt'];
                 break;
             case 'menuMitarbeiterToProjektAnzeigen' :
                 options = ['showList', 'ProjektMitarbeiter', 'listeProjektMitarbeiter'];
@@ -91,8 +137,8 @@ $(document).ready(function () {
             case 'menuMitarbeiterToProjektNeuAnlegen' :
 
                 break;
-                
-                
+
+
             case 'editMitarbeiter' :
                 options = ['showUpdate', 'Mitarbeiter', 'formularMitarbeiter'];
                 break;
@@ -114,8 +160,8 @@ $(document).ready(function () {
             case 'editProjektMitarbeiter' :
                 options = ['showUpdate', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];
                 break;
-                
-                
+
+
             default:
                 options = ['standard', 'standard', 'standard'];
         }
