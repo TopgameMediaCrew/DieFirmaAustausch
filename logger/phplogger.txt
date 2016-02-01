@@ -8483,4 +8483,904 @@
 #1 [internal function]: {closure}('StandardControl...')
 #2 C:\xampp\htdocs\DieFirma2\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
 #3 C:\xampp\htdocs\DieFirma2\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T12:24:05+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\model\Auto.php(43): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AutoController.php(14): Auto::getAll()
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AutoController::doAction('showList', 'error', 'ha')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showList', 'error', 'Auto', 'ha')
+#4 {main}2016-01-29T12:24:32+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\model\Auto.php(43): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AutoController.php(14): Auto::getAll()
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AutoController::doAction('showList', 'error', 'ha')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showList', 'error', 'Auto', 'ha')
+#4 {main}2016-01-29T12:24:43+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\model\Auto.php(43): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AutoController.php(14): Auto::getAll()
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AutoController::doAction('showList', 'error', 'ha')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showList', 'error', 'Auto', 'ha')
+#4 {main}2016-01-29T12:25:21+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\model\Auto.php(43): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AutoController.php(14): Auto::getAll()
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AutoController::doAction('showList', 'error', 'ha')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showList', 'error', 'Auto', 'ha')
+#4 {main}2016-01-29T14:52:43+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:53:59+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:54:13+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:58:55+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:11+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:23+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:23+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-01-29T14:59:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:29:36+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:29:52+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:30:12+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:30:42+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:30:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:30:55+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:31:08+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:31:26+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:32:47+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:33:06+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:33:08+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:33:18+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:33:41+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:34:35+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:34:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:34:45+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:35:29+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:35:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:35:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:36:25+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:37:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:39:08+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:42:46+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:43:09+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:43:19+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:45:44+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:46:05+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:46:39+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:46:54+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:49:17+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:50:35+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:50:44+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:51:05+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:52:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:53:31+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:53:35+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:53:55+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:54:23+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:54:31+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:54:47+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T08:54:55+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:03:37+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:03:45+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:04:14+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:04:31+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:04:37+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:04:56+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:07+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:18+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:22+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:27+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:36+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:05:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:06:00+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:07:15+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:07:28+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:08:58+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:09:05+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:14:44+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:15:33+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:18:04+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:18:16+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:18:42+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:27:13+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:27:21+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:29:48+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:29:57+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:30:24+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:30:37+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:41:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T09:41:47+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:08:28+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:09:29+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:10:02+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:10:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:11:16+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:11:24+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\HerstellerController.php(57): HTML::buildFormularTable(Array, Array)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\HerstellerController.php(24): HerstellerController::transformUpdate()
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): HerstellerController::doAction('showInsert', 'error', '0')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showInsert', 'error', 'Hersteller', '0')
+#4 {main}2016-02-01T10:11:56+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:12:35+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:12:57+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:14:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:15:41+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:16:06+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:27:08+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:32:32+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:37:50+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:43:03+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:44:11+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:51:19+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:52:48+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T10:53:34+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:02:56+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:09:52+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:14:41+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:18:32+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:20:56+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:22:00+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:22:54+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:24:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:29:16+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:30:16+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:30:47+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:38:28+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T11:38:58+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:07:45+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:08:03+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:08:24+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:09:31+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:09:56+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:13:18+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:21:20+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:21:36+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:22:24+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:22:53+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:29:46+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T12:39:48+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:12:04+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:12:11+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:12:18+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:12:20+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:12:22+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:12:32+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:14:00+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:14:08+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:14:47+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:20:06+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:20:10+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:20:17+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:20:28+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:20:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:21:07+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:21:20+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:24:51+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:24:54+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '1')
+#4 {main}2016-02-01T13:24:59+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '1')
+#4 {main}2016-02-01T13:25:23+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:25:28+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '1')
+#4 {main}2016-02-01T13:26:13+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:26:22+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:26:26+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:27:23+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:27:26+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:27:30+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '1')
+#4 {main}2016-02-01T13:39:43+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:39:44+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:39:50+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:42:17+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:44:43+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:46:11+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:46:31+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:46:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-01T13:48:29+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(8): Autoloader::load('StandardControl...')
+#1 [internal function]: {closure}('StandardControl...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
 #4 {main}

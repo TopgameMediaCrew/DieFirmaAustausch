@@ -2,15 +2,17 @@
 
 include './view/header.php';
 ?>
+
 <script type="text/javascript" src="./js/clickListener.js"></script>
+
 <div id='menuleft'>
     <div id='cssmenu'>
         <ul>
             <li class='active'><a href='' id="menuHome"><span>Home</span></a></li>
             <li class='has-sub'><a href='#' id="menuMitarbeiter"><span>Mitarbeiter</span></a>
                 <ul>
-                    <li><a class="menuItem" view="Mitarbeiter" href='#' id="menuMitarbeiterAnzeige"><span>Anzeigen</span></a></li>
-                    <li class='last'><a class="menuItem" id="menuMitarbeiterNeuAnlegen" href='#'><span>neu Anlegen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuMitarbeiterAnzeige"><span>Anzeigen</span></a></li>
+                    <li class='last'><a class="menuItem" href='#' id="menuMitarbeiterNeuAnlegen"><span>neu Anlegen</span></a></li>
                 </ul>
             </li>
             <li class='has-sub'><a href='#' id="menuAbteilungen"><span>Abteilungen</span></a>
@@ -21,8 +23,10 @@ include './view/header.php';
             </li>
             <li class='has-sub'><a href='#' id="menuFuhrpark"><span>Fuhrpark</span></a>
                 <ul>
-                    <li><a class="menuItem" href='#' id="menuFuhrparkAnzeigen"><span>Anzeigen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuFuhrparkAnzeigen"><span>Fuhrpark Anzeigen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuHerstellerAnzeigen"><span>Hersteller Anzeigen</span></a></li>
                     <li><a class="menuItem" href='#' id="menuFuhrparkAusleihe"><span>Ausleihen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuFuhrparkHerstellerErstellen"><span>Hersteller erstellen</span></a></li>
                     <li class='last'><a class="menuItem" href='#' id="menuFuhrparkNeuAnlegen"><span>neu Anlegen</span></a></li>
                 </ul>
             </li>
@@ -42,8 +46,13 @@ include './view/header.php';
         </ul>
     </div>
 </div>
+
 <div id="content">
+
 </div>
+
+<!--<button type="button" id="btnEingabe" name="btnEingabe" value="Eingabe">Eingabe</button>-->
+
 <?php
 
 include './view/footer.php';

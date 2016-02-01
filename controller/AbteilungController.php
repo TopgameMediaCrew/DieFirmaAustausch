@@ -20,11 +20,17 @@ class AbteilungController {
                 $out = self::transformUpdate($out);
                 break;
 
-            case 'showInput':
-                $out = new Abteilung('',''); // um leerfelder in eingabemaske zu erzeugen
-                $out = self::transformUpdate($out);
+            case 'showInsert':
+                $out = self::transformUpdate();
                 break;
-
+            case 'insert':
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+                $out = new Abteilung($_POST['abteilung'],'');
+                $out = Abteilung::insert($out);
+                $out = Abteilung::getAll();
+                $out = self::transform($out);
             default:
                 break;
         }
@@ -43,7 +49,23 @@ class AbteilungController {
         return $returnOut;
     }
 
-    private static function transformUpdate($out) {
+    private static function transformUpdate($out=NULL) {
+        
+        if ($out==NULL) {
+            $returnOut=[];
+            $linkeSpalte=[];
+            $rechteSpalte=[];
+            $returnOut = [];
+            
+        $linkeSpalte=Abteilung::getNames();
+        array_push($linkeSpalte, HTML::buildInput('hidden','id',''));
+        $rechteSpalte[0]=HTML::buildInput('text','abteilung','',NULL,'name');
+        array_push($rechteSpalte, HTML::buildButton('OK','ok', 'OK','OK'));
+        $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
+        return $returnOut;
+        }else{
+        
+        
         $returnOut = [];
         $linkeSpalte = [];
         $rechteSpalte = [];
@@ -62,5 +84,7 @@ class AbteilungController {
         $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
         return $returnOut;                    
     }
+    
+    }   
 
 }

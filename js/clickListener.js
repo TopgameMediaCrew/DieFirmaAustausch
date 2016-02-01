@@ -1,122 +1,129 @@
 $(document).ready(function () {
-    $("button").click(function () {
-        alert(this.id);
+    $('button').off('click');
+    $('button').click(function () {
 //        alert(this.value);
+//        alert(this.id);
+//        alert(this.className);
+        
+        if (this.value == 'bearbeiten') {
+            var aTableEdit = getMenuOptions(this.className);
+            alert('bearbeiten');
+        } else if (this.value == 'loeschen') {
+            alert('löschen');
+            alert(this.className);
+            alert(this.value);
+            alert(this.id);
+        } else if (this.className == 'insertHersteller') {
+            alert('insertHersteller');
+        }
+
         $.post("index.php",
                 {
                     ajax: "true",
-                    action: "showList",
-                    area: "Auto",
-                    view: "listeAuto",
+                    action: aTableEdit[0],
+                    area: aTableEdit[1],
+                    view: aTableEdit[2],
                     id: this.id
                 },
-        function (data, status) {
-            $('#content').html(data);
-        });
+                function (data, status) {
+//                    alert(data);
+                    $('#content').html(data);
+                });
     });
 
-
-//    $("button").click(Mitarbeiter);
-//    function Mitarbeiter() {
-//        $.post("index.php",
-//                {
-//                    ajax: "true",
-//                    action: "showList",
-//                    area: "Auto",
-//                    view: "listeAuto",
-//                    id: this.id
-//                },
-//        function (data, status) {
-//            $('#content').html(data);
-//            $("button").click(Mitarbeiter2);
-//        });
-//    }
-//    function Mitarbeiter2() {
-//        $.post("index.php",
-//                {
-//                    ajax: "true",
-//                    action: "showList",
-//                    area: "Mitarbeiter",
-//                    view: "listeMitarbeiter",
-//                    id: this.id
-//                },
-//        function (data, status) {
-//            $('#content').html(data);
-//            $("button").click(Mitarbeiter);
-//        });
-//    }
-
-
-
-
-
-
+    $('a.menuItem').off('click');
     $('a.menuItem').click(function () {
 //        alert(this.id);
         var aMenuOptions = getMenuOptions(this.id);
+
         $.post("index.php",
                 {
                     ajax: "true",
                     action: aMenuOptions[0],
                     area: aMenuOptions[1],
-                    view: aMenuOptions[2]
+                    view: aMenuOptions[2],
                 },
-        function (data, status) {
+                function (data, status) {
 //                    alert(data);
-            $('#content').html(data);
-        });
+                    $('#content').html(data);
+                });
     });
 
     function getMenuOptions(id) {
         var options = [];
+
         switch (id) {
             case 'menuMitarbeiterAnzeige' :
                 options = ['showList', 'Mitarbeiter', 'listeMitarbeiter'];
                 break;
-
             case 'menuMitarbeiterNeuAnlegen' :
+                
                 break;
-
             case 'menuAbteilungAnzeigen' :
                 options = ['showList', 'Abteilung', 'listeAbteilung'];
                 break;
-
             case 'menuAbteilungNeuAnlegen' :
+                options = ['showInsert', 'Abteilung', 'insertAbteilung'];
                 break;
-
             case 'menuFuhrparkAnzeigen' :
                 options = ['showList', 'Auto', 'listeAuto'];
                 break;
-
+            case 'menuHerstellerAnzeigen' :
+                options = ['showList', 'Hersteller', 'listeHersteller'];
+                break;
             case 'menuFuhrparkAusleihe' :
                 options = ['showList', 'Ausleihe', 'listeAusleihe'];
                 break;
-
+            case 'menuFuhrparkHerstellerErstellen':
+                options = ['showInsert', 'Hersteller', 'insertHersteller'];
             case 'menuFuhrparkNeuAnlegen' :
-                break;
 
+                break;
             case 'menuProjekteAnzeigen' :
                 options = ['showList', 'Projekt', 'listeProjekt'];
                 break;
-
             case 'menuProjekteNeuAnlegen' :
-                break;
 
+                break;
             case 'menuMitarbeiterToProjektAnzeigen' :
                 options = ['showList', 'ProjektMitarbeiter', 'listeProjektMitarbeiter'];
                 break;
-
             case 'menuMitarbeiterToProjektNeuAnlegen' :
-                break;
 
+                break;
+                
+                
+            case 'editMitarbeiter' :
+                options = ['showUpdate', 'Mitarbeiter', 'formularMitarbeiter'];
+                break;
+            case 'editAbteilung' :
+                options = ['showUpdate', 'Abteilung', 'formularAbteilung'];
+                break;
+            case 'editAuto' :
+                options = ['showUpdate', 'Auto', 'formularAuto'];
+                break;
+            case 'editHersteller' :
+                options = ['showUpdate', 'Hersteller', 'formularHersteller'];
+                break;
+            case 'editAusleihe' :
+                options = ['showUpdate', 'Ausleihe', 'formularAusleihe'];
+                break;
+            case 'editProjekt' :
+                options = ['showUpdate', 'Projekt', 'formularProjekt'];
+                break;
+            case 'editProjektMitarbeiter' :
+                options = ['showUpdate', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];
+                break;
+                
+                
             default:
                 options = ['standard', 'standard', 'standard'];
-                break;
         }
 
         return options;
     }
 
+    $('#cssmenu > ul > li > a').off('click');
     $('#cssmenu > ul > li > a').click(function () {
 //        alert(this.id);
         $('#cssmenu li').removeClass('active');
@@ -132,33 +139,10 @@ $(document).ready(function () {
             $('#cssmenu ul ul:visible').slideUp('normal');
             checkElement.slideDown('normal');
         }
-        if ($(this).closest('li').find('ul').children().length === 0) {
+        if ($(this).closest('li').find('ul').children().length == 0) {
             return true;
         } else {
             return false;
         }
     });
 });
-
-var projekt_id;
-var mitarbeiter_id;
-var von;
-var bis;
-var id;
-$(document).ready(function () {
-    $('#OK').click(updateProjektMitarbeiter);
-});
-function updateProjektMitarbeiter() {
-    $.post("index.php",
-            {
-                ajax: "true",
-                projekt_id: this.projekt_id,
-                mitarbeiter_id: this.mitarbeiter_id,
-                von: this.von,
-                bis: this.bis,
-                id: this.id
-            },
-    function (data, status) {
-        $('#content').html(data);
-    });
-}

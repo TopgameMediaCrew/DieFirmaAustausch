@@ -74,7 +74,12 @@ class Auto implements Aenderbar, JsonSerializable {
     }
 
     public static function insert($id) {
-        
+        $pdo = DbConnect::connect(); 
+        $stmt = $db->prepare("INSERT INTO auto(id, name, hersteller_id, kennzeichen) "
+                . "VALUES(:id, :name, :hersteller_id, :kennzeichen)");
+        if ($stmt->execute([':id' => $object->getId(), ':name' => $object->getName(), ':hersteller_id' => $object->getHersteller(), ':kennzeichen' => $object->getKennzeichen()])) {
+            echo "Der neue Mitarbeiter wurde hinzugefügt.";
+        }
     }
 
     public static function update($obj) {

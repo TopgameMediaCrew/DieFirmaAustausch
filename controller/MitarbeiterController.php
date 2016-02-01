@@ -32,8 +32,10 @@ class MitarbeiterController {
         foreach ($out as $mitarbeiter) {
             $returnOut[$i]['vorname'] = $mitarbeiter->getVorname();
             $returnOut[$i]['nachname'] = $mitarbeiter->getNachname();
-            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $mitarbeiter->getId());
-            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $mitarbeiter->getId());
+            
+//            HTML::buildButton($label, $id, $class, $value)
+            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $mitarbeiter->getId(),'bearbeiten','bearbeiten');
+            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $mitarbeiter->getId(),'löschen','löschen');
             $i++;
         }
         return $returnOut;

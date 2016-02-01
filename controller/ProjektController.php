@@ -19,7 +19,15 @@ class ProjektController {
                 $out = Projekt::getById($id);
                 $out = self::transformUpdate($out);
                 break;
-
+             case'showInsert':
+                //um Leerfelder zu erzeugen in der Eingabemaske
+                $out = self::transformUpdate();
+                 break;
+            case 'insert':
+                $out = new Projekt($_POST['projekt'],'');
+                $out = Projekt::insert($out);
+                $out = Projekt::getAll();
+                $out = self::transform($out);
             default:
                 break;
         }
@@ -38,10 +46,23 @@ class ProjektController {
         return $returnOut;
     }
 
-    private static function transformUpdate($out) {
+    private static function transformUpdate($out=NULL) {
+        if ($out==NULL) {
         $returnOut = [];
         $linkeSpalte = [];
         $rechteSpalte = [];
+        $returnOut=[];
+        
+        $linkeSpalte = Projekt::getnames();
+        array_push($linkeSpalte, HTML::buildInput('hidden','id',''));
+        
+        $rechteSpalte[0]=HTML::buildInput('text', 'projekt', '',NULL,'name');
+        array_push($rechteSpalte, HTML::buildButton('OK','ok', 'OK','OK'));
+        $returnOut=HTML::buildFormularTable($linkeSpalte,$rechteSpalte);
+        return $returnOut;
+        } else {        
+        
+        
 
         for ($i = 0; $i < count(Projekt::getNames()); $i++) {
             array_push($linkeSpalte, Projekt::getNames()[$i]);
@@ -53,8 +74,10 @@ class ProjektController {
 
         array_push($rechteSpalte, HTML::buildInput('text', 'name', $dbWerte['name']));
         array_push($rechteSpalte, HTML::buildButton('OK', 'ok', NULL, 'OK'));
+        
         $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
         return $returnOut;
     }
-
+            
+ }
 }
