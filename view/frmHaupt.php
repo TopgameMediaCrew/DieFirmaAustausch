@@ -25,9 +25,10 @@ include './view/header.php';
                 <ul>
                     <li><a class="menuItem" href='#' id="menuFuhrparkAnzeigen"><span>Fuhrpark Anzeigen</span></a></li>
                     <li><a class="menuItem" href='#' id="menuHerstellerAnzeigen"><span>Hersteller Anzeigen</span></a></li>
-                    <li><a class="menuItem" href='#' id="menuFuhrparkAusleihe"><span>Ausleihen</span></a></li>
-                    <li><a class="menuItem" href='#' id="menuFuhrparkHerstellerErstellen"><span>Hersteller erstellen</span></a></li>
-                    <li class='last'><a class="menuItem" href='#' id="menuFuhrparkNeuAnlegen"><span>neu Anlegen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuFuhrparkAusleihe"><span>Ausleihen Anzeigen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuFuhrparkNeuAnlegen"><span>Fuhrpark neu Anlegen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuHerstellerNeuAnlegen"><span>Hersteller neu Anlegen</span></a></li>
+                    <li class='last'><a class="menuItem" href='#' id="menuFuhrparkAusleiheNeuAnlegen"><span>Ausleihe neu Anlegen</span></a></li>
                 </ul>
             </li>
             <li class='has-sub'><a href='#' id="menuProjekte"><span>Projekte</span></a>

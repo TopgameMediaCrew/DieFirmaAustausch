@@ -9,7 +9,7 @@ class Hersteller implements Aenderbar, JsonSerializable {
 
     private $id;
     private $name;
-    
+
     public static function getNames() {
         return ['Hersteller'];
     }
@@ -33,7 +33,10 @@ class Hersteller implements Aenderbar, JsonSerializable {
     }
 
     public static function delete($id) {
-        
+        $pdo = DbConnect::connect();
+        $sql = "DELETE FROM hersteller WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
     }
 
     public static function getAll() {
@@ -60,21 +63,27 @@ class Hersteller implements Aenderbar, JsonSerializable {
     }
 
     public static function insert($id) {
-        $pdo = DbConnect::connect(); 
+        $pdo = DbConnect::connect();
         $stmt = $pdo->prepare("INSERT INTO bbqfirma.hersteller(name) VALUES(:name)");
 //        echo '<pre>';
 //        print_r($id);
 //        echo '</pre>'; 
-        
+
         if ($id->getName() == '') {
-         echo 'kein Eintrag';
-        }    else {
-        $stmt->execute([':name' => $id->getName()]);
- }     
-        
+            echo 'kein Eintrag';
+        } else {
+            $stmt->execute([':name' => $id->getName()]);
+        }
     }
 
-    public static function update($obj) {
+    public static function update($id) {
+//        echo '<pre>';
+//        print_r($id);
+//        echo '</pre>';
+   
+        $pdo = DbConnect::connect();
+        $stmt=$pdo->prepare("UPDATE bbqfirma.hersteller SET name=:name WHERE id=:id");
+        $stmt->execute([':id' => $id->getId(),':name' => $id->getName()]);
         
     }
 

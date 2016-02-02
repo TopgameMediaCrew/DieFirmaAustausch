@@ -1,19 +1,146 @@
 $(document).ready(function () {
     $('button').off('click');
     $('button').click(function () {
+//        alert(this.className);
 //        alert(this.value);
 //        alert(this.id);
-//        alert(this.className);
-
-        if (this.value == 'bearbeiten') {
+        if (this.className == 'editHersteller' && this.value == 'bearbeiten') {
             var aTableEdit = getMenuOptions(this.className);
-            alert('bearbeiten');
-        } else if (this.value == 'loeschen') {
-            alert('löschen');
-            alert(this.className);
-            alert(this.value);
-            alert(this.id);
-        } else if (this.className == 'insertHersteller') {
+            $.post("index.php", {
+                ajax: "true",
+                action: "showUpdate",
+                area: "Hersteller",
+                view: "formularHersteller",
+                id: this.id
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        }
+        if (this.className == 'editAbteilung' && this.value == 'bearbeiten') {
+            var aTableEdit = getMenuOptions(this.className);
+            $.post("index.php", {
+                ajax: "true",
+                action: "showUpdate",
+                area: "Abteilung",
+                view: "formularAbteilung",
+                id: this.id
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        }
+        if (this.className == 'editProjekt' && this.value == 'bearbeiten') {
+            var aTableEdit = getMenuOptions(this.className);
+            $.post("index.php", {
+                ajax: "true",
+                action: "showUpdate",
+                area: "Projekt",
+                view: "formularProjekt",
+                id: this.id
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        }
+        if (this.className == 'updateProjekt') {
+
+            var proid = document.getElementById('id').value;
+            var value = document.getElementById('name').value;
+
+            $.post("index.php", {
+                ajax: "true",
+                action: "update",
+                area: "Projekt",
+                view: "listeProjekt",
+                projekt: value,
+                id: proid
+
+
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        }
+        if (this.className == 'updateHersteller') {
+            var herstid = document.getElementById('id').value;
+            var value = document.getElementById('name').value;
+            
+            $.post("index.php", {
+                ajax: "true",
+                action: "update",
+                area: "Hersteller",
+                view: "listeHersteller",
+                hersteller: value,
+                id: herstid
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        }
+        if (this.className == 'updateAbteilung') {
+
+            var abtid = document.getElementById('id').value;
+            var value = document.getElementById('name').value;
+
+            $.post("index.php", {
+                ajax: "true",
+                action: "update",
+                area: "Abteilung",
+                view: "listeAbteilung",
+                abteilung: value,
+                id: abtid
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        }
+        if (this.className == 'editAbteilung' && this.value == 'löschen') {
+            alert('Abteilung löschen');
+            
+            var abtid = this.id;
+            alert(abtid);
+           
+
+            $.post("index.php", {
+                ajax: "true",
+                action: "delete",
+                area: "Abteilung",
+                view: "listeAbteilung",
+                id: abtid
+
+
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        
+            
+        }
+        if (this.className == 'editHersteller' && this.value == 'löschen') {
+            alert('Hersteller löschen');
+            
+            
+            
+        }
+        if (this.className == 'editProjekt' && this.value == 'löschen') {
+            alert('Projekt löschen');
+            
+            
+            
+            
+        }
+//        if (this.class == "editHersteller" && this.value == 'löschen') {
+//            alert(" Abteilung LÖSCHEN !!!");
+//        }
+        if (this.className == 'insertHersteller') {
             var value = document.getElementById('name').value;
             $.post("index.php", {
                 ajax: "true",
@@ -24,12 +151,11 @@ $(document).ready(function () {
                         // hersteller: "test"
             },
             function (data, status) {
-             //   alert(data);
+                //   alert(data);
                 $('#content').html(data);
             });
-        } else if (this.className == 'insertAbteilung') {
-            
-           
+        }
+        if (this.className == 'insertAbteilung') {
             var value = document.getElementById('name').value;
             $.post("index.php", {
                 ajax: "true",
@@ -40,11 +166,12 @@ $(document).ready(function () {
                         // hersteller: "test"
             },
             function (data, status) {
-                alert(data);
+                //   alert(data);
                 $('#content').html(data);
             });
-        } else if (this.className == 'insertProjekt') {
-             //alert('insertProjekt');
+        }
+        if (this.className == 'insertProjekt') {
+            //alert('insertProjekt');
             var value = document.getElementById('name').value;
             $.post("index.php", {
                 ajax: "true",
@@ -55,26 +182,24 @@ $(document).ready(function () {
                         // hersteller: "test"
             },
             function (data, status) {
-             //   alert(data);
+                //   alert(data);
                 $('#content').html(data);
             });
-        
-        
-        }
-
-
-        $.post("index.php",
-                {
-                    ajax: "true",
-                    action: aTableEdit[0],
-                    area: aTableEdit[1],
-                    view: aTableEdit[2],
-                    id: this.id
-                },
-        function (data, status) {
-//                    alert(data);
-            $('#content').html(data);
-        });
+       }
+       // ???
+       // 
+//        $.post("index.php",
+//                {
+//                    ajax: "true",
+//                    action: aTableEdit[0],
+//                    area: aTableEdit[1],
+//                    view: aTableEdit[2],
+//                    id: this.id
+//                },
+//        function (data, status) {
+////                    alert(data);
+//            $('#content').html(data);
+//        });
     });
 
     $('a.menuItem').off('click');
@@ -109,7 +234,7 @@ $(document).ready(function () {
                 options = ['showList', 'Abteilung', 'listeAbteilung'];
                 break;
             case 'menuAbteilungNeuAnlegen' :
-                options = ['showInsert', 'Abteilung', 'insertAbteilung'];
+                options = ['showInsert', 'Abteilung', 'formularAbteilung'];
                 break;
             case 'menuFuhrparkAnzeigen' :
                 options = ['showList', 'Auto', 'listeAuto'];
@@ -120,8 +245,8 @@ $(document).ready(function () {
             case 'menuFuhrparkAusleihe' :
                 options = ['showList', 'Ausleihe', 'listeAusleihe'];
                 break;
-            case 'menuFuhrparkHerstellerErstellen':
-                options = ['showInsert', 'Hersteller', 'insertHersteller'];
+            case 'menuHerstellerNeuAnlegen':
+                options = ['showInsert', 'Hersteller', 'formularHersteller'];
             case 'menuFuhrparkNeuAnlegen' :
 
                 break;
@@ -129,7 +254,7 @@ $(document).ready(function () {
                 options = ['showList', 'Projekt', 'listeProjekt'];
                 break;
             case 'menuProjekteNeuAnlegen' :
-                options = ['showInsert', 'Projekt', 'insertProjekt'];
+                options = ['showInsert', 'Projekt', 'formularProjekt'];
                 break;
             case 'menuMitarbeiterToProjektAnzeigen' :
                 options = ['showList', 'ProjektMitarbeiter', 'listeProjektMitarbeiter'];

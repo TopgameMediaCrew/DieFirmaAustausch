@@ -72,8 +72,10 @@ class Projekt implements Aenderbar, JsonSerializable {
         } 
     }
 
-    public static function update($obj) {
-        
+    public static function update($id) {
+        $pdo = DbConnect::connect();
+        $stmt=$pdo->prepare("UPDATE bbqfirma.projekt SET name=:name WHERE id=:id");
+        $stmt->execute([':id' => $id->getId(),':name' => $id->getName()]);
     }
 
 }

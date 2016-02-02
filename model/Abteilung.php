@@ -25,7 +25,13 @@ class Abteilung implements Aenderbar, JsonSerializable {
     }
 
     public static function delete($id) {
-        
+        echo '<pre>';
+        print_r($id);
+        echo '</pre>';
+        $pdo = DbConnect::connect();
+        $sql = "DELETE FROM abteilung WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id->getId()]);
     }
 
     public static function getAll() {
@@ -71,8 +77,10 @@ class Abteilung implements Aenderbar, JsonSerializable {
         }    
     }
 
-    public static function update($obj) {
-        
+    public static function update($id) {
+        $pdo = DbConnect::connect();
+        $stmt=$pdo->prepare("UPDATE bbqfirma.abteilung SET name=:name WHERE id=:id");
+        $stmt->execute([':id' => $id->getId(),':name' => $id->getName()]);
     }
 
 }
