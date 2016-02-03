@@ -1,9 +1,12 @@
 $(document).ready(function () {
     $('button').off('click');
     $('button').click(function () {
-//        alert(this.className);
-//        alert(this.value);
-//        alert(this.id);
+        alert(this.className);
+        alert(this.value);
+        alert(this.id);
+        if (this.value == 'bearbeiten') {
+            var aTableEdit = getMenuOptions(this.className);
+        }
         if (this.className == 'editHersteller' && this.value == 'bearbeiten') {
             var aTableEdit = getMenuOptions(this.className);
             $.post("index.php", {
@@ -46,6 +49,81 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
+        if (this.className == "bearbeitenAuto") {
+            alert ("funzt");
+            
+//            var hersteller_id = document.getElementById('hersteller').value;
+//            alert ("hersteller");
+//            var auto = document.getElementById('autoName').value;
+//            alert ("autoname");
+//            var kennzeichen = document.getElementById('kennzeichen').value;
+//            alert ("kennzeichen");
+//            var hersteller_id = document.getElementById('hersteller').value;
+//            alert ("hersteller");
+//            var auto = document.getElementById('autoName').value;
+//            alert ("autoname");
+//            var kennzeichen = document.getElementById('kennzeichen').value;
+//            alert ("kennzeichen");
+            var id = this.id;
+           
+      
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "showUpdate",
+                        area: "Auto",
+                        view: "formularAuto",
+//                        auto: auto,
+//                        hersteller_id: hersteller_id,
+//                        kennzeichen: kennzeichen,
+                        id: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+
+        }
+        if (this.className == "updateAuto") {
+            alert("update Auto");
+            alert(document.getElementById('id').value);
+            var hersteller_id = document.getElementById('hersteller').value;
+            var auto = document.getElementById('autoName').value;
+            var kennzeichen = document.getElementById('kennzeichen').value;
+            var id = document.getElementById('id').value;
+            alert(id);
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "Auto",
+                        view: "listeAuto",
+                        auto: auto,
+                        hersteller_id: hersteller_id,
+                        kennzeichen: kennzeichen,
+                        id: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+
+        }
+        if (this.className == "updateHersteller") {
+            var uHersteller = document.getElementById('name').value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "Hersteller",
+                        view: "listeHersteller",
+                        uHersteller: uHersteller
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+        
+        
+        
         if (this.className == 'updateProjekt') {
 
             var proid = document.getElementById('id').value;
@@ -66,46 +144,46 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
-        if (this.className == 'updateHersteller') {
-            var herstid = document.getElementById('id').value;
-            var value = document.getElementById('name').value;
-            
-            $.post("index.php", {
-                ajax: "true",
-                action: "update",
-                area: "Hersteller",
-                view: "listeHersteller",
-                hersteller: value,
-                id: herstid
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
-        if (this.className == 'updateAbteilung') {
-
-            var abtid = document.getElementById('id').value;
-            var value = document.getElementById('name').value;
-
-            $.post("index.php", {
-                ajax: "true",
-                action: "update",
-                area: "Abteilung",
-                view: "listeAbteilung",
-                abteilung: value,
-                id: abtid
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
+//        if (this.className == 'updateHersteller') {
+//            var herstid = document.getElementById('id').value;
+//            var value = document.getElementById('name').value;
+//            
+//            $.post("index.php", {
+//                ajax: "true",
+//                action: "update",
+//                area: "Hersteller",
+//                view: "listeHersteller",
+//                hersteller: value,
+//                id: herstid
+//            },
+//            function (data, status) {
+//                //   alert(data);
+//                $('#content').html(data);
+//            });
+//        }
+//        if (this.className == 'updateAbteilung') {
+//            alert ("ununsed");
+//            var abtid = document.getElementById('id').value;
+//            var value = document.getElementById('name').value;
+//
+//            $.post("index.php", {
+//                ajax: "true",
+//                action: "update",
+//                area: "Abteilung",
+//                view: "listeAbteilung",
+//                abteilung: value,
+//                id: abtid
+//            },
+//            function (data, status) {
+//                //   alert(data);
+//                $('#content').html(data);
+//            });
+//        }
         if (this.className == 'editAbteilung' && this.value == 'löschen') {
-            alert('Abteilung löschen');
+          
             
             var abtid = this.id;
-            alert(abtid);
+           
            
 
             $.post("index.php", {
@@ -125,13 +203,68 @@ $(document).ready(function () {
             
         }
         if (this.className == 'editHersteller' && this.value == 'löschen') {
-            alert('Hersteller löschen');
+          
             
-            
+            var herstid = this.id;
+           
+           
+
+            $.post("index.php", {
+                ajax: "true",
+                action: "delete",
+                area: "Hersteller",
+                view: "listeHersteller",
+                id: herstid
+
+
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        
             
         }
+          if (this.className == "deleteAuto" && this.value=='loeschen') {
+        
+            var id = this.id;
+         
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "Auto",
+                        view: "listeAuto",
+                        id: id 
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+
+        } 
+            
+            
+        
         if (this.className == 'editProjekt' && this.value == 'löschen') {
-            alert('Projekt löschen');
+         var projid = this.id;
+           
+           
+
+            $.post("index.php", {
+                ajax: "true",
+                action: "delete",
+                area: "Projekt",
+                view: "listeProjekt",
+                id: projid
+
+
+            },
+            function (data, status) {
+                //   alert(data);
+                $('#content').html(data);
+            });
+        
+          
             
             
             
@@ -186,6 +319,26 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
        }
+       if (this.className == "insertAuto") {
+           
+            var hersteller_id = document.getElementById('hersteller').value;
+            var auto = document.getElementById('autoName').value;
+            var kennzeichen = document.getElementById('kennzeichen').value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "Auto",
+                        view: "listeAuto",
+                        auto: auto,
+                        hersteller_id: hersteller_id,
+                        kennzeichen: kennzeichen
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+       
        // ???
        // 
 //        $.post("index.php",
@@ -247,8 +400,15 @@ $(document).ready(function () {
                 break;
             case 'menuHerstellerNeuAnlegen':
                 options = ['showInsert', 'Hersteller', 'formularHersteller'];
+                break;
             case 'menuFuhrparkNeuAnlegen' :
-
+                options = ['showInsert','Auto','formularAuto'];
+                break; 
+            case 'menuFuhrparkAusleiheNeuAnlegen':
+            
+                break;
+            case 'bearbeitenAuto' :
+                options = ['showUpdate','Auto','formularAuto'];
                 break;
             case 'menuProjekteAnzeigen' :
                 options = ['showList', 'Projekt', 'listeProjekt'];

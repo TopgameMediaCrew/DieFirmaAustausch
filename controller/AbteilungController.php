@@ -39,10 +39,8 @@ class AbteilungController {
                 $out = self::transform($out);
                 break;
             case 'delete':
-                echo '<pre>';
-                print_r($_POST);
-                echo '</pre>';
-                $out = new Abteilung('',$_POST['id']);
+       
+                $out = $_POST['id'];
                 $out = Abteilung::delete($out);
                 $out = Abteilung::getAll();
                 $out = self::transform($out);

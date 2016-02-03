@@ -10,7 +10,6 @@ class AutoController {
     public static function doAction($action, &$view, $id) {
         switch ($action) {
             case 'showList':
-
                 $out = Auto::getAll();
                 $out = self::transform($out);
                 break;
@@ -22,6 +21,27 @@ class AutoController {
 
             case 'showInsert':
                 $out = self::transformUpdate();
+                break;
+
+            case 'insert' :
+                $out = new Auto($_POST['auto'], Hersteller::getById($_POST['hersteller_id']), $_POST['kennzeichen'], NULL);
+                $out = Auto::insert($out);
+                $out = Auto::getAll();
+                $out = self::transform($out);
+                break;
+
+            case 'update' :
+                $out = new Auto($_POST['auto'], Hersteller::getById($_POST['hersteller_id']), $_POST['kennzeichen'], $_POST['id']);
+                $out = Auto::update($out);
+                $out = Auto::getAll();
+                $out = self::transform($out);
+                break;
+
+            case 'delete' :
+                $out = $_POST['id'];
+                $out = Auto::delete($out);
+                $out = Auto::getAll();
+                $out = self::transform($out);
                 break;
 
             default:
@@ -37,8 +57,8 @@ class AutoController {
             $returnOut[$i]['herstellerName'] = $auto->getHersteller()->getName();
             $returnOut[$i]['autoName'] = $auto->getName();
             $returnOut[$i]['autoKennzeichen'] = $auto->getKennzeichen();
-            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', 'autobearbeiten' . $auto->getId());
-            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', 'autolöschen' . $auto->getId());
+            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $auto->getId(), 'bearbeitenAuto', 'bearbeiten');
+            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $auto->getId(), 'deleteAuto', 'loeschen');
             $i++;
         }
         return $returnOut;
@@ -51,7 +71,7 @@ class AutoController {
             array_push($linkeSpalte, Auto::getNames()[$i]);
         }
         if ($out !== NULL) {
-            array_push($linkeSpalte, HTML::buildInput('hidden', 'id', $out->getId()));
+            array_push($linkeSpalte, HTML::buildInput('hidden', 'id', $out->getId(), NULL, 'id'));
         } else {
             array_push($linkeSpalte, '');
         }
@@ -69,8 +89,6 @@ class AutoController {
         foreach ($herst as $hersteller) {
             $option = [];
             $option['value'] = $hersteller->getId();
-            // @todo wenn Hersteller gelöscht wurde funkioniert Vergleich nicht
-
             $option['label'] = $hersteller->getName();
             $options[$hersteller->getId()] = $option;
             if ($out !== NULL) {
@@ -80,20 +98,17 @@ class AutoController {
             }
         }
         if ($out !== NULL) {
-            array_push($rechteSpalte, HTML::buildDropDown('herstellerName', '1', $options));
-            array_push($rechteSpalte, HTML::buildInput('text', 'name', $dbWerte['name']));
-            array_push($rechteSpalte, HTML::buildInput('text', 'kennzeichen', $dbWerte['kennzeichen']));
-            array_push($rechteSpalte, HTML::buildButton('OK', 'ok', NULL, 'OK'));
+            array_push($rechteSpalte, HTML::buildDropDown('herstellerName', '1', $options, NULL, 'hersteller'));
+            array_push($rechteSpalte, HTML::buildInput('text', 'autoName', $dbWerte['name'], NULL, 'autoName'));
+            array_push($rechteSpalte, HTML::buildInput('text', 'kennzeichen', $dbWerte['kennzeichen'], NULL, 'kennzeichen'));
+            array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'updateAuto', 'OK'));
         } else {
-            array_push($rechteSpalte, HTML::buildDropDown('herstellerName', '1', $options));
-            array_push($rechteSpalte, HTML::buildInput('text', 'name', ''));
-            array_push($rechteSpalte, HTML::buildInput('text', 'kennzeichen', ''));
-            array_push($rechteSpalte, HTML::buildButton('OK', 'ok', NULL, 'OK'));
+            array_push($rechteSpalte, HTML::buildDropDown('herstellerName', '1', $options, NULL, 'hersteller'));
+            array_push($rechteSpalte, HTML::buildInput('text', 'autoName', '', NUll, 'autoName'));
+            array_push($rechteSpalte, HTML::buildInput('text', 'kennzeichen', '', NULL, 'kennzeichen'));
+            array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'insertAuto', 'OK'));
         }
-
-
         $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
-
         return $returnOut;
     }
 

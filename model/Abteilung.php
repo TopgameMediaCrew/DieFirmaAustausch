@@ -25,13 +25,13 @@ class Abteilung implements Aenderbar, JsonSerializable {
     }
 
     public static function delete($id) {
-        echo '<pre>';
-        print_r($id);
-        echo '</pre>';
+//        echo '<pre>';
+//        print_r($id);
+//        echo '</pre>';
         $pdo = DbConnect::connect();
         $sql = "DELETE FROM abteilung WHERE id=:id";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([':id' => $id->getId()]);
+        $stmt->execute([':id' => $id]);
     }
 
     public static function getAll() {

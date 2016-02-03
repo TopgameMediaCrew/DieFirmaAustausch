@@ -33,7 +33,10 @@ class Projekt implements Aenderbar, JsonSerializable {
     }
 
     public static function delete($id) {
-        
+         $pdo = DbConnect::connect();
+        $sql = "DELETE FROM projekt WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
     }
 
     public static function getAll() {

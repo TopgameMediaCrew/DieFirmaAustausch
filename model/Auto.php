@@ -13,7 +13,7 @@ class Auto implements Aenderbar, JsonSerializable {
     private $kennzeichen;
 
     public static function getNames() {
-        return ['Hersteller','Modell','Kennzeichen'];
+        return ['Hersteller', 'Modell', 'Kennzeichen'];
     }
 
     public function __construct($name, Hersteller $hersteller, $kennzeichen, $id = NULL) {
@@ -60,8 +60,11 @@ class Auto implements Aenderbar, JsonSerializable {
             'kennzeichen' => $this->kennzeichen];
     }
 
-    public static function delete($id) {
-        
+    public static function delete($object) {
+        $pdo = DbConnect::connect();
+        $sql = "DELETE FROM auto WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $object]);
     }
 
     public static function getById($id) {
@@ -74,16 +77,19 @@ class Auto implements Aenderbar, JsonSerializable {
     }
 
     public static function insert($id) {
-        $pdo = DbConnect::connect(); 
-        $stmt = $db->prepare("INSERT INTO auto(id, name, hersteller_id, kennzeichen) "
-                . "VALUES(:id, :name, :hersteller_id, :kennzeichen)");
-        if ($stmt->execute([':id' => $object->getId(), ':name' => $object->getName(), ':hersteller_id' => $object->getHersteller(), ':kennzeichen' => $object->getKennzeichen()])) {
-            echo "Der neue Mitarbeiter wurde hinzugefügt.";
-        }
+        $pdo = DbConnect::connect();
+        $sql = "INSERT INTO auto(name,hersteller_id,kennzeichen) VALUES (:name,:hersteller_id,:kennzeichen)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':name' => $id->getName(), ':hersteller_id' => $id->getHersteller()->getId(), ':kennzeichen' => $id->getKennzeichen()]);
     }
 
-    public static function update($obj) {
-        
+    public static function update($object) {
+        $pdo = DbConnect::connect();
+        $sql = "UPDATE auto SET name=:name , hersteller_id=:hersteller_id, kennzeichen=:kennzeichen WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':name' => $object->getName(), ':hersteller_id' => $object->getHersteller()->getId(), ':kennzeichen' => $object->getKennzeichen(), ':id' => $object->getId()]);
     }
+
+
 
 }

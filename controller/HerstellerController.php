@@ -36,6 +36,13 @@ class HerstellerController {
                 $out = Hersteller::getAll();
                 $out = self::transform($out);
                 break;
+            case 'delete':
+               
+                $out = $_POST['id'];
+                $out = Hersteller::delete($out);
+                $out = Hersteller::getAll();
+                $out = self::transform($out);
+                break;
             default:
                 break;
         }

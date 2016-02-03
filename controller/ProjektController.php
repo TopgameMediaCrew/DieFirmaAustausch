@@ -38,6 +38,13 @@ class ProjektController {
                 $out = Projekt::getAll();
                 $out = self::transform($out);  
                 break;
+              case 'delete':
+               
+                $out = $_POST['id'];
+                $out = Projekt::delete($out);
+                $out = Projekt::getAll();
+                $out = self::transform($out);
+                break;
             default:
                 break;
         }
