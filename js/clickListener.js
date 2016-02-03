@@ -1,7 +1,11 @@
 $(document).ready(function () {
     $('button').off('click');
     $('button').click(function () {
+     var inputs = document.getElementsByTagName('input');
+     var drops = document.getElementsByTagName('select'); 
 //        alert(this.className);
+//        
+//        
 //        alert(this.value);
 //        alert(this.id);
         if (this.value == 'bearbeiten') {
@@ -76,20 +80,7 @@ $(document).ready(function () {
             });
         }
         if (this.className == "bearbeitenAuto") {
-            alert ("funzt");
-            
-//            var hersteller_id = document.getElementById('hersteller').value;
-//            alert ("hersteller");
-//            var auto = document.getElementById('autoName').value;
-//            alert ("autoname");
-//            var kennzeichen = document.getElementById('kennzeichen').value;
-//            alert ("kennzeichen");
-//            var hersteller_id = document.getElementById('hersteller').value;
-//            alert ("hersteller");
-//            var auto = document.getElementById('autoName').value;
-//            alert ("autoname");
-//            var kennzeichen = document.getElementById('kennzeichen').value;
-//            alert ("kennzeichen");
+          
             var id = this.id;
            
       
@@ -110,13 +101,13 @@ $(document).ready(function () {
 
         }
         if (this.className == "updateAuto") {
-            alert("update Auto");
+
             alert(document.getElementById('id').value);
             var hersteller_id = document.getElementById('hersteller').value;
             var auto = document.getElementById('autoName').value;
             var kennzeichen = document.getElementById('kennzeichen').value;
             var id = document.getElementById('id').value;
-            alert(id);
+  
             $.post("index.php",
                     {
                         ajax: "true",
@@ -133,20 +124,6 @@ $(document).ready(function () {
             });
 
         }
-//        if (this.className == "updateHersteller") {
-//            var uHersteller = document.getElementById('name').value;
-//            $.post("index.php",
-//                    {
-//                        ajax: "true",
-//                        action: "update",
-//                        area: "Hersteller",
-//                        view: "listeHersteller",
-//                        uHersteller: uHersteller
-//                    },
-//            function (data, status) {
-//                $('#content').html(data);
-//            });
-//        }
         
         if (this.className == "updateMitarbeiter") {
             var inputs = document.getElementsByTagName('input');
@@ -498,6 +475,66 @@ $(document).ready(function () {
                         $('#content').html(data);
                     });
         }
+         if (this.className == "updateProjektMitarbeiter") {
+            var id = inputs['id'].value;
+            var projekt = drops['projekt'].value;
+            var mitarbeiter = drops['mitarbeiter'].value;
+            var vonDate = inputs['vonTag'].value + ' ' + inputs['vonZeit'].value;
+            var bisDate = inputs['bisTag'].value + ' ' + inputs['bisZeit'].value;
+
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "ProjektMitarbeiter",
+                        view: "listeProjektMitarbeiter",
+                        projekt: projekt,
+                        mitarbeiter: mitarbeiter,
+                        von: vonDate,
+                        bis: bisDate,
+                        upmid: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+
+        if (this.className == "insertProjektMitarbeiter") {
+            var projekt = drops['projekt'].value;
+            var mitarbeiter = drops['mitarbeiter'].value;
+            var vonDate = inputs['vonTag'].value + ' ' + inputs['vonZeit'].value;
+            var bisDate = inputs['bisTag'].value + ' ' + inputs['bisZeit'].value;
+
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "ProjektMitarbeiter",
+                        view: "listeProjektMitarbeiter",
+                        projekt: projekt,
+                        mitarbeiter: mitarbeiter,
+                        von: vonDate,
+                        bis: bisDate
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+
+        if (this.className == 'loeschenProjektMitarbeiter' && this.value == 'loeschen') {
+            var lpmid = this.id;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "ProjektMitarbeiter",
+                        view: "listeProjektMitarbeiter",
+                        lpmid: lpmid
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
        // ???
        // 
 //        $.post("index.php",
@@ -579,7 +616,7 @@ $(document).ready(function () {
                 options = ['showList', 'ProjektMitarbeiter', 'listeProjektMitarbeiter'];
                 break;
             case 'menuMitarbeiterToProjektNeuAnlegen' :
-
+                   options = ['showInsert', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];       
                 break;
 
 
@@ -601,7 +638,7 @@ $(document).ready(function () {
             case 'editProjekt' :
                 options = ['showUpdate', 'Projekt', 'formularProjekt'];
                 break;
-            case 'editProjektMitarbeiter' :
+            case 'bearbeitenProjektMitarbeiter' :
                 options = ['showUpdate', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];
                 break;
 

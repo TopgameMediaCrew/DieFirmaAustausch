@@ -188,7 +188,23 @@ class HTML {
         $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
         return $datum[1];
     }
-
+    public static function extractDateFromDateTime($date) {
+        $datum = array_reverse(explode(' ', $date));
+        $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
+        return $datum[1];
+    }
+    
+     public static function extractTimeFromDateTime($date) {
+        $datum = array_reverse(explode(' ', $date));
+        $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
+        return $datum[0];
+    }
+    public static function DateAndTimeTodateTime2($date) {
+        $datum = array_reverse(explode(' ', $date));
+        $datum[1] = implode('-', array_reverse(explode('.', $datum[1])));
+        return $datum[1] . ' ' . $datum[0];
+    }
+    
     public static function dateTimeToTime($date) {
         $datum = array_reverse(explode(' ', $date));
         $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
