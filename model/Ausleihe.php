@@ -9,7 +9,7 @@ class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
     private $bis;
 
     public static function getNames() {
-        return ['Hersteller', 'Modell', 'Kennzeichen', 'Vorname', 'Nachname', 'Von', 'Bis'];
+        return ['Auto', 'Mitarbeiter', 'Von', 'vonStunde', 'Bis', 'bisStunde'];
     }
 
     function __construct(Auto $auto, Mitarbeiter $mitarbeiter, $von, $bis, $id = NULL) {
@@ -30,6 +30,11 @@ class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
 
     public static function delete($id) {
 
+        $pdo = DbConnect::connect();
+        //DELETE FROM `bbqfirma`.`ausleihe` WHERE `ausleihe`.`id` = 9
+        $sql = "DELETE FROM bbqfirma.ausleihe WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['id' => $id]);
     }
 
     public static function getById($id) {
@@ -42,11 +47,29 @@ class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
     }
 
     public static function insert($object) {
-
+        $pdo = DbConnect::connect();
+        //INSERT INTO `bbqfirma`.`ausleihe` (`id`, `auto_id`, `mitarbeiter_id`, `von`, `bis`) VALUES (NULL, '4', '4', '2016-02-01 08:00:00', '2016-02-17 18:00:00');
+        $sql = "INSERT INTO bbqfirma.ausleihe (auto_id,mitarbeiter_id,von,bis,id) VALUES(:auto_id,:mitarbeiter_id,:von,:bis,:id)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['auto_id' => $object->getAuto()->getId(), 'mitarbeiter_id' => $object->getMitarbeiter()->getId(), 'von' => $object->getVon(), 'bis' => $object->getBis(), 'id' => $object->getId()]);
     }
 
     public static function update($object) {
-
+//        echo '<pre>';
+//        print_r($object);
+//        echo '</pre>';
+//        echo $object->getId();
+//        echo $object->getAuto()->getId();
+//        echo $object->getMitarbeiter()->getId();
+//        echo $object->getVon();
+//        echo $object->getBis();
+//        die();
+        $pdo = DbConnect::connect();
+        $sql = "UPDATE bbqfirma.ausleihe SET auto_id=:auto_id,mitarbeiter_id=:mitarbeiter_id,von=:von,bis=:bis WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $object->getId(), 'auto_id' => $object->getAuto()->getId(), 'mitarbeiter_id' => $object->getMitarbeiter()->getId(), 'von' => $object->getVon(), 'bis' => $object->getBis()]);
+//        $stmt->execute();
+//        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function getAll() {

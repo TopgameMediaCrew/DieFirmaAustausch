@@ -1,11 +1,23 @@
 $(document).ready(function () {
     $('button').off('click');
     $('button').click(function () {
-        alert(this.className);
-        alert(this.value);
-        alert(this.id);
+//        alert(this.className);
+//        alert(this.value);
+//        alert(this.id);
         if (this.value == 'bearbeiten') {
             var aTableEdit = getMenuOptions(this.className);
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: aTableEdit[0],
+                        area: aTableEdit[1],
+                        view: aTableEdit[2],
+                        id: this.id
+                    },
+                    function (data, status) {
+//                    alert(data);
+                        $('#content').html(data);
+                    });
         }
         if (this.className == 'editHersteller' && this.value == 'bearbeiten') {
             var aTableEdit = getMenuOptions(this.className);
@@ -144,6 +156,28 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
+        if (this.className === 'updateAusleihe') {
+            alert('bin da');
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "ausleihe",
+                        view: "listeAusleihe",
+                        autoId: $('#autoId').val(),
+                        mitarbeiterId: $('#mitarbeiterId').val(),
+                        dateVon: $('#dateVon').val(),
+                        vonStunde: $('#vonStunde').val(),
+                        dateBis: $('#dateBis').val(),
+                        bisStunde: $('#bisStunde').val(),
+                        id: $('#id').val()
+
+                    },
+                    function (data, status) {
+//                    alert(data);
+                        $('#content').html(data);
+                    });
+        }
 //        if (this.className == 'updateHersteller') {
 //            var herstid = document.getElementById('id').value;
 //            var value = document.getElementById('name').value;
@@ -270,6 +304,23 @@ $(document).ready(function () {
             
             
         }
+        if (this.value === 'loeschen') {
+//            alert(this.className);
+//            alert(this.value);
+//            alert(this.id);
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "ausleihe",
+                        view: "listeAusleihe",
+                        id: this.id
+                    },
+                    function (data, status) {
+//                    alert(data);
+                        $('#content').html(data);
+                    });
+        }
 //        if (this.class == "editHersteller" && this.value == 'löschen') {
 //            alert(" Abteilung LÖSCHEN !!!");
 //        }
@@ -338,7 +389,25 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
-       
+       if (this.className === 'inputAusleihe') {
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "ausleihe",
+                        view: "listeAusleihe",
+                        autoId: $('#autoId').val(),
+                        mitarbeiterId: $('#mitarbeiterId').val(),
+                        dateVon: $('#dateVon').val(),
+                        vonStunde: $('#vonStunde').val(),
+                        dateBis: $('#dateBis').val(),
+                        bisStunde: $('#bisStunde').val()
+                    },
+                    function (data, status) {
+//                    alert(data);
+                        $('#content').html(data);
+                    });
+        }
        // ???
        // 
 //        $.post("index.php",
@@ -405,7 +474,7 @@ $(document).ready(function () {
                 options = ['showInsert','Auto','formularAuto'];
                 break; 
             case 'menuFuhrparkAusleiheNeuAnlegen':
-            
+                options = ['showInput', 'Ausleihe', 'formularAusleihe'];
                 break;
             case 'bearbeitenAuto' :
                 options = ['showUpdate','Auto','formularAuto'];
@@ -474,6 +543,61 @@ $(document).ready(function () {
             return true;
         } else {
             return false;
+        }
+    });
+     $('#dateVon').datepicker({
+        inline: true,
+        showOtherMonths: true,
+        closeText: 'schließen',
+        prevText: '&#x3c;zurück',
+        nextText: 'Vor&#x3e;',
+        currentText: 'heute',
+        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+            'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        weekHeader: 'Wo',
+        firstDay: new Date(),
+        dateFormat: "dd.mm.yy",
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        showAnim: "slideDown",
+//        showOn: "button",
+        showWeek: true,
+        onClose: function (selectedDate) {
+            $("#dateBis").datepicker("option", "minDate", selectedDate);
+        }
+    });
+
+    $('#dateBis').datepicker({
+        inline: true,
+        showOtherMonths: true,
+        closeText: 'schließen',
+        prevText: '&#x3c;zurück',
+        nextText: 'Vor&#x3e;',
+        currentText: 'heute',
+        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+            'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+        weekHeader: 'Wo',
+//        firstDay: new Date(),
+        dateFormat: "dd.mm.yy",
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        showAnim: "slideDown",
+//        showOn: "button",
+        showWeek: true,
+        onClose: function (selectedDate) {
+            $("#dateVon").datepicker("option", "maxDate", selectedDate);
         }
     });
 });
