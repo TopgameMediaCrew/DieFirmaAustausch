@@ -9,8 +9,8 @@ class ProjektController {
 
     public static function doAction($action, &$view, $id) {
         switch ($action) {
-            case 'showList':
 
+            case 'showList':
                 $out = Projekt::getAll();
                 $out = self::transform($out);
                 break;
@@ -19,32 +19,32 @@ class ProjektController {
                 $out = Projekt::getById($id);
                 $out = self::transformUpdate($out);
                 break;
-            case'showInsert':
-                //um Leerfelder zu erzeugen in der Eingabemaske
+
+            case 'showInsert':
                 $out = self::transformUpdate();
                 break;
-            case 'insert':
-//                echo '<pre>';
-//                print_r($_POST);
-//                echo '</pre>';
-                $out = new Projekt($_POST['projekt'], '');
+
+            case 'update' :
+                $out = new Projekt($_POST['Projekt'], $_POST['uprid']);
+                $out = Projekt::update($out);
+                $out = Projekt::getAll();
+                $out = self::transform($out);
+                break;
+
+            case 'insert' :
+                $out = new Projekt($_POST['projekt'], NULL);
                 $out = Projekt::insert($out);
                 $out = Projekt::getAll();
                 $out = self::transform($out);
                 break;
-            case 'update':
-                $out = new Projekt($_POST['projekt'], $_POST['id']);
-                $out = Projekt::update($out);
-                $out = Projekt::getAll();
-                $out = self::transform($out);  
-                break;
-              case 'delete':
-               
-                $out = $_POST['id'];
+
+            case 'delete' :
+                $out = $_POST['lprid'];
                 $out = Projekt::delete($out);
                 $out = Projekt::getAll();
                 $out = self::transform($out);
                 break;
+
             default:
                 break;
         }
@@ -56,8 +56,8 @@ class ProjektController {
         $i = 0;
         foreach ($out as $projekt) {
             $returnOut[$i]['projektName'] = $projekt->getName();
-            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $projekt->getId(), 'editProjekt', 'bearbeiten');
-            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $projekt->getId(), 'editProjekt', 'löschen');
+            $returnOut[$i]['bearbeiten'] = HTML::buildButton('bearbeiten', $projekt->getId(), 'bearbeitenProjekt', 'bearbeiten');
+            $returnOut[$i]['loeschen'] = HTML::buildButton('löschen', $projekt->getId(), 'loeschenProjekt', 'loeschen');
             $i++;
         }
         return $returnOut;
@@ -67,19 +67,28 @@ class ProjektController {
         $returnOut = [];
         $linkeSpalte = [];
         $rechteSpalte = [];
-        if ($out == NULL) {
-            $linkeSpalte = Projekt::getnames();
-            array_push($linkeSpalte, HTML::buildInput('hidden', 'id', ''));
-            $rechteSpalte[0] = HTML::buildInput('text', 'name', '', NULL, 'name');
-            array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'insertProjekt', 'OK'));
+
+        for ($i = 0; $i < count(Projekt::getNames()); $i++) {
+            array_push($linkeSpalte, Projekt::getNames()[$i]);
+        }
+
+        if ($out !== NULL) {
+            array_push($linkeSpalte, HTML::buildInput('hidden', 'id', $out->getId()));
         } else {
-            for ($i = 0; $i < count(Projekt::getNames()); $i++) {
-                array_push($linkeSpalte, Projekt::getNames()[$i]);
-            }
-            array_push($linkeSpalte, HTML::buildInput('hidden', 'id', $out->getId(), NULL, 'id'));
+            array_push($linkeSpalte, '');
+        }
+
+        if ($out !== NULL) {
             $dbWerte = json_decode(json_encode($out), true);
-            array_push($rechteSpalte, HTML::buildInput('text', 'name', $dbWerte['name'], NULL, 'name'));
+        }
+
+        // überführe $dbWerte in rechte Spalte
+        if ($out !== NULL) {
+            array_push($rechteSpalte, HTML::buildInput('text', 'projekt', $dbWerte['name'], NULL, 'projekt'));
             array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'updateProjekt', 'OK'));
+        } else {
+            array_push($rechteSpalte, HTML::buildInput('text', 'projekt', '', NULL, 'projekt'));
+            array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'insertProjekt', 'OK'));
         }
         $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
         return $returnOut;

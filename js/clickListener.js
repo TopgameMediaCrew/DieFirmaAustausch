@@ -1,447 +1,320 @@
 $(document).ready(function () {
     $('button').off('click');
     $('button').click(function () {
-     var inputs = document.getElementsByTagName('input');
-     var drops = document.getElementsByTagName('select'); 
-//        alert(this.className);
-//        
-//        
-//        alert(this.value);
-//        alert(this.id);
-        if (this.value == 'bearbeiten') {
+        var inputs = document.getElementsByTagName('input');
+        var drops = document.getElementsByTagName('select');
+        if (this.value === 'bearbeiten') {
             var aTableEdit = getMenuOptions(this.className);
+        }
+
+// Ausleihe insert/update/delete
+// update
+        if (this.className === 'updateAusleihe') {
+            var id = inputs['id'].value;
+            var fahrzeug = drops['fahrzeug'].value;
+            var mitarbeiter = drops['mitarbeiter'].value;
+            var vonDate = inputs['vonTag'].value + ' ' + inputs['vonZeit'].value;
+            var bisDate = inputs['bisTag'].value + ' ' + inputs['bisZeit'].value;
             $.post("index.php",
                     {
                         ajax: "true",
-                        action: aTableEdit[0],
-                        area: aTableEdit[1],
-                        view: aTableEdit[2],
-                        id: this.id
+                        action: "update",
+                        area: "Ausleihe",
+                        view: "listeAusleihe",
+                        fahrzeug: fahrzeug,
+                        mitarbeiter: mitarbeiter,
+                        von: vonDate,
+                        bis: bisDate,
+                        uausid: id
                     },
-                    function (data, status) {
-//                    alert(data);
-                        $('#content').html(data);
-                    });
-        }
-        if (this.className == 'editHersteller' && this.value == 'bearbeiten') {
-            var aTableEdit = getMenuOptions(this.className);
-            $.post("index.php", {
-                ajax: "true",
-                action: "showUpdate",
-                area: "Hersteller",
-                view: "formularHersteller",
-                id: this.id
-            },
             function (data, status) {
-                //   alert(data);
                 $('#content').html(data);
             });
         }
-        if (this.className == 'editHersteller' && this.value == 'bearbeiten') {
-            var aTableEdit = getMenuOptions(this.className);
-            $.post("index.php", {
-                ajax: "true",
-                action: "showUpdate",
-                area: "Hersteller",
-                view: "formularHersteller",
-                id: this.id
-            },
+// insert
+        if (this.className === 'insertAusleihe') {
+            var fahrzeug = drops['fahrzeug'].value;
+            var mitarbeiter = drops['mitarbeiter'].value;
+            var vonDate = inputs['vonTag'].value + ' ' + inputs['vonZeit'].value;
+            var bisDate = inputs['bisTag'].value + ' ' + inputs['bisZeit'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "Ausleihe",
+                        view: "listeAusleihe",
+                        fahrzeug: fahrzeug,
+                        mitarbeiter: mitarbeiter,
+                        von: vonDate,
+                        bis: bisDate
+                    },
             function (data, status) {
-                //   alert(data);
                 $('#content').html(data);
             });
         }
-        if (this.className == 'editMitarbeiter' && this.value == 'bearbeiten') {
-            var aTableEdit = getMenuOptions(this.className);
-            $.post("index.php", {
-                ajax: "true",
-                action: "showUpdate",
-                area: "Mitarbeiter",
-                view: "formularMitarbeiter",
-                id: this.id
-            },
+// delete
+        if (this.className === 'loeschenAusleihe' && this.value === 'loeschen') {
+            var lausid = this.id;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "Ausleihe",
+                        view: "listeAusleihe",
+                        lausid: lausid
+                    },
             function (data, status) {
-                //   alert(data);
                 $('#content').html(data);
             });
         }
-        if (this.className == 'editProjekt' && this.value == 'bearbeiten') {
-            var aTableEdit = getMenuOptions(this.className);
-            $.post("index.php", {
-                ajax: "true",
-                action: "showUpdate",
-                area: "Projekt",
-                view: "formularProjekt",
-                id: this.id
-            },
+
+// Projekt insert/update/delete
+// update
+        if (this.className === 'updateProjekt') {
+            var id = inputs['id'].value;
+            var projekt = inputs['projekt'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "Projekt",
+                        view: "listeProjekt",
+                        Projekt: projekt,
+                        uprid: id
+                    },
             function (data, status) {
-                //   alert(data);
                 $('#content').html(data);
             });
         }
-        if (this.className == "bearbeitenAuto") {
-          
+// insert
+        if (this.className === 'insertProjekt') {
+            var projekt = inputs['projekt'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "Projekt",
+                        view: "listeProjekt",
+                        projekt: projekt
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// delete
+        if (this.className === 'loeschenProjekt' && this.value === 'loeschen') {
             var id = this.id;
-           
-      
             $.post("index.php",
                     {
                         ajax: "true",
-                        action: "showUpdate",
-                        area: "Auto",
-                        view: "formularAuto",
-//                        auto: auto,
-//                        hersteller_id: hersteller_id,
-//                        kennzeichen: kennzeichen,
-                        id: id
+                        action: "delete",
+                        area: "Projekt",
+                        view: "listeProjekt",
+                        lprid: id
                     },
             function (data, status) {
                 $('#content').html(data);
             });
-
         }
-        if (this.className == "updateAuto") {
 
-            alert(document.getElementById('id').value);
-            var hersteller_id = document.getElementById('hersteller').value;
-            var auto = document.getElementById('autoName').value;
-            var kennzeichen = document.getElementById('kennzeichen').value;
-            var id = document.getElementById('id').value;
-  
+// Mitarbeiter insert/update/delete
+// update
+        if (this.className === 'updateMitarbeiter') {
+            var id = inputs['id'].value;
+            var vorname = inputs['vorname'].value;
+            var nachname = inputs['nachname'].value;
+            var geschlecht = $('input[type="radio"]:checked').val();
+            var geburtsdatum = inputs['geburtsdatum'].value;
+            var abteilung_id = drops['abteilung'].value;
+            var stundenlohn = inputs['stundenlohn'].value;
+            var vorgesetzter_id = drops['vorgesetzter'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "Mitarbeiter",
+                        view: "listeMitarbeiter",
+                        vorname: vorname,
+                        nachname: nachname,
+                        geschlecht: geschlecht,
+                        geburtsdatum: geburtsdatum,
+                        abteilung_id: abteilung_id,
+                        stundenlohn: stundenlohn,
+                        vorgesetzter_id: vorgesetzter_id,
+                        umaid: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// insert
+        if (this.className === 'insertMitarbeiter') {
+            var vorname = inputs['vorname'].value;
+            var nachname = inputs['nachname'].value;
+            var geschlecht = $('input[type="radio"]:checked').val();
+            var geburtsdatum = inputs['geburtsdatum'].value;
+            var abteilung_id = drops['abteilung'].value;
+            var stundenlohn = inputs['stundenlohn'].value;
+            var vorgesetzter_id = drops['vorgesetzter'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "Mitarbeiter",
+                        view: "listeMitarbeiter",
+                        vorname: vorname,
+                        nachname: nachname,
+                        geschlecht: geschlecht,
+                        geburtsdatum: geburtsdatum,
+                        abteilung_id: abteilung_id,
+                        stundenlohn: stundenlohn,
+                        vorgesetzter_id: vorgesetzter_id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// delete
+        if (this.className === 'loeschenMitarbeiter' && this.value === 'loeschen') {
+            var lmaid = this.id;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "Mitarbeiter",
+                        view: "listeMitarbeiter",
+                        lmaid: lmaid
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+
+// Abteilung insert/update/delete
+// update
+        if (this.className === 'updateAbteilung') {
+            var id = inputs['id'].value;
+            var abteilung = inputs['abteilung'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "Abteilung",
+                        view: "listeAbteilung",
+                        Abteilung: abteilung,
+                        uabid: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// insert
+        if (this.className === 'insertAbteilung') {
+            var abteilung = inputs['abteilung'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "Abteilung",
+                        view: "listeAbteilung",
+                        abteilung: abteilung
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// delete
+        if (this.className === 'loeschenAbteilung' && this.value === 'loeschen') {
+            var id = this.id;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "Abteilung",
+                        view: "listeAbteilung",
+                        labid: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+
+// Hersteller insert/update/delete
+// update
+        if (this.className === 'updateHersteller') {
+            var id = inputs['id'].value;
+            var hersteller = inputs['name'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "update",
+                        area: "Hersteller",
+                        view: "listeHersteller",
+                        Hersteller: hersteller,
+                        uheid: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// insert
+        if (this.className === 'insertHersteller') {
+            var hersteller = inputs['name'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "insert",
+                        area: "Hersteller",
+                        view: "listeHersteller",
+                        hersteller: hersteller
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+// delete
+        if (this.className === 'loeschenHersteller' && this.value === 'loeschen') {
+            var id = this.id;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: "delete",
+                        area: "Hersteller",
+                        view: "listeHersteller",
+                        lheid: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+
+// Auto insert/update/delete
+// update
+        if (this.className === 'updateAuto') {
+            var id = inputs['id'].value;
+            var hersteller_id = drops['hersteller'].value;
+            var auto = inputs['autoName'].value;
+            var kennzeichen = inputs['kennzeichen'].value;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "update",
                         area: "Auto",
                         view: "listeAuto",
-                        auto: auto,
+                        Auto: auto,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen,
-                        id: id
+                        uauid: id
                     },
             function (data, status) {
                 $('#content').html(data);
             });
-
         }
-        
-        if (this.className == "updateMitarbeiter") {
-            var inputs = document.getElementsByTagName('input');
-            var select = document.getElementsByTagName('select');
-            var id = inputs["id"].value;
-            var vorname = inputs["vorname"].value;
-            var nachname = inputs["nachname"].value;
-            var geschlecht = $('input[type="radio"]:checked').val();
-            var geburtsdatum = inputs["geburtsdatum"].value;
-            var abteilung = select['abteilung'].value;
-            var stundenlohn = inputs["stundenlohn"].value;
-            var vorgesetzter = select["vorgesetzter"].value;
-            
-            var action = "update";
-            var area = "mitarbeiter";
-            var view = "formularMitarbeiter";
-            var daten = {id:id, vorname:vorname, nachname:nachname, geschlecht:geschlecht, geburtsdatum:geburtsdatum, abteilung:abteilung, stundenlohn:stundenlohn, vorgesetzter:vorgesetzter};
-            var daten = JSON.stringify(daten); 
-        
-            $.post("index.php", 
-            {
-                daten:daten,
-                action:action,
-                area:area,
-                ajax: true,
-                view:view
-            },
-        function (data)
-        {
-            $("#content").html(data);
-        });
-        }
-        if (this.className == 'updateProjekt') {
-
-            var proid = document.getElementById('id').value;
-            var value = document.getElementById('name').value;
-
-            $.post("index.php", {
-                ajax: "true",
-                action: "update",
-                area: "Projekt",
-                view: "listeProjekt",
-                projekt: value,
-                id: proid
-
-
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
-        if (this.className === 'updateAusleihe') {
-            alert('bin da');
-            $.post("index.php",
-                    {
-                        ajax: "true",
-                        action: "update",
-                        area: "ausleihe",
-                        view: "listeAusleihe",
-                        autoId: $('#autoId').val(),
-                        mitarbeiterId: $('#mitarbeiterId').val(),
-                        dateVon: $('#dateVon').val(),
-                        vonStunde: $('#vonStunde').val(),
-                        dateBis: $('#dateBis').val(),
-                        bisStunde: $('#bisStunde').val(),
-                        id: $('#id').val()
-
-                    },
-                    function (data, status) {
-//                    alert(data);
-                        $('#content').html(data);
-                    });
-        }
-        if (this.className == 'updateHersteller') {
-            var herstid = document.getElementById('id').value;
-            var value = document.getElementById('name').value;
-            
-            $.post("index.php", {
-                ajax: "true",
-                action: "update",
-                area: "Hersteller",
-                view: "listeHersteller",
-                hersteller: value,
-                id: herstid
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
-        if (this.className == 'updateAbteilung') {
-            alert ("ununsed");
-            var abtid = document.getElementById('id').value;
-            var value = document.getElementById('name').value;
-
-            $.post("index.php", {
-                ajax: "true",
-                action: "update",
-                area: "Abteilung",
-                view: "listeAbteilung",
-                abteilung: value,
-                id: abtid
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
-        if (this.className == 'editAbteilung' && this.value == 'löschen') {
-          
-            
-            var abtid = this.id;
-           
-           
-
-            $.post("index.php", {
-                ajax: "true",
-                action: "delete",
-                area: "Abteilung",
-                view: "listeAbteilung",
-                id: abtid
-
-
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        
-            
-        }
-        if (this.className == 'editAbteilung' && this.value == 'löschen') {
-          
-            
-            var abtid = this.id;
-           
-           
-
-            $.post("index.php", {
-                ajax: "true",
-                action: "delete",
-                area: "Abteilung",
-                view: "listeAbteilung",
-                id: abtid
-
-
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        
-            
-        }
-        if (this.className == 'editMitarbeiter' && this.value == 'löschen') {
-            var id = this.id;
-            $.post("index.php",
-            {
-                action: "delete",
-                area: "Mitarbeiter",
-                view: "formularMitarbeiter",
-                ajax: true,
-                id:id
-            },
-            function (data) 
-            {      
-                $('#content').html(data);
-            });
-        }
-          if (this.className == "deleteAuto" && this.value=='loeschen') {
-        
-            var id = this.id;
-         
-            $.post("index.php",
-                    {
-                        ajax: "true",
-                        action: "delete",
-                        area: "Auto",
-                        view: "listeAuto",
-                        id: id 
-                    },
-            function (data, status) {
-                $('#content').html(data);
-            });
-
-        } 
-            
-            
-        
-        if (this.className == 'editProjekt' && this.value == 'löschen') {
-         var projid = this.id;
-           
-           
-
-            $.post("index.php", {
-                ajax: "true",
-                action: "delete",
-                area: "Projekt",
-                view: "listeProjekt",
-                id: projid
-
-
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        
-          
-            
-            
-            
-            
-        }
-        if (this.value === 'loeschen') {
-//            alert(this.className);
-//            alert(this.value);
-//            alert(this.id);
-            $.post("index.php",
-                    {
-                        ajax: "true",
-                        action: "delete",
-                        area: "ausleihe",
-                        view: "listeAusleihe",
-                        id: this.id
-                    },
-                    function (data, status) {
-//                    alert(data);
-                        $('#content').html(data);
-                    });
-        }
-//        if (this.class == "editHersteller" && this.value == 'löschen') {
-//            alert(" Abteilung LÖSCHEN !!!");
-//        }
-        if (this.className == 'insertHersteller') {
-            var value = document.getElementById('name').value;
-            $.post("index.php", {
-                ajax: "true",
-                action: "insert",
-                area: "Hersteller",
-                view: "listeHersteller",
-                hersteller: value
-                        // hersteller: "test"
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
-        if (this.className == 'insertHersteller') {
-            var value = document.getElementById('name').value;
-            $.post("index.php", {
-                ajax: "true",
-                action: "insert",
-                area: "Hersteller",
-                view: "listeHersteller",
-                hersteller: value
-                        // hersteller: "test"
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-        }
-        if (this.className == 'insertMitarbeiter') {
-            alert("Bin hier");
-            var inputs = document.getElementsByTagName('input');
-            var select = document.getElementsByTagName('select');
-            var id = inputs["id"].value;
-            var vorname = inputs["vorname"].value;
-            var nachname = inputs["nachname"].value;
-            var geschlecht = $('input[type="radio"]:checked').val();
-            var geburtsdatum = inputs["geburtsdatum"].value;
-            var abteilung = select['abteilung'].value;
-            var stundenlohn = inputs["stundenlohn"].value;
-            var vorgesetzter = select["vorgesetzter"].value;
-            
-            var action = "insert";
-            var area = "mitarbeiter";
-            var view = "formularMitarbeiter";
-            var daten = {id:id, vorname:vorname, nachname:nachname, geschlecht:geschlecht, geburtsdatum:geburtsdatum, abteilung:abteilung, stundenlohn:stundenlohn, vorgesetzter:vorgesetzter};
-            var daten = JSON.stringify(daten); 
-        
-            $.post("index.php", 
-            {
-                daten:daten,
-                action:action,
-                area:area,
-                ajax: true,
-                view:view
-            },
-            function (data)
-            {
-                $("#content").html(data);
-            });
-        }
-        if (this.className == 'insertProjekt') {
-            //alert('insertProjekt');
-            var value = document.getElementById('name').value;
-            $.post("index.php", {
-                ajax: "true",
-                action: "insert",
-                area: "Projekt",
-                view: "listeProjekt",
-                projekt: value
-                        // hersteller: "test"
-            },
-            function (data, status) {
-                //   alert(data);
-                $('#content').html(data);
-            });
-       }
-       if (this.className == "insertAuto") {
-           
-            var hersteller_id = document.getElementById('hersteller').value;
-            var auto = document.getElementById('autoName').value;
-            var kennzeichen = document.getElementById('kennzeichen').value;
+// insert
+        if (this.className === 'insertAuto') {
+            var hersteller_id = drops['hersteller'].value;
+            var auto = inputs['autoName'].value;
+            var kennzeichen = inputs['kennzeichen'].value;
             $.post("index.php",
                     {
                         ajax: "true",
@@ -456,39 +329,37 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
-       if (this.className === 'inputAusleihe') {
+// delete
+        if (this.className === 'loeschenAuto' && this.value === 'loeschen') {
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
-                        action: "insert",
-                        area: "ausleihe",
-                        view: "listeAusleihe",
-                        autoId: $('#autoId').val(),
-                        mitarbeiterId: $('#mitarbeiterId').val(),
-                        dateVon: $('#dateVon').val(),
-                        vonStunde: $('#vonStunde').val(),
-                        dateBis: $('#dateBis').val(),
-                        bisStunde: $('#bisStunde').val()
+                        action: "delete",
+                        area: "Auto",
+                        view: "listeAuto",
+                        lauid: id
                     },
-                    function (data, status) {
-//                    alert(data);
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
-         if (this.className == "updateProjektMitarbeiter") {
+
+// ProjektMitarbeiter insert/update/delete
+// update
+        if (this.className === 'updateProjektMitarbeiter') {
             var id = inputs['id'].value;
             var projekt = drops['projekt'].value;
             var mitarbeiter = drops['mitarbeiter'].value;
             var vonDate = inputs['vonTag'].value + ' ' + inputs['vonZeit'].value;
             var bisDate = inputs['bisTag'].value + ' ' + inputs['bisZeit'].value;
-
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "update",
                         area: "ProjektMitarbeiter",
                         view: "listeProjektMitarbeiter",
-                        projekt: projekt,
+                        Projekt: projekt,
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
@@ -498,13 +369,12 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
-
-        if (this.className == "insertProjektMitarbeiter") {
+// insert
+        if (this.className === 'insertProjektMitarbeiter') {
             var projekt = drops['projekt'].value;
             var mitarbeiter = drops['mitarbeiter'].value;
             var vonDate = inputs['vonTag'].value + ' ' + inputs['vonZeit'].value;
             var bisDate = inputs['bisTag'].value + ' ' + inputs['bisZeit'].value;
-
             $.post("index.php",
                     {
                         ajax: "true",
@@ -520,8 +390,8 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
-
-        if (this.className == 'loeschenProjektMitarbeiter' && this.value == 'loeschen') {
+// delete
+        if (this.className === 'loeschenProjektMitarbeiter' && this.value === 'loeschen') {
             var lpmid = this.id;
             $.post("index.php",
                     {
@@ -535,116 +405,137 @@ $(document).ready(function () {
                 $('#content').html(data);
             });
         }
-       // ???
-       // 
-//        $.post("index.php",
-//                {
-//                    ajax: "true",
-//                    action: aTableEdit[0],
-//                    area: aTableEdit[1],
-//                    view: aTableEdit[2],
-//                    id: this.id
-//                },
-//        function (data, status) {
-////                    alert(data);
-//            $('#content').html(data);
-//        });
+
+// für test.html
+
+        if (this.id === 'test') {
+            var action = inputs['action'].value;
+            var area = inputs['area'].value;
+            var view = inputs['view'].value;
+            var id = inputs['id'].value;
+            $.post("index.php",
+                    {
+                        ajax: "true",
+                        action: action,
+                        area: area,
+                        view: view,
+                        id: id
+                    },
+            function (data, status) {
+                $('#content').html(data);
+            });
+        }
+
+// aufruf der unterschiedlichen formulare und views
+
+        $.post("index.php",
+                {
+                    ajax: "true",
+                    action: aTableEdit[0],
+                    area: aTableEdit[1],
+                    view: aTableEdit[2],
+                    id: this.id
+                },
+        function (data, status) {
+            $('#content').html(data);
+        });
     });
 
     $('a.menuItem').off('click');
     $('a.menuItem').click(function () {
-//        alert(this.id);
         var aMenuOptions = getMenuOptions(this.id);
-
         $.post("index.php",
                 {
                     ajax: "true",
                     action: aMenuOptions[0],
                     area: aMenuOptions[1],
-                    view: aMenuOptions[2],
+                    view: aMenuOptions[2]
                 },
-                function (data, status) {
-//                    alert(data);
-                    $('#content').html(data);
-                });
+        function (data, status) {
+            $('#content').html(data);
+        });
     });
-
     function getMenuOptions(id) {
         var options = [];
-
         switch (id) {
+
+            // Show
+
             case 'menuMitarbeiterAnzeige' :
                 options = ['showList', 'Mitarbeiter', 'listeMitarbeiter'];
-                break;
-            case 'menuMitarbeiterNeuAnlegen' :
-                options = ['showInsert', 'Mitarbeiter', 'formularMitarbeiter'];
                 break;
             case 'menuAbteilungAnzeigen' :
                 options = ['showList', 'Abteilung', 'listeAbteilung'];
                 break;
-            case 'menuAbteilungNeuAnlegen' :
-                options = ['showInsert', 'Abteilung', 'formularAbteilung'];
-                break;
-            case 'menuFuhrparkAnzeigen' :
-                options = ['showList', 'Auto', 'listeAuto'];
-                break;
             case 'menuHerstellerAnzeigen' :
                 options = ['showList', 'Hersteller', 'listeHersteller'];
                 break;
-            case 'menuFuhrparkAusleihe' :
+            case 'menuAutosAnzeigen' :
+                options = ['showList', 'Auto', 'listeAuto'];
+                break;
+            case 'menuAusleihe' :
                 options = ['showList', 'Ausleihe', 'listeAusleihe'];
-                break;
-            case 'menuHerstellerNeuAnlegen':
-                options = ['showInsert', 'Hersteller', 'formularHersteller'];
-                break;
-            case 'menuFuhrparkNeuAnlegen' :
-                options = ['showInsert','Auto','formularAuto'];
-                break; 
-            case 'menuFuhrparkAusleiheNeuAnlegen':
-                options = ['showInput', 'Ausleihe', 'formularAusleihe'];
-                break;
-            case 'bearbeitenAuto' :
-                options = ['showUpdate','Auto','formularAuto'];
                 break;
             case 'menuProjekteAnzeigen' :
                 options = ['showList', 'Projekt', 'listeProjekt'];
                 break;
-            case 'menuProjekteNeuAnlegen' :
-                options = ['showInsert', 'Projekt', 'formularProjekt'];
-                break;
-            case 'menuMitarbeiterToProjektAnzeigen' :
+            case 'menuProjektMitarbeiterAnzeigen' :
                 options = ['showList', 'ProjektMitarbeiter', 'listeProjektMitarbeiter'];
                 break;
-            case 'menuMitarbeiterToProjektNeuAnlegen' :
-                   options = ['showInsert', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];       
+
+                // Insert
+
+            case 'menuMitarbeiterNeuAnlegen' :
+                options = ['showInsert', 'Mitarbeiter', 'formularMitarbeiter'];
+                break;
+            case 'menuAbteilungNeuAnlegen' :
+                options = ['showInsert', 'Abteilung', 'formularAbteilung'];
+                break;
+            case 'menuHerstellerNeuAnlegen' :
+                options = ['showInsert', 'Hersteller', 'formularHersteller'];
+                break;
+            case 'menuAutoNeuAnlegen' :
+                options = ['showInsert', 'Auto', 'formularAuto'];
+                break;
+            case 'menuAusleiheNeuAnlegen' :
+                options = ['showInsert', 'Ausleihe', 'formularAusleihe'];
+                break;
+            case 'menuProjektNeuAnlegen' :
+                options = ['showInsert', 'Projekt', 'formularProjekt'];
+                break;
+            case 'menuProjektMitarbeiterNeuAnlegen' :
+                options = ['showInsert', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];
                 break;
 
+                // Update
 
-            case 'editMitarbeiter' :
+            case 'bearbeitenMitarbeiter' :
                 options = ['showUpdate', 'Mitarbeiter', 'formularMitarbeiter'];
                 break;
-            case 'editAbteilung' :
+            case 'bearbeitenAbteilung' :
                 options = ['showUpdate', 'Abteilung', 'formularAbteilung'];
                 break;
-            case 'editAuto' :
-                options = ['showUpdate', 'Auto', 'formularAuto'];
-                break;
-            case 'editHersteller' :
+            case 'bearbeitenHersteller' :
                 options = ['showUpdate', 'Hersteller', 'formularHersteller'];
                 break;
-            case 'editAusleihe' :
+            case 'bearbeitenAuto' :
+                options = ['showUpdate', 'Auto', 'formularAuto'];
+                break;
+            case 'bearbeitenAusleihe' :
                 options = ['showUpdate', 'Ausleihe', 'formularAusleihe'];
                 break;
-            case 'editProjekt' :
+            case 'bearbeitenProjekt' :
                 options = ['showUpdate', 'Projekt', 'formularProjekt'];
                 break;
             case 'bearbeitenProjektMitarbeiter' :
                 options = ['showUpdate', 'ProjektMitarbeiter', 'formularProjektMitarbeiter'];
                 break;
 
+                // Default 
 
             default:
                 options = ['standard', 'standard', 'standard'];
+                break;
         }
 
         return options;
@@ -652,27 +543,27 @@ $(document).ready(function () {
 
     $('#cssmenu > ul > li > a').off('click');
     $('#cssmenu > ul > li > a').click(function () {
-//        alert(this.id);
         $('#cssmenu li').removeClass('active');
         $(this).closest('li').addClass('active');
         var checkElement = $(this).next();
         if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-//            alert(this.id);
             $(this).closest('li').removeClass('active');
             checkElement.slideUp('normal');
         }
         if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-//            alert(this.id);
             $('#cssmenu ul ul:visible').slideUp('normal');
             checkElement.slideDown('normal');
         }
-        if ($(this).closest('li').find('ul').children().length == 0) {
+        if ($(this).closest('li').find('ul').children().length === 0) {
             return true;
         } else {
             return false;
         }
     });
-     $('#dateVon').datepicker({
+
+    // datepicker für geburtsdatum und vonTag und bisTag
+
+    $('#geburtsdatum,#vonTag,#bisTag').datepicker({
         inline: true,
         showOtherMonths: true,
         closeText: 'schließen',
@@ -693,38 +584,13 @@ $(document).ready(function () {
         showMonthAfterYear: false,
         yearSuffix: '',
         showAnim: "slideDown",
-//        showOn: "button",
         showWeek: true,
         onClose: function (selectedDate) {
-            $("#dateBis").datepicker("option", "minDate", selectedDate);
-        }
-    });
-
-    $('#dateBis').datepicker({
-        inline: true,
-        showOtherMonths: true,
-        closeText: 'schließen',
-        prevText: '&#x3c;zurück',
-        nextText: 'Vor&#x3e;',
-        currentText: 'heute',
-        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-            'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-        monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
-            'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-        dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-        dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-        weekHeader: 'Wo',
-//        firstDay: new Date(),
-        dateFormat: "dd.mm.yy",
-        isRTL: false,
-        showMonthAfterYear: false,
-        yearSuffix: '',
-        showAnim: "slideDown",
-//        showOn: "button",
-        showWeek: true,
-        onClose: function (selectedDate) {
-            $("#dateVon").datepicker("option", "maxDate", selectedDate);
+            if (this.id !== 'bisTag') {
+                $('#bisTag').datepicker("option", "minDate", selectedDate);
+            } else {
+                $('#vonTag').datepicker("option", "maxDate", selectedDate);
+            }
         }
     });
 });

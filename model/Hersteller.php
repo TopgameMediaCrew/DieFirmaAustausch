@@ -32,13 +32,6 @@ class Hersteller implements Aenderbar, JsonSerializable {
         return $this->name;
     }
 
-    public static function delete($id) {
-        $pdo = DbConnect::connect();
-        $sql = "DELETE FROM hersteller WHERE id=:id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([':id' => $id]);
-    }
-
     public static function getAll() {
         $pdo = DbConnect::connect();
         $sql = "SELECT * from hersteller ORDER BY id";
@@ -62,29 +55,25 @@ class Hersteller implements Aenderbar, JsonSerializable {
         return new Hersteller($rows[0]['name'], $rows[0]['id']);
     }
 
-    public static function insert($id) {
+    public static function update($obj) {
         $pdo = DbConnect::connect();
-        $stmt = $pdo->prepare("INSERT INTO bbqfirma.hersteller(name) VALUES(:name)");
-//        echo '<pre>';
-//        print_r($id);
-//        echo '</pre>'; 
-
-        if ($id->getName() == '') {
-            echo 'kein Eintrag';
-        } else {
-            $stmt->execute([':name' => $id->getName()]);
-        }
+        $sql = "UPDATE hersteller SET name =:name WHERE id =:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':name' => $obj->getName(), ':id' => $obj->getId()]);
     }
 
-    public static function update($id) {
-//        echo '<pre>';
-//        print_r($id);
-//        echo '</pre>';
-   
+    public static function insert($id) {
         $pdo = DbConnect::connect();
-        $stmt=$pdo->prepare("UPDATE bbqfirma.hersteller SET name=:name WHERE id=:id");
-        $stmt->execute([':id' => $id->getId(),':name' => $id->getName()]);
-        
+        $sql = "INSERT INTO hersteller(name) VALUES (:name)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':name' => $id->getName()]);
+    }
+
+    public static function delete($id) {
+        $pdo = DbConnect::connect();
+        $sql = "DELETE from hersteller WHERE id=:id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
     }
 
 }
