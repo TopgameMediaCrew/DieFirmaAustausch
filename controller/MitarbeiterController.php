@@ -27,6 +27,10 @@ class MitarbeiterController {
             case 'update':
                 $vorgesetzter = ($_POST['vorgesetzter_id']) ? Mitarbeiter::getById($_POST['vorgesetzter_id']) : NULL;
                 $out = new Mitarbeiter($_POST['vorname'], $_POST['nachname'], $_POST['geschlecht'], HTML::germanToMysql($_POST['geburtsdatum']), Abteilung::getById($_POST['abteilung_id']), $_POST['stundenlohn'], $vorgesetzter, $_POST['umaid']);
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+                
                 $out = Mitarbeiter::update($out);
                 $out = Mitarbeiter::getAll();
                 $out = self::transform($out);
@@ -117,9 +121,9 @@ class MitarbeiterController {
         foreach ($vorgesetzte as $o) {
             $options2[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getVorname() . ' ' . $o->getNachname()];
             if ($out !== NULL) {
-                if ($o->getVorgesetzter() !== NULL) {
-                    if ($o->getId() === $out->getId()) {
-                        $options2[$o->getVorgesetzter()->getId()]['selected'] = TRUE;
+                if ($out->getVorgesetzter() !== NULL) {
+                    if ($o->getId() === $out->getVorgesetzter()->getId()) {
+                        $options2[$out->getVorgesetzter()->getId()]['selected'] = TRUE;
                         $hatVorgesetzte = TRUE;
                     }
                 } else {
