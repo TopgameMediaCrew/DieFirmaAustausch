@@ -460,7 +460,9 @@ $(document).ready(function () {
         switch (id) {
 
             // Show
-
+             case 'menuMitarbeiterAbteilungVorgesetzter':
+                options = ['showList', 'MitarbeiterAbteilungVorgesetzter', 'listeMitarbeiterAbteilungVorgesetzter'];
+                break;
             case 'menuMitarbeiterAnzeige' :
                 options = ['showList', 'Mitarbeiter', 'listeMitarbeiter'];
                 break;
