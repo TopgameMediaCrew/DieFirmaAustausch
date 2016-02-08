@@ -108,7 +108,11 @@ class MitarbeiterController {
 
         // options für die vorgesetzten
         $vorgesetzte = Mitarbeiter::getAll();
-
+        
+        $options2 = Option::fillOptions(Mitarbeiter::getAll());
+        echo '<pre>';
+        print_r($options2);
+        echo '</pre>';
         $options2 = [];
 
         // zum abwählen

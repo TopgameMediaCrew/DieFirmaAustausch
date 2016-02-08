@@ -10,7 +10,15 @@ class Mitarbeiter implements Aenderbar, JsonSerializable {
     private $abteilung;
     private $stundenlohn;
     private $vorgesetzter;
-
+    private static $nullSelectable = FALSE;
+    
+    public static function setNullSelectable($nullSelectable) {
+        
+    }
+    public function getName() {
+        return $this->getVorname() . ' ' . $this->getNachname();
+    }
+    
     public static function getNames() {
         return ['Vorname', 'Nachname', 'Geschlecht', 'Geburtsdatum', 'Abteilung', 'Stundenlohn', 'Vorgesetzter'];
     }
