@@ -15,7 +15,7 @@ class Mitarbeiter implements Aenderbar, JsonSerializable {
     public static function setNullSelectable($nullSelectable) {
         
     }
-    public function getName() {
+    public function getDropName() {
         return $this->getVorname() . ' ' . $this->getNachname();
     }
     

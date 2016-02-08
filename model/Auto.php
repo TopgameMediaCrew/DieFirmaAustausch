@@ -37,7 +37,9 @@ class Auto implements Aenderbar, JsonSerializable {
     public function getName() {
         return $this->name;
     }
-
+    public function getDropName() {
+        return $this->hersteller->getName() . ' ' . $this->getName() . ' ' . $this->getKennzeichen();
+    }
     public function getHersteller() {
         return $this->hersteller;
     }

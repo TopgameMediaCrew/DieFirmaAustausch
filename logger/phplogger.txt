@@ -11098,4 +11098,34 @@
 #1 [internal function]: {closure}('StandardControl...')
 #2 C:\xampp\htdocs\DieFirma2\controller\BaseController.php(13): spl_autoload_call('StandardControl...')
 #3 C:\xampp\htdocs\DieFirma2\index.php(17): BaseController::load('standard', 'error', 'standard', '0')
+#4 {main}2016-02-08T10:58:57+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\AusleiheController.php(119): Option::buildOptions('Ausleihe', 1)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AusleiheController.php(20): AusleiheController::transformUpdate(Object(Ausleihe))
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AusleiheController::doAction('showUpdate', 'error', '1')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showUpdate', 'error', 'Ausleihe', '1')
+#4 {main}2016-02-08T11:03:38+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\AusleiheController.php(119): Option::buildOptions('Ausleihe', 1)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AusleiheController.php(20): AusleiheController::transformUpdate(Object(Ausleihe))
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AusleiheController::doAction('showUpdate', 'error', '1')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showUpdate', 'error', 'Ausleihe', '1')
+#4 {main}2016-02-08T11:04:55+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\MitarbeiterController.php(123): Option::buildOptions('Abteilung', 3)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\MitarbeiterController.php(20): MitarbeiterController::transformUpdate(Object(Mitarbeiter))
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): MitarbeiterController::doAction('showUpdate', 'error', '2')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showUpdate', 'error', 'Mitarbeiter', '2')
+#4 {main}2016-02-08T11:06:08+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\MitarbeiterController.php(123): Option::buildOptions('Abteilung', 3)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\MitarbeiterController.php(20): MitarbeiterController::transformUpdate(Object(Mitarbeiter))
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): MitarbeiterController::doAction('showUpdate', 'error', '2')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showUpdate', 'error', 'Mitarbeiter', '2')
+#4 {main}2016-02-08T11:13:54+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\MitarbeiterController.php(123): Option::buildOptions('Abteilung', 3)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\MitarbeiterController.php(20): MitarbeiterController::transformUpdate(Object(Mitarbeiter))
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): MitarbeiterController::doAction('showUpdate', 'error', '2')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showUpdate', 'error', 'Mitarbeiter', '2')
+#4 {main}2016-02-08T11:25:15+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\controller\AusleiheController.php(119): Option::buildOptions('Ausleihe', 1)
+#1 C:\xampp\htdocs\DieFirmaAustausch\controller\AusleiheController.php(20): AusleiheController::transformUpdate(Object(Ausleihe))
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): AusleiheController::doAction('showUpdate', 'error', '1')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(17): BaseController::load('showUpdate', 'error', 'Ausleihe', '1')
 #4 {main}

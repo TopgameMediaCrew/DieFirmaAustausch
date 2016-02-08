@@ -87,53 +87,71 @@ class MitarbeiterController {
 
         // überführe $dbWerte in rechte Spalte
         //options für die abteilungen   
-        $abt = Abteilung::getAll();
-        $options = [];
-
-        // zum abwählen
-        $options[0] = ['value' => 0, 'label' => ''];
-        $hatAbteilung = FALSE;
-        foreach ($abt as $o) {
-            $options[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getName()];
-            if ($out !== NULL) {
-                if ($o->getId() === $out->getAbteilung()->getId()) {
-                    $options[$o->getId()]['selected'] = TRUE;
-                    $hatAbteilung = TRUE;
-                }
+//        $abt = Abteilung::getAll();
+//        $options = [];
+//
+//        // zum abwählen
+//        $options[0] = ['value' => 0, 'label' => ''];
+//        $hatAbteilung = FALSE;
+//        foreach ($abt as $o) {
+//            $options[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getName()];
+//            if ($out !== NULL) {
+//                if ($o->getId() === $out->getAbteilung()->getId()) {
+//                    $options[$o->getId()]['selected'] = TRUE;
+//                    $hatAbteilung = TRUE;
+//                }
+//            }
+//        }
+//        if ($hatAbteilung == FALSE) {
+//            $options[0]['selected'] = TRUE;
+//        }
+//
+//        // options für die vorgesetzten
+//        $vorgesetzte = Mitarbeiter::getAll();
+//        
+//        $options2 = Option::fillOptions(Mitarbeiter::getAll());
+////        echo '<pre>';
+////        print_r($options2);
+////        echo '</pre>';
+//        $options2 = [];
+        $selected=NULL;
+        if ($out !== NULL) {
+            if ($out->getAbteilung() !== NULL) {
+                $selected = $out->getAbteilung()->getId(); // Foreign Key
             }
         }
-        if ($hatAbteilung == FALSE) {
-            $options[0]['selected'] = TRUE;
-        }
-
-        // options für die vorgesetzten
-        $vorgesetzte = Mitarbeiter::getAll();
+        $options=Option::buildOptions('Abteilung', $selected);
         
-        $options2 = Option::fillOptions(Mitarbeiter::getAll());
-        echo '<pre>';
-        print_r($options2);
-        echo '</pre>';
-        $options2 = [];
-
-        // zum abwählen
-        $options2[0] = ['value' => 0, 'label' => ''];
-        $hatVorgesetzte = FALSE;
-        foreach ($vorgesetzte as $o) {
-            $options2[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getVorname() . ' ' . $o->getNachname()];
-            if ($out !== NULL) {
-                if ($out->getVorgesetzter() !== NULL) {
-                    if ($o->getId() === $out->getVorgesetzter()->getId()) {
-                        $options2[$out->getVorgesetzter()->getId()]['selected'] = TRUE;
-                        $hatVorgesetzte = TRUE;
-                    }
-                } else {
-                    $options2[0]['selected'] = TRUE;
-                }
+        
+//        echo '<pre>';
+//        print_r($out);
+//        echo '</pre>';
+        $selected=NULL;
+        if ($out !== NULL) {
+            if ($out->getVorgesetzter() !== NULL) {
+                $selected = $out->getVorgesetzter()->getId();
             }
         }
-        if ($hatVorgesetzte == FALSE) {
-            $options2[0]['selected'] = TRUE;
-        }
+        $options2=Option::buildOptions('Mitarbeiter', $selected, TRUE);
+        // zum abwählen
+//        $options2[0] = ['value' => 0, 'label' => ''];
+//        $hatVorgesetzte = FALSE;
+//        foreach ($vorgesetzte as $o) {
+//            $options2[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getVorname() . ' ' . $o->getNachname()];
+//            if ($out !== NULL) {
+//                if ($out->getVorgesetzter() !== NULL) {
+//                    if ($o->getId() === $out->getVorgesetzter()->getId()) {
+//                        $options2[$out->getVorgesetzter()->getId()]['selected'] = TRUE;
+//                        $hatVorgesetzte = TRUE;
+//                    }
+//                } else {
+//                    $options2[0]['selected'] = TRUE;
+//                }
+//            }
+//        }
+//        if ($hatVorgesetzte == FALSE) {
+//            $options2[0]['selected'] = TRUE;
+//        }
 
         // radio $options erstellen
         $radioOptions = [];

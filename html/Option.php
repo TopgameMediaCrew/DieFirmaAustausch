@@ -1,53 +1,56 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * erstellt ein Array für DropDown-Menu:
+ * @example 
+ * 
+ * $objectArr[1]['value'] = 1;
+ * $objectArr[1]['label'] = 'angezeigte Auswahl beim Dropdown-Menu';
+ *   falls Auswahl vorausgewählt ist
+ * $objectArray[1]['selected'] = ' selected'
+ * mit 1 als PK
  */
-class Option {
-    // pflicht
-    private $value;
-    private $label;
-    // optional
-    private $selected;
-    // option nicht zwingend, abwählbar
-    private static $nullSelectable;
-    // sammlung der einzelnen $option
-    private $options = [];
-    
-    function __construct($value, $label, $selected) {
-        $this->value = $value;
-        $this->label = $label;
-        if ($selected !== NULL) {
-            $this->selected=$selected;
-        }
-    }
-    // objects basiert afu GetAll einer Aenderbar Klasse
-    public static function fillOptions($objects) {
-        foreach ($objects as $object) {
-            if ($object->selected === NULL) {
-                $selected = NULL;
-            } else {
-                $selected = $object->getSelected();
-            }
-            $this->addOption($object->getId(), $object->getName(), $selected);
-        }
-        if ($object->getNullSelectable()) {
-            self::$nullSelectable=TRUE;
-        }
-    }
-    
-    public function addOption($value, $label, $selected = NULL) {
-        $this->options[$value]=new Option($value, $label, $selected);
-    }
-    public function setNullSelection($nullSelection) {
-        if ($nullSelection) {
-            self::$nullSelectable=TRUE;
-        }
-    }
-    public function getAllOptions() {
-        return $this;
-    }
-}
 
+
+
+class Option {
+    public static function buildOptions($className, $selected = NULL, $zeroOption = NULL) {
+     $objectArr = []; // für Rückgabe
+     // check: hat class $className die Methoden getId() und getName()
+     // (!in_array( prüft ob alle Methoden in get_class_methods($classname) = getId vorhanden ist)
+     if (!in_array('getId', get_class_methods($className))) {
+         throw new Exception('Methode getId() fehlt in Parameter zu Option::buildOptions $classname: mit Wert ' . $className);
+     }
+  
+     if (!in_array('getName', get_class_methods($className)) && !in_array('getDropName', get_class_methods($className))) {
+         throw new Exception('Methode getName()bzw. getDropName fehlt in Parameter zu Option::buildOptions $classname: mit Wert' . $className);
+     }
+     if($selected !== NULL) {
+         //check: $selected ist Zahl, mache zu int
+         if (is_numeric($selected)) {
+             $selected= (int)$selected;
+         } else {
+             throw new Exception('$selected enthält keine ganze Zahl(PK): '. $selected);
+         }
+     }
+     //falls Auswahl keine Pflicht ist
+     if ($zeroOption) {
+         $objectArr[0]=['value' => 0, 'label' => ''];
+     }
+     
+     $objects = $className::getAll();
+     foreach ($objects as $o) {
+         if (in_array('getDropName', get_class_methods($className))) {
+             $objectArr[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getDropName()];
+         } else {
+         $objectArr[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getName()];
+         }
+         //// alternativ
+         // $objectArr[$o->getId()]['value']=$o->getId();
+         // $objectArr[$o->getId()]['label']=$o->getName();
+         if ($selected === $o->getId()) {
+             $objectArr[$o->getId()]['selected'] = ' selected';
+         }
+     }
+     return $objectArr;
+  }
+}

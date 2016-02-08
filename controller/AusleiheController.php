@@ -90,43 +90,60 @@ class AusleiheController {
 
         // überführe $dbWerte in rechte Spalte
         // auto $options erstellen
-        $auto = Auto::getAll();
-        $options = [];
-        $options[0] = ['value' => 0, 'label' => ''];
-        $hatirgendwas = FALSE;
-        foreach ($auto as $o) {
-            $options[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getHersteller()->getName() . ' ' . $o->getName() . ' ' . $o->getKennzeichen()];
-            if ($out !== NULL) {
-                if ($o->getId() == $out->getAuto()->getId()) {
-                    $options[$o->getId()]['selected'] = TRUE;
-                    $hatirgendwas = TRUE;
-                }
+//        $auto = Auto::getAll();
+//        $options = [];
+//        $options[0] = ['value' => 0, 'label' => ''];
+//        $hatirgendwas = FALSE;
+//        foreach ($auto as $o) {
+//            $options[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getHersteller()->getName() . ' ' . $o->getName() . ' ' . $o->getKennzeichen()];
+//            if ($out !== NULL) {
+//                if ($o->getId() == $out->getAuto()->getId()) {
+//                    $options[$o->getId()]['selected'] = TRUE;
+//                    $hatirgendwas = TRUE;
+//                }
+//            }
+//        }
+//        if ($hatirgendwas == FALSE) {
+//            $options[0]['selected'] = TRUE;
+//        }
+//        echo '<pre>';
+//        print_r($out);
+//        echo '</pre>';
+//        
+           $selected=NULL;
+        if ($out !== NULL) {
+            if ($out->getAuto() !== NULL) {
+                $selected = $out->getAuto()->getId(); // Foreign Key
             }
         }
-        if ($hatirgendwas == FALSE) {
-            $options[0]['selected'] = TRUE;
-        }
-
+        $options=Option::buildOptions('Auto', $selected);  
         // mitarbeiter $options erstellen
-
-        $mitarbeiter = Mitarbeiter::getAll();
-        $options2 = [];
-        // zum abwählen
-        $options2[0] = ['value' => 0, 'label' => ''];
-        $hatMitarbeiter = FALSE;
-        foreach ($mitarbeiter as $o) {
-            $options2[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getVorname() . ' ' . $o->getNachname()];
-            if ($out !== NULL) {
-                if ($o->getId() === $out->getMitarbeiter()->getId()) {
-                    $options2[$o->getId()]['selected'] = TRUE;
-                    $hatMitarbeiter = TRUE;
-                }
+        
+        
+//        $mitarbeiter = Mitarbeiter::getAll();
+//        $options2 = [];
+//        // zum abwählen
+//        $options2[0] = ['value' => 0, 'label' => ''];
+//        $hatMitarbeiter = FALSE;
+//        foreach ($mitarbeiter as $o) {
+//            $options2[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getVorname() . ' ' . $o->getNachname()];
+//            if ($out !== NULL) {
+//                if ($o->getId() === $out->getMitarbeiter()->getId()) {
+//                    $options2[$o->getId()]['selected'] = TRUE;
+//                    $hatMitarbeiter = TRUE;
+//                }
+//            }
+//        }
+//        if ($hatMitarbeiter == FALSE) {
+//            $options2[0]['selected'] = TRUE;
+//        }
+        $selected=NULL;
+        if ($out !== NULL) {
+            if ($out->getName() !== NULL) {
+                $selected = $out->getName()->getId(); // Foreign Key
             }
         }
-        if ($hatMitarbeiter == FALSE) {
-            $options2[0]['selected'] = TRUE;
-        }
-
+        $options2=Option::buildOptions('Mitarbeiter', $selected);  
 
         if ($out !== NULL) {
             array_push($rechteSpalte, HTML::buildDropDown('fahrzeug', '1', $options, NULL, 'fahrzeug'));

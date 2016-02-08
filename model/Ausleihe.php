@@ -11,6 +11,8 @@ class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
     public static function getNames() {
         return ['Fahrzeug', 'Mitarbeiter', 'Von Tag', 'Von Uhrzeit', 'Bis Tag', 'Bis Uhrzeit'];
     }
+    
+    
 
     function __construct(Auto $auto, Mitarbeiter $mitarbeiter, $von, $bis, $id = NULL) {
         $this->id = $id;
@@ -50,6 +52,10 @@ class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
 
     public function getDauer() {
         
+    }
+    
+    function getName() {
+        return $this->auto;
     }
 
     public static function getAll() {
