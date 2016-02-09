@@ -24,8 +24,8 @@ include './view/header.php';
                     <li><a class="menuItem" href='#' id="menuHerstellerAnzeigen"><span>Hersteller Anzeigen</span></a></li>
                     <li><a class="menuItem" href='#' id="menuAutosAnzeigen"><span>Autos Anzeigen</span></a></li>
                     <li><a class="menuItem" href='#' id="menuAusleihe"><span>Ausleihen</span></a></li>
-                    <li class='last'><a class="menuItem" href='#' id="menuHerstellerNeuAnlegen"><span>Hersteller neu Anlegen</span></a></li>
-                    <li class='last'><a class="menuItem" href='#' id="menuAutoNeuAnlegen"><span>Auto neu Anlegen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuHerstellerNeuAnlegen"><span>Hersteller neu Anlegen</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuAutoNeuAnlegen"><span>Auto neu Anlegen</span></a></li>
                     <li class='last'><a class="menuItem" href='#' id="menuAusleiheNeuAnlegen"><span>Ausleihe neu Anlegen</span></a></li>
                 </ul>
             </li>
