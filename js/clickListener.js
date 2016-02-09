@@ -25,7 +25,7 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        uausid: id
+                        updateausleiheid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -54,14 +54,14 @@ $(document).ready(function () {
         }
 // delete
         if (this.className === 'loeschenAusleihe' && this.value === 'loeschen') {
-            var lausid = this.id;
+            var deleteausleiheid = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Ausleihe",
                         view: "listeAusleihe",
-                        lausid: lausid
+                        deleteausleiheid: deleteausleiheid
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -80,7 +80,7 @@ $(document).ready(function () {
                         area: "Projekt",
                         view: "listeProjekt",
                         Projekt: projekt,
-                        uprid: id
+                        updateprojektid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -110,7 +110,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Projekt",
                         view: "listeProjekt",
-                        lprid: id
+                        deleteprojektid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -141,7 +141,7 @@ $(document).ready(function () {
                         abteilung_id: abteilung_id,
                         stundenlohn: stundenlohn,
                         vorgesetzter_id: vorgesetzter_id,
-                        umaid: id
+                        updatemitarbeiterhersteller: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -176,14 +176,14 @@ $(document).ready(function () {
         }
 // delete
         if (this.className === 'loeschenMitarbeiter' && this.value === 'loeschen') {
-            var lmaid = this.id;
+            var deletemitarbeiterid = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Mitarbeiter",
                         view: "listeMitarbeiter",
-                        lmaid: lmaid
+                        deletemitarbeiterid: deletemitarbeiterid
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -202,7 +202,7 @@ $(document).ready(function () {
                         area: "Abteilung",
                         view: "listeAbteilung",
                         Abteilung: abteilung,
-                        uabid: id
+                        updateabteilungid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -232,7 +232,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Abteilung",
                         view: "listeAbteilung",
-                        labid: id
+                        deleteabteilungid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -251,7 +251,7 @@ $(document).ready(function () {
                         area: "Hersteller",
                         view: "listeHersteller",
                         Hersteller: hersteller,
-                        uheid: id
+                        updateherstellerid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -281,7 +281,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Hersteller",
                         view: "listeHersteller",
-                        lheid: id
+                        deleteherstellerid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -304,7 +304,7 @@ $(document).ready(function () {
                         Auto: auto,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen,
-                        uauid: id
+                        updateautoid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -338,7 +338,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Auto",
                         view: "listeAuto",
-                        lauid: id
+                        deleteautoid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -363,7 +363,7 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        upmid: id
+                        updatemitarbeiterprojektid: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -392,14 +392,14 @@ $(document).ready(function () {
         }
 // delete
         if (this.className === 'loeschenProjektMitarbeiter' && this.value === 'loeschen') {
-            var lpmid = this.id;
+            var deleteprojektmitarbeiterid = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "ProjektMitarbeiter",
                         view: "listeProjektMitarbeiter",
-                        lpmid: lpmid
+                        deleteprojektmitarbeiterid: deleteprojektmitarbeiterid
                     },
             function (data, status) {
                 $('#content').html(data);

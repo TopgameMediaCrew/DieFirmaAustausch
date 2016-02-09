@@ -25,21 +25,26 @@ class HerstellerController {
                 break;
 
             case 'update' :
-                $out = new Hersteller($_POST['Hersteller'], $_POST['uheid']);
+                $herstellerFiltered = filter_input(INPUT_POST,'Hersteller',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updateherstelleridFiltered = filter_input(INPUT_POST,'updateherstellerid',FILTER_SANITIZE_NUMBER_INT);
+                
+                $out = new Hersteller($herstellerFiltered, $updateherstelleridFiltered);
                 $out = Hersteller::update($out);
                 $out = Hersteller::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert' :
-                $out = new Hersteller($_POST['hersteller'], NULL);
+                $herstellerFiltered = filter_input(INPUT_POST,'hersteller',FILTER_SANITIZE_MAGIC_QUOTES);
+                $out = new Hersteller($herstellerFiltered, NULL);
                 $out = Hersteller::insert($out);
                 $out = Hersteller::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete' :
-                $out = $_POST['lheid'];
+                $deleteherstelleridFiltered = filter_input(INPUT_POST,'deleteherstellerid',FILTER_SANITIZE_NUMBER_INT);
+                $out = $deleteherstelleridFiltered;
                 $out = Hersteller::delete($out);
                 $out = Hersteller::getAll();
                 $out = self::transform($out);

@@ -25,21 +25,33 @@ class AutoController {
                 break;
 
             case 'update' :
-                $out = new Auto($_POST['Auto'], Hersteller::getById($_POST['hersteller_id']), $_POST['kennzeichen'], $_POST['uauid']);
+                $autoFiltered = filter_input(INPUT_POST,'Auto',FILTER_SANITIZE_MAGIC_QUOTES);
+                $hersteller_idFiltered = filter_input(INPUT_POST,'hersteller_id',FILTER_SANITIZE_MAGIC_QUOTES);
+                $kennzeichenFiltered = filter_input(INPUT_POST,'kennzeichen',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updateautoidFiltered = filter_input(INPUT_POST,'updateautoid',FILTER_SANITIZE_NUMBER_INT);
+                
+                
+                $out = new Auto($autoFiltered, Hersteller::getById($hersteller_idFiltered), $kennzeichenFiltered, $updateautoidFiltered);
                 $out = Auto::update($out);
                 $out = Auto::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert' :
-                $out = new Auto($_POST['auto'], Hersteller::getById($_POST['hersteller_id']), $_POST['kennzeichen'], NULL);
+                $autoFiltered = filter_input(INPUT_POST,'Auto',FILTER_SANITIZE_MAGIC_QUOTES);
+                $hersteller_idFiltered = filter_input(INPUT_POST,'hersteller_id',FILTER_SANITIZE_MAGIC_QUOTES);
+                $kennzeichenFiltered = filter_input(INPUT_POST,'kennzeichen',FILTER_SANITIZE_MAGIC_QUOTES);
+         
+                
+                $out = new Auto($autoFiltered, Hersteller::getById($hersteller_idFiltered), $kennzeichenFiltered, NULL);
                 $out = Auto::insert($out);
                 $out = Auto::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete' :
-                $out = $_POST['lauid'];
+                $deleteautoidFiltered = filter_input(INPUT_POST,'deleteautoid',FILTER_SANITIZE_NUMBER_INT);
+                $out = $deleteautoidFiltered;
                 $out = Auto::delete($out);
                 $out = Auto::getAll();
                 $out = self::transform($out);

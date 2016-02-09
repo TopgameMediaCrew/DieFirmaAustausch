@@ -25,21 +25,25 @@ class ProjektController {
                 break;
 
             case 'update' :
-                $out = new Projekt($_POST['Projekt'], $_POST['uprid']);
+                $ProjektFiltered = filter_input(INPUT_POST,'Projekt',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updateprojektidFiltered = filter_input(INPUT_POST,'updateprojektid',FILTER_SANITIZE_NUMBER_INT);
+                $out = new Projekt($ProjektFiltered, $updateprojektidFiltered);
                 $out = Projekt::update($out);
                 $out = Projekt::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert' :
-                $out = new Projekt($_POST['projekt'], NULL);
+                $projektFiltered = filter_input(INPUT_POST,'projekt',FILTER_SANITIZE_MAGIC_QUOTES);
+                $out = new Projekt($projektFiltered, NULL);
                 $out = Projekt::insert($out);
                 $out = Projekt::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete' :
-                $out = $_POST['lprid'];
+                $deleteprojektidFiltered = filter_input(INPUT_POST,'deleteprojektid',FILTER_SANITIZE_NUMBER_INT);
+                $out = $deleteprojektidFiltered;
                 $out = Projekt::delete($out);
                 $out = Projekt::getAll();
                 $out = self::transform($out);

@@ -25,21 +25,31 @@ class AusleiheController {
                 break;
 
             case 'update' :
-                $out = new Ausleihe(Auto::getById($_POST['fahrzeug']), Mitarbeiter::getById($_POST['mitarbeiter']), HTML::dateAndTimeToDateTime($_POST['von']), HTML::dateAndTimeToDateTime($_POST['bis']), $_POST['uausid']);
+                $fahrzeugFiltered = filter_input(INPUT_POST,'fahrzeug',FILTER_SANITIZE_MAGIC_QUOTES);
+                $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
+                $vonFiltered = filter_input(INPUT_POST,'von',FILTER_SANITIZE_MAGIC_QUOTES);
+                $bisFiltered = filter_input(INPUT_POST,'bis',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updateausleiheidFiltered = filter_input(INPUT_POST,'updateausleiheid',FILTER_SANITIZE_NUMBER_INT);
+                $out = new Ausleihe(Auto::getById($fahrzeugFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), $updateausleiheidFiltered);
                 $out = Ausleihe::update($out);
                 $out = Ausleihe::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert' :
-                $out = new Ausleihe(Auto::getById($_POST['fahrzeug']), Mitarbeiter::getById($_POST['mitarbeiter']), HTML::dateAndTimeToDateTime($_POST['von']), HTML::dateAndTimeToDateTime($_POST['bis']), NULL);
+                $fahrzeugFiltered = filter_input(INPUT_POST,'fahrzeug',FILTER_SANITIZE_MAGIC_QUOTES);
+                $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
+                $vonFiltered = filter_input(INPUT_POST,'von',FILTER_SANITIZE_MAGIC_QUOTES);
+                $bisFiltered = filter_input(INPUT_POST,'bis',FILTER_SANITIZE_MAGIC_QUOTES);
+                $out = new Ausleihe(Auto::getById($fahrzeugFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), NULL);
                 $out = Ausleihe::insert($out);
                 $out = Ausleihe::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete' :
-                $out = $_POST['lausid'];
+                $deleteausleiheidFiltered = filter_input(INPUT_POST,'deleteausleiheid',FILTER_SANITIZE_NUMBER_INT);
+                $out = $deleteausleiheidFiltered;
                 $out = Ausleihe::delete($out);
                 $out = Ausleihe::getAll();
                 $out = self::transform($out);

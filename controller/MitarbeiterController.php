@@ -25,23 +25,42 @@ class MitarbeiterController {
                 break;
 
             case 'update':
-                $vorgesetzter = ($_POST['vorgesetzter_id']) ? Mitarbeiter::getById($_POST['vorgesetzter_id']) : NULL;
-                $out = new Mitarbeiter($_POST['vorname'], $_POST['nachname'], $_POST['geschlecht'], HTML::germanToMysql($_POST['geburtsdatum']), Abteilung::getById($_POST['abteilung_id']), $_POST['stundenlohn'], $vorgesetzter, $_POST['umaid']);
+                $vorgesetzter_idFiltered = filter_input(INPUT_POST,'vorgesetzter_id',FILTER_SANITIZE_MAGIC_QUOTES);
+                $vornameFiltered = filter_input(INPUT_POST,'vorname',FILTER_SANITIZE_MAGIC_QUOTES);
+                $nachnameFiltered = filter_input(INPUT_POST,'nachname',FILTER_SANITIZE_MAGIC_QUOTES);
+                $geschlechtFiltered = filter_input(INPUT_POST,'geschlecht',FILTER_SANITIZE_MAGIC_QUOTES);
+                $geburtsdatumFiltered = filter_input(INPUT_POST,'geburtsdatum',FILTER_SANITIZE_MAGIC_QUOTES);
+                $abteilung_idFiltered = filter_input(INPUT_POST,'abteilung_id',FILTER_SANITIZE_MAGIC_QUOTES);
+                $stundenlohnFiltered = filter_input(INPUT_POST,'stundenlohn',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updatemitarbeiterherstellerFiltered = filter_input(INPUT_POST,'updatemitarbeiterhersteller',FILTER_SANITIZE_NUMBER_INT);
+                
+                $vorgesetzter = ($vorgesetzter_idFiltered) ? Mitarbeiter::getById($vorgesetzter_idFiltered) : NULL;        
+                $out = new Mitarbeiter($vornameFiltered, $nachnameFiltered, $geschlechtFiltered, HTML::germanToMysql($geburtsdatumFiltered), Abteilung::getById($abteilung_idFiltered), $stundenlohnFiltered, $vorgesetzter, $updatemitarbeiterherstellerFiltered);
                 $out = Mitarbeiter::update($out);
                 $out = Mitarbeiter::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert':
-                $vorgesetzter = ($_POST['vorgesetzter_id']) ? Mitarbeiter::getById($_POST['vorgesetzter_id']) : NULL;
-                $out = new Mitarbeiter($_POST['vorname'], $_POST['nachname'], $_POST['geschlecht'], HTML::germanToMysql($_POST['geburtsdatum']), Abteilung::getById($_POST['abteilung_id']), $_POST['stundenlohn'], $vorgesetzter, NULL);
+                $vorgesetzter_idFiltered = filter_input(INPUT_POST,'vorgesetzter_id',FILTER_SANITIZE_MAGIC_QUOTES);
+                $vornameFiltered = filter_input(INPUT_POST,'vorname',FILTER_SANITIZE_MAGIC_QUOTES);
+                $nachnameFiltered = filter_input(INPUT_POST,'nachname',FILTER_SANITIZE_MAGIC_QUOTES);
+                $geschlechtFiltered = filter_input(INPUT_POST,'geschlecht',FILTER_SANITIZE_MAGIC_QUOTES);
+                $geburtsdatumFiltered = filter_input(INPUT_POST,'geburtsdatum',FILTER_SANITIZE_MAGIC_QUOTES);
+                $abteilung_idFiltered = filter_input(INPUT_POST,'abteilung_id',FILTER_SANITIZE_MAGIC_QUOTES);
+                $stundenlohnFiltered = filter_input(INPUT_POST,'stundenlohn',FILTER_SANITIZE_MAGIC_QUOTES);
+     
+                
+                $vorgesetzter = ($vorgesetzter_idFiltered) ? Mitarbeiter::getById($vorgesetzter_idFiltered) : NULL;
+                $out = new Mitarbeiter($vornameFiltered, $nachnameFiltered, $geschlechtFiltered, HTML::germanToMysql($geburtsdatumFiltered), Abteilung::getById($abteilung_idFiltered), $stundenlohnFiltered, $vorgesetzter, NULL);
                 $out = Mitarbeiter::insert($out);
                 $out = Mitarbeiter::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete':
-                $out = $_POST['lmaid'];
+                $deletemitarbeiteridFiltered = filter_input(INPUT_POST,'deletemitarbeiterid',FILTER_SANITIZE_NUMBER_INT);
+                $out = $deletemitarbeiteridFiltered;
                 $out = Mitarbeiter::delete($out);
                 $out = Mitarbeiter::getAll();
                 $out = self::transform($out);

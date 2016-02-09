@@ -25,21 +25,25 @@ class AbteilungController {
                 break;
 
             case 'update':
-                $out = new Abteilung($_POST['Abteilung'], $_POST['uabid']);
+                $abteilungFiltered = filter_input(INPUT_POST,'Abteilung',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updateabteilungidFiltered = filter_input(INPUT_POST,'updateabteilungid',FILTER_SANITIZE_NUMBER_INT);
+                $out = new Abteilung($abteilungFiltered,$updateabteilungidFiltered);
                 $out = Abteilung::update($out);
                 $out = Abteilung::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert':
-                $out = new Abteilung($_POST['abteilung'], NULL);
+                $abteilungFiltered = filter_input(INPUT_POST,'abteilung',FILTER_SANITIZE_MAGIC_QUOTES);
+                $out = new Abteilung($abteilungFiltered, NULL);
                 $out = Abteilung::insert($out);
                 $out = Abteilung::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete':
-                $out = $_POST['labid'];
+                $deleteabteilungidFiltered = filter_input(INPUT_POST,'deleteabteilungid',FILTER_SANITIZE_MAGIC_QUOTES);
+                $out = $deleteabteilungidFiltered;
                 $out = Abteilung::delete($out);
                 $out = Abteilung::getAll();
                 $out = self::transform($out);

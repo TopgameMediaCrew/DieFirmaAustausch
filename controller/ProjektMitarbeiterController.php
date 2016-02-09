@@ -25,21 +25,33 @@ class ProjektMitarbeiterController {
                 break;
 
             case 'update' :
-                $out = new ProjektMitarbeiter(Projekt::getById($_POST['Projekt']), Mitarbeiter::getById($_POST['mitarbeiter']), HTML::dateAndTimeToDateTime($_POST['von']), HTML::dateAndTimeToDateTime($_POST['bis']), $_POST['upmid']);
+                $ProjektFiltered = filter_input(INPUT_POST,'Projekt',FILTER_SANITIZE_MAGIC_QUOTES);
+                $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
+                $vonFiltered = filter_input(INPUT_POST,'von',FILTER_SANITIZE_MAGIC_QUOTES);
+                $bisFiltered = filter_input(INPUT_POST,'bis',FILTER_SANITIZE_MAGIC_QUOTES);
+                $updatemitarbeiterprojektidFiltered = filter_input(INPUT_POST,'updatemitarbeiterprojektid',FILTER_SANITIZE_NUMBER_INT);
+            
+                
+                $out = new ProjektMitarbeiter(Projekt::getById($ProjektFiltered), Mitarbeiter::getById($_POST['mitarbeiter']), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), $updatemitarbeiterprojektidFiltered);
                 $out = ProjektMitarbeiter::update($out);
                 $out = ProjektMitarbeiter::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'insert' :
-                $out = new ProjektMitarbeiter(Projekt::getById($_POST['projekt']), Mitarbeiter::getById($_POST['mitarbeiter']), HTML::dateAndTimeToDateTime($_POST['von']), HTML::dateAndTimeToDateTime($_POST['bis']), NULL);
+                $projektFiltered = filter_input(INPUT_POST,'projekt',FILTER_SANITIZE_MAGIC_QUOTES);
+                $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
+                $vonFiltered = filter_input(INPUT_POST,'von',FILTER_SANITIZE_MAGIC_QUOTES);
+                $bisFiltered = filter_input(INPUT_POST,'bis',FILTER_SANITIZE_MAGIC_QUOTES);
+                $out = new ProjektMitarbeiter(Projekt::getById($projektFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), NULL);
                 $out = ProjektMitarbeiter::insert($out);
                 $out = ProjektMitarbeiter::getAll();
                 $out = self::transform($out);
                 break;
 
             case 'delete' :
-                $out = $_POST['lpmid'];
+                $deleteprojektmitarbeiteridFiltered = filter_input(INPUT_POST,'deleteprojektmitarbeiterid',FILTER_SANITIZE_NUMBER_INT);
+                $out = $deleteprojektmitarbeiteridFiltered;
                 $out = ProjektMitarbeiter::delete($out);
                 $out = ProjektMitarbeiter::getAll();
                 $out = self::transform($out);

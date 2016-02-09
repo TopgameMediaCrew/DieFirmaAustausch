@@ -13,6 +13,15 @@
 
 
 class Option {
+    
+    /**
+     * 
+     * @param string $className Klassen mit getId(),getName() bzw. getDropName() und getAll()
+     * @param int $selected PK der Vorauswahl
+     * @param boolean $zeroOption, wenn ein Leerfeld an oberster Stelle ausgeben werden soll
+     * @return Array (siehe oben)
+     * @throws Exception
+     */
     public static function buildOptions($className, $selected = NULL, $zeroOption = NULL) {
      $objectArr = []; // für Rückgabe
      // check: hat class $className die Methoden getId() und getName()
