@@ -7,11 +7,11 @@
  */
 class ProjektMitarbeiter implements Aenderbar, Zeitmessbar, JsonSerializable {
 
-    private $id;
-    private $projekt;
-    private $mitarbeiter;
-    private $von;
-    private $bis;
+    private $id; // Primary Key typ int
+    private $projekt; // objekt FK
+    private $mitarbeiter; // objekt FK
+    private $von; // datetime
+    private $bis; // datetime
 
     public static function getNames() {
         return ['Projekt', 'Mitarbeiter', 'Von Tag', 'Von Uhrzeit', 'Bis Tag', 'Bis Uhrzeit'];

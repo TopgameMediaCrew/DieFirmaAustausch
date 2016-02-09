@@ -44,8 +44,8 @@ include './view/header.php';
              <li class='has-sub'><a href='#' id="menuViews"><span>Views (workingname so dont cry)</span></a>
                 <ul>
                     <li><a class="menuItem" href='#' id="menuMitarbeiterAbteilungVorgesetzter"><span>Mitarbeiter mit Abteilung und Vorgesetzten</span></a></li>
-                    <li><a class="menuItem" href='#' id="menuAutoAusleihenListe"><span>Die Ausleihenliste der Autos mit Zeiten</span></a></li>
-                    <li><a class="menuItem" href='#' id="menuProjektAusleihenListe"><span>Die Ausleihenliste der Projekte mit Zeiten</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuAusleiherAutoListe"><span>Die Ausleihenliste der Autos mit Zeiten</span></a></li>
+                    <li><a class="menuItem" href='#' id="menuAbteilungAusleihenListe"><span>Die Ausleihenliste der Projekte mit Zeiten</span></a></li>
                     <li><a class="menuItem" href='#' id="menuMitarbeiterZeiteZuProjekt"><span>Zeit der Mitarbeiter im Projekt</span></a></li>
                     <li class='last'><a class="menuItem" href='#' id="menuProjektKosten"><span>Kosten der Projekte Anzeigen</span></a></li>
                 </ul>

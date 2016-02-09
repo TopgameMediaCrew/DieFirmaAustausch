@@ -12,9 +12,16 @@ class Auto implements Aenderbar, JsonSerializable {
     private $name;
     private $kennzeichen;
 
+    
+        
     public static function getNames() {
         return ['Hersteller', 'Modell', 'Kennzeichen'];
     }
+    
+   
+    
+    
+    
 
     public function __construct($name, Hersteller $hersteller, $kennzeichen, $id = NULL) {
         $this->hersteller = $hersteller;
@@ -40,6 +47,13 @@ class Auto implements Aenderbar, JsonSerializable {
     public function getDropName() {
         return $this->hersteller->getName() . ' ' . $this->getName() . ' ' . $this->getKennzeichen();
     }
+      /**
+     * 
+     * @return Array von Objekten. Gibt den Hertstellernamen, Fahrzeugnamen und das Kennzeichen zurück
+     * um eine aufschlussreiche Darstellung im DropDown Menü zu gewährleisten.
+     */
+    
+    
     public function getHersteller() {
         return $this->hersteller;
     }

@@ -7,8 +7,8 @@
  */
 class Projekt implements Aenderbar, JsonSerializable {
 
-    private $id;
-    private $name;
+    private $id; // PK int
+    private $name; // String max 50
 
     public static function getNames() {
         return ['Projekt'];

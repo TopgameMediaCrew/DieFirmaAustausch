@@ -2,6 +2,21 @@
 
 class Mitarbeiter implements Aenderbar, JsonSerializable {
 
+     /**
+     *
+     * $id int PK
+     * $vorname string max. 50 Zeichen lang 
+     * $nachname string max. 50 Zeichen lang 
+     * $geschlecht enum('m', 'w') in der Datenbank
+     * $geburtsdatum Date (1993-06-07)
+     * $abteilung int
+     * $stundenlohn double
+     * $vorgesetzter int
+     * $nullSelectable boolean
+     * 
+     */
+    
+    
     private $id;
     private $vorname;
     private $nachname;

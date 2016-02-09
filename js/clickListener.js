@@ -459,6 +459,23 @@ $(document).ready(function () {
         var options = [];
         switch (id) {
 
+            // jakubs sein zeug
+            
+             case 'menuProjektKosten':
+                options=['showList','ProjektKosten','listeProjektKosten']
+                break;
+            case 'menuMitarbeiterZeiteZuProjekt':
+                options=['showList','MitarbeiterZeiteZuProjekt','listeMitarbeiterZeiteZuProjekt']
+                break;
+            case 'menuAbteilungAusleihenListe':
+                options=['showList','AbteilungAusleihenListe','listeAbteilungAusleihenListe']
+                break;
+            case 'menuAusleiherAutoListe':
+                options=['showList','AusleiherAutoListe','listeAusleiherAutoListe']
+                break;
+
+
+
             // Show
              case 'menuMitarbeiterAbteilungVorgesetzter':
                 options = ['showList', 'MitarbeiterAbteilungVorgesetzter', 'listeMitarbeiterAbteilungVorgesetzter'];

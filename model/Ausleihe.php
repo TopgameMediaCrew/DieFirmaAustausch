@@ -2,6 +2,17 @@
 
 class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
 
+    /**
+     *
+     * $id int PK
+     * $auto Object
+     * $mitarbeiter Object
+     * $von DateTime (2016-01-20 08:03:00)
+     * $bis DateTime (2016-01-21 17:00:00)
+     *
+     */
+    
+    
     private $id;
     private $auto;
     private $mitarbeiter;

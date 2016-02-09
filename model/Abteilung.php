@@ -7,6 +7,16 @@
  */
 class Abteilung implements Aenderbar, JsonSerializable {
 
+    /**
+     *
+     * $id int PK
+     * $name string max. 50 Zeichen lang 
+     * 
+     */
+    
+    
+    
+    
     private $id;
     private $name;
 
