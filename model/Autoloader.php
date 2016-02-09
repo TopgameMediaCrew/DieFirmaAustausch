@@ -1,6 +1,15 @@
 <?php
-
+/**
+ * dient zum (Nach-)laden von Klassen, sofern deren Dateien noch nicht eingebunden sind
+ * $class ist der Klassenname
+ * weitere Verzeichnisse für Klassen sind im Array $pathArr einzutragen 
+ */
 class Autoloader {
+    /**
+     * 
+     * @param string $class
+     * @throws Exception
+     */
    public static function load($class) {
        $fileName=$class . '.php';
        // in Array die möglichen Pfade für Klassen eintragen

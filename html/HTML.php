@@ -7,6 +7,27 @@
  */
 class HTML {
 
+    /**
+     * 
+     * @param array $tableHead Spaltenüberschrift einer Tabelle
+     * @param array $tableBody 2-dim Array mit Werten (data) für eine Tabelle
+     * @return string
+     * @throws Exception
+     * 
+     * erzeugt table: thead mit tr und th, tbody mit tr und td 
+     * 
+     * @example 
+     * $tableHead = ['A','B'];
+     * $tableBody = [['1','2'],['3','4'];
+     * 
+     * buildListTable erstellt HTML-code für
+     *  A B
+     *  1 2
+     *  3 4
+     */
+    
+    
+    
     public static function buildListTable(Array $tableHead, Array $tableBody) {
         // falls $tableBody ein Array mit Objekten ist, wird jedes Objekt in ein asso-Array gewandelt
         if (is_object($tableBody[0])) {
@@ -30,7 +51,26 @@ class HTML {
         $html .= '</tbody>';
         return $html;
     }
-
+/**
+     * 
+     * @param array $linkeSpalte
+     * @param array $rechteSpalte
+     * @return string
+     * @throws Exception
+     * 
+     * erzeugt table ohne thead, aber mit tbody, tr und td
+     * $linkeSpalte, $rechteSpalte sind Arrays für den Eintrag in die jeweilge Spalte
+     * 
+     * @example
+     * $linkeSpalte = ['Vorname : ', 'Nachname:'];
+     * $rechteSpalte = ['Peter', 'Pan'];
+     * 
+     * buildFormularTable erstellt HTML-code für
+     *  Vorname : Peter
+     *  Nachname: Pan
+     */
+    
+    
     public static function buildFormularTable(Array $linkeSpalte, Array $rechteSpalte) {
         if (count($linkeSpalte) !== count($rechteSpalte)) {
             throw new Exception('Arrays in HTML::buildFormularTable sind nicht gleich groß');
@@ -45,10 +85,33 @@ class HTML {
         $html .= '</tbody></table>' . "\n";
         return $html;
     }
-
+  /**
+     * erstellt button-tag
+     * 
+     * @param string $label Ausgabe zum Button (Aufschrift)
+     * @param int $id für js
+     * @param string $class für js 
+     * @param string $value für js
+     * @return string
+     */
+    
+    
     public static function buildButton($label, $id = 'NULL', $class = 'NULL', $value = 'NULL') {
         return '<button type="button" id="' . $id . '" class="' . $class . '" value="' . $value . '">' . $label . '</button>';
     }
+    
+     /**
+     * erstellt input-tag
+     * 
+     * @param string $type text, hidden oder password
+     * @param string $name Name der Übergabevariable
+     * @param string $value Wert der Vorbelegung
+     * @param string $readonly falls Eintrag nicht durch user geändert werden darf
+     * @param string $id für js
+     * @param string $class für js
+     * @return string 
+     */
+    
 
     public static function buildInput($type, $name, $value, $readonly = NULL, $id = NUll, $class = NULL) {
         $html = '<input type="';
@@ -74,7 +137,19 @@ class HTML {
         $html .= ' />';
         return $html;
     }
-
+ /**
+     * 
+     * @param string $name Übergabevariable
+     * @param int $size Höhe des DropDownMenus
+     * @param array $options 2-dim Array, je Ausgabezeile asso-Keys 'value','label' optional 'selected'
+     *        wird gebildet in Option::buildOptions($className, $selected = NULL, $zeroOption = NULL)
+     * @param boolean $multiple Mehrfachauswahl noch nicht implementiert
+     * @param type $id für js
+     * @param type $class für js
+     * @return string
+     */
+    
+    
     public static function buildDropDown($name, $size, Array $options, $multiple = NULL, $id = NULL, $class = NULL) {
 
         $html = '<select name="' . $name . '"';
@@ -105,7 +180,17 @@ class HTML {
         $html .= '</select>';
         return $html;
     }
-
+ /**
+     * 
+     * @param string $groupname
+     * @param array $options 2-dim Array, jede option enthält asso-Keys label, value 
+     * und optional checked
+     * @param boolean $buttonLeft ob button links vom label ist
+     * @return string
+     */
+    
+    
+    
     public static function buildRadio($groupname, Array $options, $buttonLeft = TRUE) {
         $html = '';
         foreach ($options as $option) {
@@ -134,13 +219,13 @@ class HTML {
     public static function germanToMysql($date) {
         return implode('-', array_reverse(explode('.', $date)));
     }
-    
+      // datumzeit db format (YYYY-MM-DD hh:mm:ss) wird in deutsch(DD.MM.YYYY hh:mm:ss) überführt 
     public static function dateTimeToDateAndTime($date) {
         $datum = array_reverse(explode(' ', $date));
         $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
         return $datum[1] . ' ' . $datum[0];
     }
-   
+      // datumzeit  deutsch(DD.MM.YYYY hh:mm:ss) wird in db format (YYYY-MM-DD hh:mm:ss) überführt
     public static function dateAndTimeToDateTime($date) {
         $datum = array_reverse(explode(' ', $date));
         $datum[1] = implode('-', array_reverse(explode('.', $datum[1])));

@@ -54,8 +54,8 @@ class Option {
          $objectArr[$o->getId()] = ['value' => $o->getId(), 'label' => $o->getName()];
          }
          //// alternativ
-         // $objectArr[$o->getId()]['value']=$o->getId();
-         // $objectArr[$o->getId()]['label']=$o->getName();
+         // $objectArr[$o->getId()]['value']=$o->getId(); // zeile 54 hat dieselbe Funktion 
+         // $objectArr[$o->getId()]['label']=$o->getName(); // wie zeile 57 und 58 zusammen
          if ($selected === $o->getId()) {
              $objectArr[$o->getId()]['selected'] = ' selected';
          }
