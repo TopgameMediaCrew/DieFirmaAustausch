@@ -216,7 +216,7 @@ class MitarbeiterController {
             array_push($rechteSpalte, HTML::buildInput('text', 'vorname', '', NULL, 'vorname'));
             array_push($rechteSpalte, HTML::buildInput('text', 'nachname', '', NULL, 'nachname'));
             array_push($rechteSpalte, HTML::buildRadio('geschlecht', $radioOptions, FALSE));
-            array_push($rechteSpalte, HTML::buildInput('text', 'geburtsdatum', '', NULL, 'geburtsdatum'));
+            array_push($rechteSpalte, HTML::buildInput('text', 'geburtsdatum', '', NULL, 'geburtsdatum', NULL, 'TT.MM.JJJJ'));
             array_push($rechteSpalte, HTML::buildDropDown('abteilung', '1', $options, NULL, 'abteilung'));
             array_push($rechteSpalte, HTML::buildInput('text', 'stundenlohn', '', NULL, 'stundenlohn'));
             array_push($rechteSpalte, HTML::buildDropDown('vorgesetzter', '1', $options2, NULL, 'vorgesetzter'));
