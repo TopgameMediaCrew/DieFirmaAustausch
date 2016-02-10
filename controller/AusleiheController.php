@@ -29,7 +29,7 @@ class AusleiheController {
                 $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
                 $vonFiltered = filter_input(INPUT_POST,'von',FILTER_SANITIZE_MAGIC_QUOTES);
                 $bisFiltered = filter_input(INPUT_POST,'bis',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateausleiheidFiltered = filter_input(INPUT_POST,'updateausleiheid',FILTER_SANITIZE_NUMBER_INT);
+                $updateausleiheidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = new Ausleihe(Auto::getById($fahrzeugFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), $updateausleiheidFiltered);
                 $out = Ausleihe::update($out);
                 $out = Ausleihe::getAll();

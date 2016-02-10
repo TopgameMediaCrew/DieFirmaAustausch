@@ -10,6 +10,10 @@ class AbteilungController {
     public static function doAction($action, &$view, $id) {
         switch ($action) {
             
+            /*
+             * 
+             */
+            
             case 'showList':
                 $out = Abteilung::getAll();
                 $out = self::transform($out);

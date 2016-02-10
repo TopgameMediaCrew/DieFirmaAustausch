@@ -25,7 +25,7 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        updateausleiheid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
