@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('button').off('click');
+//    $('button').off('click');
     $('button').click(function () {
         var inputs = document.getElementsByTagName('input');
         var drops = document.getElementsByTagName('select');
