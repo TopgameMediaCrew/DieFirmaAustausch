@@ -11,7 +11,32 @@ class AbteilungController {
         switch ($action) {
             
             /*
+             * rufe klasse Abteilung mit der methode getAll auf,
              * 
+             * liefert Array zurück
+             * 
+             * Array
+              (
+               [1] => Abteilung Object
+              (
+              [id:Abteilung:private] => 1
+              [name:Abteilung:private] => IT
+              )
+
+              [2] => Abteilung Object
+              (
+              [id:Abteilung:private] => 2
+              [name:Abteilung:private] => Buchhaltung
+               )
+              [3] => Abteilung Object
+              (
+              [id:Abteilung:private] => 3
+              [name:Abteilung:private] => Rechtsabteilung 2
+              )
+              Übergabe des Arrays an Funktion Transform
+             * 
+             * Transform baut daraus ein HTML gerüst und gibt 
+             * dieses an AbteilungListe zurück (an echo).
              */
             
             case 'showList':
@@ -45,6 +70,24 @@ class AbteilungController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             * Übergabe des Primary Keys (über POST('id')
+             * 
+             * Array
+              (
+              [ajax] => true
+              [action] => delete
+              [area] => Abteilung
+              [view] => listeAbteilung
+              [id] => 13
+              )
+             * 
+             * , danach methodenaufruf (löschen) in der jeweiligen Klasse,
+             * und seite neu laden bzw. liste anzeigen.
+             * 
+             * 
+             */
+            
             case 'delete':
                 $deleteabteilungidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_MAGIC_QUOTES);
                 $out = $deleteabteilungidFiltered;

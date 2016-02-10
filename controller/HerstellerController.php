@@ -9,6 +9,14 @@ class HerstellerController {
 
     public static function doAction($action, $id) {
         switch ($action) {
+            /*
+             * Showlist führt Methode getAll in Klasse Hersteller aus
+             * und liefert ein array mit objekten zurück.
+             * dieses wird umgewandelt in ein Array, welches dann 
+             * in der listeHersteller zu einem HTML Statement in den
+             * #content div geladen wird.
+             * 
+             */
             
             case 'showList':
                 $out = Hersteller::getAll();
@@ -42,6 +50,11 @@ class HerstellerController {
                 $out = self::transform($out);
                 break;
 
+            
+             /* Übergabe des Primary Keys (über POST('id')
+             * danach methodenaufruf (löschen) in der jeweiligen Klasse,
+             * und seite neu laden bzw. liste anzeigen.
+             */
             case 'delete' :
                 $deleteherstelleridFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteherstelleridFiltered;

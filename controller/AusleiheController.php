@@ -9,7 +9,14 @@ class AusleiheController {
 
     public static function doAction($action, $id) {
         switch ($action) {
-
+            /*
+             * Showlist führt Methode getAll in Klasse Ausleihe aus
+             * und liefert ein array mit objekten zurück.
+             * dieses wird umgewandelt in ein Array, welches dann 
+             * in der listeAusleihe zu einem HTML Statement in den
+             * #content div geladen wird.
+             * 
+             */
             case 'showList':
                 $out = Ausleihe::getAll();
                 $out = self::transform($out);
@@ -24,6 +31,12 @@ class AusleiheController {
                 $out = self::transformUpdate();
                 break;
 
+            /*
+             * 
+             */
+            
+            
+            
             case 'update' :
                 $fahrzeugFiltered = filter_input(INPUT_POST,'fahrzeug',FILTER_SANITIZE_MAGIC_QUOTES);
                 $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
@@ -46,7 +59,11 @@ class AusleiheController {
                 $out = Ausleihe::getAll();
                 $out = self::transform($out);
                 break;
-
+/*
+             * Übergabe des Primary Keys (über POST('id')
+             * danach methodenaufruf (löschen) in der jeweiligen Klasse,
+             * und seite neu laden bzw. liste anzeigen.
+             */
             case 'delete' :
                 $deleteausleiheidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteausleiheidFiltered;

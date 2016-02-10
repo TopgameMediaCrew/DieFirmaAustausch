@@ -10,6 +10,15 @@ class ProjektController {
     public static function doAction($action, $id) {
         switch ($action) {
 
+            /*
+             * Showlist führt Methode getAll in Klasse Projekt aus
+             * und liefert ein array mit objekten zurück.
+             * dieses wird umgewandelt in ein Array, welches dann 
+             * in der listeProjekt zu einem HTML Statement in den
+             * #content div geladen wird.
+             * 
+             */
+            
             case 'showList':
                 $out = Projekt::getAll();
                 $out = self::transform($out);
@@ -41,6 +50,11 @@ class ProjektController {
                 $out = self::transform($out);
                 break;
 
+            
+             /* Übergabe des Primary Keys (über POST('id')
+             * danach methodenaufruf (löschen) in der jeweiligen Klasse,
+             * und seite neu laden bzw. liste anzeigen.
+             */
             case 'delete' :
                 $deleteprojektidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteprojektidFiltered;

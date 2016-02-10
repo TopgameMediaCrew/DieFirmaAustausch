@@ -218,14 +218,14 @@ class HTML {
     // datumzeit db format (YYYY-MM-DD hh:mm:ss) wird in deutsch(DD.MM.YYYY hh:mm:ss) überführt 
     public static function dateTimeToDateAndTime($date) {
         $datum = explode(' ', $date);
-        $datum[0] = self::germanToMysql($datum[0]);
+        $datum[0] = self::mysqlToGerman($datum[0]);
         return implode(' ', $datum);
     }
     
     // datumzeit  deutsch(DD.MM.YYYY hh:mm:ss) wird in db format (YYYY-MM-DD hh:mm:ss) überführt
     public static function dateAndTimeToDateTime($date) {
         $datum = explode(' ', $date);
-        $datum[0] = self::mysqlToGerman($datum[0]);
+        $datum[0] = self::germanToMysql($datum[0]);
         return implode(' ', $datum);
     }
 

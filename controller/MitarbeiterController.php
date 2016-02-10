@@ -10,6 +10,15 @@ class MitarbeiterController {
     public static function doAction($action, $id) {
         switch ($action) {
 
+            /*
+             * Showlist führt Methode getAll in Klasse Mitarbeiter aus
+             * und liefert ein array mit objekten zurück.
+             * dieses wird umgewandelt in ein Array, welches dann 
+             * in der listeMitarbeiter zu einem HTML Statement in den
+             * #content div geladen wird.
+             * 
+             */
+            
             case 'showList':
                 $out = Mitarbeiter::getAll();
                 $out = self::transform($out);
@@ -58,6 +67,11 @@ class MitarbeiterController {
                 $out = self::transform($out);
                 break;
 
+            
+             /* Übergabe des Primary Keys (über POST('id')
+             * danach methodenaufruf (löschen) in der jeweiligen Klasse,
+             * und seite neu laden bzw. liste anzeigen.
+             */
             case 'delete':
                 $deletemitarbeiteridFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deletemitarbeiteridFiltered;
