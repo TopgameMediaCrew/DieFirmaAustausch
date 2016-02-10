@@ -25,7 +25,7 @@ $idFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
 $id = ($idFiltered !== NULL) ? $idFiltered : '0';
 
 try {
-    $out = BaseController::load($action, $view, $area, $id);
+    $out = BaseController::load($action, $area, $id);
 } catch (Exception $exc) {
     $view = 'error';
 

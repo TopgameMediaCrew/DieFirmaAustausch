@@ -7,7 +7,7 @@
  */
 class HerstellerController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
             
             case 'showList':
@@ -26,7 +26,7 @@ class HerstellerController {
 
             case 'update' :
                 $herstellerFiltered = filter_input(INPUT_POST,'Hersteller',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateherstelleridFiltered = filter_input(INPUT_POST,'updateherstellerid',FILTER_SANITIZE_NUMBER_INT);
+                $updateherstelleridFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 
                 $out = new Hersteller($herstellerFiltered, $updateherstelleridFiltered);
                 $out = Hersteller::update($out);
@@ -43,7 +43,7 @@ class HerstellerController {
                 break;
 
             case 'delete' :
-                $deleteherstelleridFiltered = filter_input(INPUT_POST,'deleteherstellerid',FILTER_SANITIZE_NUMBER_INT);
+                $deleteherstelleridFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteherstelleridFiltered;
                 $out = Hersteller::delete($out);
                 $out = Hersteller::getAll();

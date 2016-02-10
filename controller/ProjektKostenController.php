@@ -12,7 +12,7 @@
  * @author Teilnehmer
  */
 class ProjektKostenController {
-    public static function doAction($action, $view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
             case 'showList':
                 $out = ProjektKosten::getAll();

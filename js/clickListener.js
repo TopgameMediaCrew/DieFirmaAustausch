@@ -61,7 +61,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Ausleihe",
                         view: "listeAusleihe",
-                        deleteausleiheid: deleteausleiheid
+                        id: deleteausleiheid
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -80,7 +80,7 @@ $(document).ready(function () {
                         area: "Projekt",
                         view: "listeProjekt",
                         Projekt: projekt,
-                        updateprojektid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -110,7 +110,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Projekt",
                         view: "listeProjekt",
-                        deleteprojektid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -141,7 +141,7 @@ $(document).ready(function () {
                         abteilung_id: abteilung_id,
                         stundenlohn: stundenlohn,
                         vorgesetzter_id: vorgesetzter_id,
-                        updatemitarbeiterhersteller: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -183,7 +183,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Mitarbeiter",
                         view: "listeMitarbeiter",
-                        deletemitarbeiterid: deletemitarbeiterid
+                        id: deletemitarbeiterid
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -202,7 +202,7 @@ $(document).ready(function () {
                         area: "Abteilung",
                         view: "listeAbteilung",
                         Abteilung: abteilung,
-                        updateabteilungid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -232,7 +232,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Abteilung",
                         view: "listeAbteilung",
-                        deleteabteilungid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -251,7 +251,7 @@ $(document).ready(function () {
                         area: "Hersteller",
                         view: "listeHersteller",
                         Hersteller: hersteller,
-                        updateherstellerid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -281,7 +281,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Hersteller",
                         view: "listeHersteller",
-                        deleteherstellerid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -304,7 +304,7 @@ $(document).ready(function () {
                         Auto: auto,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen,
-                        updateautoid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -338,7 +338,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Auto",
                         view: "listeAuto",
-                        deleteautoid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -363,7 +363,7 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        updatemitarbeiterprojektid: id
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -399,7 +399,7 @@ $(document).ready(function () {
                         action: "delete",
                         area: "ProjektMitarbeiter",
                         view: "listeProjektMitarbeiter",
-                        deleteprojektmitarbeiterid: deleteprojektmitarbeiterid
+                        id: deleteprojektmitarbeiterid
                     },
             function (data, status) {
                 $('#content').html(data);

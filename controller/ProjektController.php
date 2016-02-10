@@ -7,7 +7,7 @@
  */
 class ProjektController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
 
             case 'showList':
@@ -26,7 +26,7 @@ class ProjektController {
 
             case 'update' :
                 $ProjektFiltered = filter_input(INPUT_POST,'Projekt',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateprojektidFiltered = filter_input(INPUT_POST,'updateprojektid',FILTER_SANITIZE_NUMBER_INT);
+                $updateprojektidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = new Projekt($ProjektFiltered, $updateprojektidFiltered);
                 $out = Projekt::update($out);
                 $out = Projekt::getAll();
@@ -42,7 +42,7 @@ class ProjektController {
                 break;
 
             case 'delete' :
-                $deleteprojektidFiltered = filter_input(INPUT_POST,'deleteprojektid',FILTER_SANITIZE_NUMBER_INT);
+                $deleteprojektidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteprojektidFiltered;
                 $out = Projekt::delete($out);
                 $out = Projekt::getAll();

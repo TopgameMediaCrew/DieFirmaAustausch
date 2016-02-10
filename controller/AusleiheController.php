@@ -7,7 +7,7 @@
  */
 class AusleiheController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
 
             case 'showList':
@@ -48,7 +48,7 @@ class AusleiheController {
                 break;
 
             case 'delete' :
-                $deleteausleiheidFiltered = filter_input(INPUT_POST,'deleteausleiheid',FILTER_SANITIZE_NUMBER_INT);
+                $deleteausleiheidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteausleiheidFiltered;
                 $out = Ausleihe::delete($out);
                 $out = Ausleihe::getAll();

@@ -12,7 +12,7 @@
  * @author Teilnehmer
  */
 class MitarbeiterZeiteZuProjektController {
-   public static function doAction($action, $view, $id) {
+   public static function doAction($action, $id) {
         switch ($action) {
             case 'showList':
                 $out = MitarbeiterZeiteZuProjekt::getAll();

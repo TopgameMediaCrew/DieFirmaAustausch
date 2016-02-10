@@ -7,7 +7,7 @@
  */
 class ProjektMitarbeiterController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
             
             case 'showList':
@@ -29,7 +29,7 @@ class ProjektMitarbeiterController {
                 $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
                 $vonFiltered = filter_input(INPUT_POST,'von',FILTER_SANITIZE_MAGIC_QUOTES);
                 $bisFiltered = filter_input(INPUT_POST,'bis',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updatemitarbeiterprojektidFiltered = filter_input(INPUT_POST,'updatemitarbeiterprojektid',FILTER_SANITIZE_NUMBER_INT);
+                $updatemitarbeiterprojektidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
             
                 
                 $out = new ProjektMitarbeiter(Projekt::getById($ProjektFiltered), Mitarbeiter::getById($_POST['mitarbeiter']), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), $updatemitarbeiterprojektidFiltered);
@@ -50,7 +50,7 @@ class ProjektMitarbeiterController {
                 break;
 
             case 'delete' :
-                $deleteprojektmitarbeiteridFiltered = filter_input(INPUT_POST,'deleteprojektmitarbeiterid',FILTER_SANITIZE_NUMBER_INT);
+                $deleteprojektmitarbeiteridFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteprojektmitarbeiteridFiltered;
                 $out = ProjektMitarbeiter::delete($out);
                 $out = ProjektMitarbeiter::getAll();

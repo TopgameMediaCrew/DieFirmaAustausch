@@ -7,7 +7,7 @@
  */
 class AbteilungController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
             
             /*
@@ -30,7 +30,7 @@ class AbteilungController {
 
             case 'update':
                 $abteilungFiltered = filter_input(INPUT_POST,'Abteilung',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateabteilungidFiltered = filter_input(INPUT_POST,'updateabteilungid',FILTER_SANITIZE_NUMBER_INT);
+                $updateabteilungidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = new Abteilung($abteilungFiltered,$updateabteilungidFiltered);
                 $out = Abteilung::update($out);
                 $out = Abteilung::getAll();
@@ -46,7 +46,7 @@ class AbteilungController {
                 break;
 
             case 'delete':
-                $deleteabteilungidFiltered = filter_input(INPUT_POST,'deleteabteilungid',FILTER_SANITIZE_MAGIC_QUOTES);
+                $deleteabteilungidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_MAGIC_QUOTES);
                 $out = $deleteabteilungidFiltered;
                 $out = Abteilung::delete($out);
                 $out = Abteilung::getAll();

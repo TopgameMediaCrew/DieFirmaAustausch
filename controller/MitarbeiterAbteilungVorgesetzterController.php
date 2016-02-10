@@ -1,7 +1,7 @@
 <?php
 class MitarbeiterAbteilungVorgesetzterController {
 
-    public static function doAction($action, $view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
             case 'showList':
                 $out = MitarbeiterAbteilungVorgesetzter::getAll();

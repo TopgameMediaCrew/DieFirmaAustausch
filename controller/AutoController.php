@@ -7,7 +7,7 @@
  */
 class AutoController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
             
             case 'showList':
@@ -28,7 +28,7 @@ class AutoController {
                 $autoFiltered = filter_input(INPUT_POST,'Auto',FILTER_SANITIZE_MAGIC_QUOTES);
                 $hersteller_idFiltered = filter_input(INPUT_POST,'hersteller_id',FILTER_SANITIZE_MAGIC_QUOTES);
                 $kennzeichenFiltered = filter_input(INPUT_POST,'kennzeichen',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateautoidFiltered = filter_input(INPUT_POST,'updateautoid',FILTER_SANITIZE_NUMBER_INT);
+                $updateautoidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 
                 
                 $out = new Auto($autoFiltered, Hersteller::getById($hersteller_idFiltered), $kennzeichenFiltered, $updateautoidFiltered);
@@ -50,7 +50,7 @@ class AutoController {
                 break;
 
             case 'delete' :
-                $deleteautoidFiltered = filter_input(INPUT_POST,'deleteautoid',FILTER_SANITIZE_NUMBER_INT);
+                $deleteautoidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deleteautoidFiltered;
                 $out = Auto::delete($out);
                 $out = Auto::getAll();

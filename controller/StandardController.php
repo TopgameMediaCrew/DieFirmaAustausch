@@ -7,7 +7,7 @@
  */
 class StandardController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         
     }
 

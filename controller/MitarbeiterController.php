@@ -7,7 +7,7 @@
  */
 class MitarbeiterController {
 
-    public static function doAction($action, &$view, $id) {
+    public static function doAction($action, $id) {
         switch ($action) {
 
             case 'showList':
@@ -32,7 +32,7 @@ class MitarbeiterController {
                 $geburtsdatumFiltered = filter_input(INPUT_POST,'geburtsdatum',FILTER_SANITIZE_MAGIC_QUOTES);
                 $abteilung_idFiltered = filter_input(INPUT_POST,'abteilung_id',FILTER_SANITIZE_MAGIC_QUOTES);
                 $stundenlohnFiltered = filter_input(INPUT_POST,'stundenlohn',FILTER_SANITIZE_MAGIC_QUOTES);
-                $updatemitarbeiterherstellerFiltered = filter_input(INPUT_POST,'updatemitarbeiterhersteller',FILTER_SANITIZE_NUMBER_INT);
+                $updatemitarbeiterherstellerFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 
                 $vorgesetzter = ($vorgesetzter_idFiltered) ? Mitarbeiter::getById($vorgesetzter_idFiltered) : NULL;        
                 $out = new Mitarbeiter($vornameFiltered, $nachnameFiltered, $geschlechtFiltered, HTML::germanToMysql($geburtsdatumFiltered), Abteilung::getById($abteilung_idFiltered), $stundenlohnFiltered, $vorgesetzter, $updatemitarbeiterherstellerFiltered);
@@ -59,7 +59,7 @@ class MitarbeiterController {
                 break;
 
             case 'delete':
-                $deletemitarbeiteridFiltered = filter_input(INPUT_POST,'deletemitarbeiterid',FILTER_SANITIZE_NUMBER_INT);
+                $deletemitarbeiteridFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
                 $out = $deletemitarbeiteridFiltered;
                 $out = Mitarbeiter::delete($out);
                 $out = Mitarbeiter::getAll();
