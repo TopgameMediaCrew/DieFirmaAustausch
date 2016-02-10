@@ -1,4 +1,5 @@
 <?php
+
 define('DEV',FALSE);
 include './config.php';
 include './model/Autoloader.php';
