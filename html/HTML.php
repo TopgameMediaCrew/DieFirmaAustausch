@@ -105,9 +105,9 @@ class HTML {
      * @param string $readonly falls Eintrag nicht durch user geändert werden darf
      * @param string $id für js
      * @param string $class für js
-     * @return string 
+     * @param string $placeholder Voreintrag grau in inputfeldern
      */
-    public static function buildInput($type, $name, $value, $readonly = NULL, $id = NUll, $class = NULL) {
+    public static function buildInput($type, $name, $value, $readonly = NULL, $id = NUll, $class = NULL, $placeholder = NULL) {
         $html = '<input type="';
         $html .= $type;
         $html .= '" name="';
@@ -127,6 +127,9 @@ class HTML {
             $html .= ' class="';
             $html .= $class;
             $html .= '"';
+        }
+        if ($placeholder !== NULL) {
+            $html .= ' placeholder="' . $placeholder . '"';
         }
         $html .= ' />';
         return $html;
