@@ -2,6 +2,7 @@
 
 /**
  * Description of HTML
+ * dient zum Erstellen von form-tags abhängig von übergebenen Parametern
  *
  * @author rolfhaeckel
  */
@@ -25,9 +26,6 @@ class HTML {
      *  1 2
      *  3 4
      */
-    
-    
-    
     public static function buildListTable(Array $tableHead, Array $tableBody) {
         // falls $tableBody ein Array mit Objekten ist, wird jedes Objekt in ein asso-Array gewandelt
         if (is_object($tableBody[0])) {
@@ -51,7 +49,8 @@ class HTML {
         $html .= '</tbody>';
         return $html;
     }
-/**
+
+    /**
      * 
      * @param array $linkeSpalte
      * @param array $rechteSpalte
@@ -69,8 +68,6 @@ class HTML {
      *  Vorname : Peter
      *  Nachname: Pan
      */
-    
-    
     public static function buildFormularTable(Array $linkeSpalte, Array $rechteSpalte) {
         if (count($linkeSpalte) !== count($rechteSpalte)) {
             throw new Exception('Arrays in HTML::buildFormularTable sind nicht gleich groß');
@@ -85,7 +82,8 @@ class HTML {
         $html .= '</tbody></table>' . "\n";
         return $html;
     }
-  /**
+
+    /**
      * erstellt button-tag
      * 
      * @param string $label Ausgabe zum Button (Aufschrift)
@@ -94,13 +92,11 @@ class HTML {
      * @param string $value für js
      * @return string
      */
-    
-    
     public static function buildButton($label, $id = 'NULL', $class = 'NULL', $value = 'NULL') {
         return '<button type="button" id="' . $id . '" class="' . $class . '" value="' . $value . '">' . $label . '</button>';
     }
-    
-     /**
+
+    /**
      * erstellt input-tag
      * 
      * @param string $type text, hidden oder password
@@ -111,8 +107,6 @@ class HTML {
      * @param string $class für js
      * @return string 
      */
-    
-
     public static function buildInput($type, $name, $value, $readonly = NULL, $id = NUll, $class = NULL) {
         $html = '<input type="';
         $html .= $type;
@@ -137,7 +131,8 @@ class HTML {
         $html .= ' />';
         return $html;
     }
- /**
+
+    /**
      * 
      * @param string $name Übergabevariable
      * @param int $size Höhe des DropDownMenus
@@ -148,8 +143,6 @@ class HTML {
      * @param type $class für js
      * @return string
      */
-    
-    
     public static function buildDropDown($name, $size, Array $options, $multiple = NULL, $id = NULL, $class = NULL) {
 
         $html = '<select name="' . $name . '"';
@@ -180,7 +173,8 @@ class HTML {
         $html .= '</select>';
         return $html;
     }
- /**
+
+    /**
      * 
      * @param string $groupname
      * @param array $options 2-dim Array, jede option enthält asso-Keys label, value 
@@ -188,9 +182,6 @@ class HTML {
      * @param boolean $buttonLeft ob button links vom label ist
      * @return string
      */
-    
-    
-    
     public static function buildRadio($groupname, Array $options, $buttonLeft = TRUE) {
         $html = '';
         foreach ($options as $option) {
@@ -210,38 +201,41 @@ class HTML {
         }
         return $html;
     }
-    
-    // datum aus datenbank wird in deutsches format(tag/monat/jahr) ausgegeben
+
+    // datum aus datenbank(YYYY-MM-DD) wird in deutsches format(DD.MM.YYYY) überführt
     public static function mysqlToGerman($date) {
         return implode('.', array_reverse(explode('-', $date)));
     }
-    // datum wird wieder in datenbank format(jahr/monat/tag) ausgegeben
+
+    // datum deutsch (DD.MM.YYYY) wird in datenbank format(YYYY-MM-DD) überführt
     public static function germanToMysql($date) {
         return implode('-', array_reverse(explode('.', $date)));
     }
-      // datumzeit db format (YYYY-MM-DD hh:mm:ss) wird in deutsch(DD.MM.YYYY hh:mm:ss) überführt 
+    
+    // datumzeit db format (YYYY-MM-DD hh:mm:ss) wird in deutsch(DD.MM.YYYY hh:mm:ss) überführt 
     public static function dateTimeToDateAndTime($date) {
-        $datum = array_reverse(explode(' ', $date));
-        $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
-        return $datum[1] . ' ' . $datum[0];
+        $datum = explode(' ', $date);
+        $datum[0] = self::germanToMysql($datum[0]);
+        return implode(' ', $datum);
     }
-      // datumzeit  deutsch(DD.MM.YYYY hh:mm:ss) wird in db format (YYYY-MM-DD hh:mm:ss) überführt
+    
+    // datumzeit  deutsch(DD.MM.YYYY hh:mm:ss) wird in db format (YYYY-MM-DD hh:mm:ss) überführt
     public static function dateAndTimeToDateTime($date) {
-        $datum = array_reverse(explode(' ', $date));
-        $datum[1] = implode('-', array_reverse(explode('.', $datum[1])));
-        return $datum[1] . ' ' . $datum[0];
+        $datum = explode(' ', $date);
+        $datum[0] = self::mysqlToGerman($datum[0]);
+        return implode(' ', $datum);
     }
-    // gibt nur das Datum aus dem DateTime Feld aus
+
+    // gibt nur das Datum(DD.MM.YYYY) aus dem DateTime Feld(YYYY-MM-DD hh:mm:ss) aus
     public static function extractDateFromDateTime($date) {
-        $datum = array_reverse(explode(' ', $date));
-        $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
-        return $datum[1];
+        $datum = explode(' ', $date);
+        return self::mysqlToGerman($datum[0]);
     }
-    // gibt nur die Zeit aus dem DateTime Feld aus
+
+    // gibt nur die Zeit(hh:mm:ss) aus dem DateTime Feld(YYYY-MM-DD hh:mm:ss) aus
     public static function extractTimeFromDateTime($date) {
-        $datum = array_reverse(explode(' ', $date));
-        $datum[1] = implode('.', array_reverse(explode('-', $datum[1])));
-        return $datum[0];
+        $datum = explode(' ', $date);
+        return $datum[1];
     }
 
 }
