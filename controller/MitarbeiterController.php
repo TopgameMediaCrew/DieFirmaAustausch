@@ -86,8 +86,8 @@ class MitarbeiterController implements DoAction {
 
             /*
              * die Daten aus den Inputfeldern werden mit sanitize bearbeitet um Cross-Site Scripting zu unterbinden
-             * in $out wird ein neues Objekt von Abteilung als Objekt zugewiesen
-             * in Datenbankgespeichert
+             * in $out wird ein neues Objekt von Mitarbeiter als Objekt zugewiesen
+             * in Datenbank gespeichert
              * Später wird die Liste der Objekte der Klasse ausgegeben
              */
             

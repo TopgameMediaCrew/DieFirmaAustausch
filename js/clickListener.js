@@ -54,14 +54,14 @@ $(document).ready(function () {
         }
 // delete
         if (this.className === 'loeschenAusleihe' && this.value === 'loeschen') {
-            var deleteausleiheid = this.id;
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Ausleihe",
                         view: "listeAusleihe",
-                        id: deleteausleiheid
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -176,14 +176,14 @@ $(document).ready(function () {
         }
 // delete
         if (this.className === 'loeschenMitarbeiter' && this.value === 'loeschen') {
-            var deletemitarbeiterid = this.id;
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Mitarbeiter",
                         view: "listeMitarbeiter",
-                        id: deletemitarbeiterid
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -392,14 +392,14 @@ $(document).ready(function () {
         }
 // delete
         if (this.className === 'loeschenProjektMitarbeiter' && this.value === 'loeschen') {
-            var deleteprojektmitarbeiterid = this.id;
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "ProjektMitarbeiter",
                         view: "listeProjektMitarbeiter",
-                        id: deleteprojektmitarbeiterid
+                        id: id
                     },
             function (data, status) {
                 $('#content').html(data);
