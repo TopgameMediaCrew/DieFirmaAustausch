@@ -5,7 +5,7 @@
  *
  * @author Teilnehmer
  */
-class ProjektMitarbeiter implements Aenderbar, Zeitmessbar, JsonSerializable {
+class ProjektMitarbeiter implements Aenderbar, JsonSerializable {
 
     private $id; // Primary Key typ int
     private $projekt; // objekt FK

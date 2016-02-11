@@ -24,15 +24,42 @@ class ProjektMitarbeiterController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             *  $out Objekt; $id Integer
+             *  Aus der Klasse ProjektMitarbeiter wird der passende ProjektMitarbeiter anhand der übegebenen ID geladen.
+             *  Dafür wird die $id an dessen Funktion getById übegeben
+             *  das übegebene Object wird in die $out reingeschrieben
+             *  $out wird mit der eigenen Funktion transformUpdate bearbeitet
+             *  Das heißt html gerechtes Bearbeitungsformular wird mit den Object Daten gefüllt
+             *  
+             */
+            
+            
             case 'showUpdate':
                 $out = ProjektMitarbeiter::getById($id);
                 $out = self::transformUpdate($out);
                 break;
 
+            /*
+             * Die Methode wird aufgerufen
+             * die fertig erstellten daten werden an §out als string übergeben
+             */
+            
             case 'showInsert':
                 $out = self::transformUpdate();
                 break;
 
+                /*
+             * $daten = Array der vom User eigegeben Daten; $out = Objekt
+             * $daten wird an die Json Function json_decode übergeben und in eine PHP-Variable kovertiert
+             * $out wird als "neuer" ProjektMitarbeiter angelegt mit den Daten aus den Array $daten befüllt
+             * $out wird an die Funktion update von ProjektMitarbeiter geschickt und in die Datenbak geschrieben
+             * $out wird mit ProjektMitarbeiter Funktion getAll überschieben, sprich mit allen ProjektMitarbeitern
+             * $out wird wird mit der Funktion transform html gerecht überarbeitet
+             * So dass man nun die Liste allen ProjektMitarbeiter sieht.
+             */
+            
+            
             case 'update' :
                 $ProjektFiltered = filter_input(INPUT_POST,'Projekt',FILTER_SANITIZE_MAGIC_QUOTES);
                 $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);
@@ -47,6 +74,14 @@ class ProjektMitarbeiterController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             * die Daten aus den Inputfeldern werden mit sanitize bearbeitet um Cross-Site Scripting zu unterbinden
+             * in $out wird ein neues Objekt von Abteilung als Objekt zugewiesen
+             * in Datenbankgespeichert
+             * Später wird die Liste der Objekte der Klasse ausgegeben
+             */
+            
+            
             case 'insert' :
                 $projektFiltered = filter_input(INPUT_POST,'projekt',FILTER_SANITIZE_MAGIC_QUOTES);
                 $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);

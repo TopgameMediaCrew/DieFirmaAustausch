@@ -24,15 +24,49 @@ class MitarbeiterController {
                 $out = self::transform($out);
                 break;
 
+               /*
+             *  $out Objekt; $id Integer
+             *  Aus der Klasse Mitarbeiter wird der passende Mitarbeiter anhand der übegebenen ID geladen.
+             *  Dafür wird die $id an dessen Funktion getById übegeben
+             *  das übegebene Object wird in die $out reingeschrieben
+             *  $out wird mit der eigenen Funktion transformUpdate bearbeitet
+             *  Das heißt html gerechtes Bearbeitungsformular wird mit den Object Daten gefüllt
+             *  
+             */
+            
+            
+            
+            
             case 'showUpdate':
                 $out = Mitarbeiter::getById($id);
                 $out = self::transformUpdate($out);
                 break;
 
+            /*
+             * Die Methode wird aufgerufen
+             * die fertig erstellten daten werden an §out als string übergeben
+             */
+            
             case 'showInsert':
                 $out = self::transformUpdate();
                 break;
 
+             /*
+             * $daten = Array der vom User eigegeben Daten; $out = Objekt
+             * $daten wird an die Json Function json_decode übergeben und in eine PHP-Variable kovertiert
+             * $vorgesetzter = Int; Es wird abegfragt ob ein Wert in vorgesetzter_id 
+             * im Objekt $daten vorhanden ist wenn nicht wird in $vorgesetzter mit NULL beschrieben
+             * ansonsten kommt die vorgesetzter_id rein
+             * $out wird als "neuer" Mitarbeiter angelegt mit den Daten aus den Array $daten befüllt
+             * Mit Fremd IDs z.B. 'abteilung_id=1' werden Inhalte z.B. 'Abteilung::name=Buchhaltung' aus ihren entsprechenden Klassen mit der Funktion getById geladen
+             * $out wird an die Funktion update von mitarbeiter geschickt und in die Datenbak geschrieben
+             * $out wird mit mitarbeiter Funktion getAll überschieben, sprich mit allen Mitarbeitern
+             * $out wird wird mit der Funktion transform html gerecht überarbeitet
+             * So dass man nun die Liste allen Mitarbeitern sieht.
+             */
+            
+            
+            
             case 'update':
                 $vorgesetzter_idFiltered = filter_input(INPUT_POST,'vorgesetzter_id',FILTER_SANITIZE_MAGIC_QUOTES);
                 $vornameFiltered = filter_input(INPUT_POST,'vorname',FILTER_SANITIZE_MAGIC_QUOTES);
@@ -50,6 +84,14 @@ class MitarbeiterController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             * die Daten aus den Inputfeldern werden mit sanitize bearbeitet um Cross-Site Scripting zu unterbinden
+             * in $out wird ein neues Objekt von Abteilung als Objekt zugewiesen
+             * in Datenbankgespeichert
+             * Später wird die Liste der Objekte der Klasse ausgegeben
+             */
+            
+            
             case 'insert':
                 $vorgesetzter_idFiltered = filter_input(INPUT_POST,'vorgesetzter_id',FILTER_SANITIZE_MAGIC_QUOTES);
                 $vornameFiltered = filter_input(INPUT_POST,'vorname',FILTER_SANITIZE_MAGIC_QUOTES);

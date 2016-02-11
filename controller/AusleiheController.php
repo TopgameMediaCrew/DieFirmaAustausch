@@ -22,18 +22,40 @@ class AusleiheController {
                 $out = self::transform($out);
                 break;
 
+                         /*
+             *  $out Objekt; $id Integer
+             *  Aus der Klasse Ausleihe wird die passende Ausleihe anhand der übegebenen ID geladen.
+             *  Dafür wird die $id an dessen Funktion getById übegeben
+             *  das übegebene Object wird in die $out reingeschrieben
+             *  $out wird mit der eigenen Funktion transformUpdate bearbeitet
+             *  Das heißt html gerechtes Bearbeitungsformular wird mit den Object Daten gefüllt
+             *  
+             */
+            
+            
             case 'showUpdate':
                 $out = Ausleihe::getById($id);
                 $out = self::transformUpdate($out);
                 break;
 
+            /*
+             * Die Methode wird aufgerufen
+             * die fertig erstellten daten werden an §out als string übergeben
+             */
+            
             case 'showInsert':
                 $out = self::transformUpdate();
                 break;
-
-            /*
-             * 
-             */
+/*
+             * $daten = Array der vom User eigegeben Daten; $out = Objekt
+             * $daten wird an die Json Function json_decode übergeben und in eine PHP-Variable kovertiert
+             * $out wird als "neue" Ausleihe angelegt mit den Daten aus den Array $daten befüllt
+             * Mit Fremd IDs z.B. 'auto_id=1' werden Inhalte z.B. 'Auto::name=Opel' aus ihren entsprechenden Klassen mit der Funktion getById geladen
+             * $out wird an die Funktion update von Ausleihe geschickt und in die Datenbak geschrieben
+             * $out wird mit Ausleihe Funktion getAll überschieben, sprich mit allen Ausleihen
+             * $out wird wird mit der Funktion transform html gerecht überarbeitet
+             * So dass man nun die Liste allen Ausleihen sieht.
+             */      
             
             
             
@@ -49,6 +71,13 @@ class AusleiheController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             * die Daten aus den Inputfeldern werden mit sanitize bearbeitet um Cross-Site Scripting zu unterbinden
+             * in $out wird ein neues Objekt von Abteilung als Objekt zugewiesen
+             * in Datenbankgespeichert
+             * Später wird die Liste der Objekte der Klasse ausgegeben
+             */
+            
             case 'insert' :
                 $fahrzeugFiltered = filter_input(INPUT_POST,'fahrzeug',FILTER_SANITIZE_MAGIC_QUOTES);
                 $mitarbeiterFiltered = filter_input(INPUT_POST,'mitarbeiter',FILTER_SANITIZE_MAGIC_QUOTES);

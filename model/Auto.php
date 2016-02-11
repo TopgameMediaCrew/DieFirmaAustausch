@@ -63,24 +63,7 @@ class Auto implements Aenderbar, JsonSerializable {
     }
 
     public static function getAll() {
-        
-         error_reporting(E_ALL - E_ERROR);
-
-        function meinFehlerbehandler($fehlernummer, $fehlertext, $fehlerdatei, $fehlerzeile) {
-            echo"Frag Ossama";
-//            file_put_contents($filename, $data, $flags, $context);
-            file_put_contents('fehler.txt', "<b>Dicker Fehler:</b> [$fehlernummer] $fehlertext<br> Fehler in Zeile $fehlerzeile in Datei $fehlerdatei<br>\n",  FILE_APPEND);
-            
-//            echo "<b>Dicker Fehler:</b> [$fehlernummer] $fehlertext<br>";
-//            echo " Fehler in Zeile $fehlerzeile in Datei $fehlerdatei<br>";
-        }
-        set_error_handler("meinFehlerbehandler");
-
-        
-        
-        
-        
-        
+     
         $pdo = DbConnect::connect();
         $sql = "SELECT * from auto";
         $stmt = $pdo->prepare($sql);

@@ -1,6 +1,6 @@
 <?php
 
-class Ausleihe implements Aenderbar, Zeitmessbar, JsonSerializable {
+class Ausleihe implements Aenderbar,  JsonSerializable {
 
     /**
      *

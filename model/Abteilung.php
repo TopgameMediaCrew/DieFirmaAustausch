@@ -86,4 +86,6 @@ class Abteilung implements Aenderbar, JsonSerializable {
         $stmt->execute([':id' => $id]);
     }
 
+    
+
 }

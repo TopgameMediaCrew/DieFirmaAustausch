@@ -23,16 +23,42 @@ class ProjektController {
                 $out = Projekt::getAll();
                 $out = self::transform($out);
                 break;
+            
+               /*
+             *  $out Objekt; $id Integer
+             *  Aus der Klasse Projekt wird das passende Projekt anhand der übegebenen ID geladen.
+             *  Dafür wird die $id an dessen Funktion getById übegeben
+             *  das übegebene Object wird in die $out reingeschrieben
+             *  $out wird mit der eigenen Funktion transformUpdate bearbeitet
+             *  Das heißt html gerechtes Bearbeitungsformular wird mit den Object Daten gefüllt
+             *  
+             */
 
             case 'showUpdate':
                 $out = Projekt::getById($id);
                 $out = self::transformUpdate($out);
                 break;
 
+            /*
+             * Die Methode wird aufgerufen
+             * die fertig erstellten daten werden an §out als string übergeben
+             */
+            
             case 'showInsert':
                 $out = self::transformUpdate();
                 break;
 
+              /*
+             * $daten = Array der vom User eigegeben Daten; $out = Objekt
+             * $daten wird an die Json Function json_decode übergeben und in eine PHP-Variable kovertiert
+             * $out wird als "neues" Projekt angelegt mit den Daten aus den Array $daten befüllt
+             * $out wird an die Funktion update von Projekt geschickt und in die Datenbak geschrieben
+             * $out wird mit Projekt Funktion getAll überschieben, sprich mit allen Projekten
+             * $out wird wird mit der Funktion transform html gerecht überarbeitet
+             * So dass man nun die Liste mit allen Projekten sieht.
+             */
+            
+            
             case 'update' :
                 $ProjektFiltered = filter_input(INPUT_POST,'Projekt',FILTER_SANITIZE_MAGIC_QUOTES);
                 $updateprojektidFiltered = filter_input(INPUT_POST,'id',FILTER_SANITIZE_NUMBER_INT);
@@ -42,6 +68,13 @@ class ProjektController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             * die Daten aus den Inputfeldern werden mit sanitize bearbeitet um Cross-Site Scripting zu unterbinden
+             * in $out wird ein neues Objekt von Abteilung als Objekt zugewiesen
+             * in Datenbankgespeichert
+             * Später wird die Liste der Objekte der Klasse ausgegeben
+             */
+            
             case 'insert' :
                 $projektFiltered = filter_input(INPUT_POST,'projekt',FILTER_SANITIZE_MAGIC_QUOTES);
                 $out = new Projekt($projektFiltered, NULL);

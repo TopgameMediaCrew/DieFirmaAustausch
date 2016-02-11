@@ -24,15 +24,43 @@ class AutoController {
                 $out = self::transform($out);
                 break;
 
+              /*
+             *  $out Objekt; $id Integer
+             *  Aus der Klasse Auto wird das passende Auto anhand der übegebenen ID geladen.
+             *  Dafür wird die $id an dessen Funktion getById übegeben
+             *  das übegebene Object wird in die $out reingeschrieben
+             *  $out wird mit der eigenen Funktion transformUpdate bearbeitet
+             *  Das heißt html gerechtes Bearbeitungsformular wird mit den Object Daten gefüllt
+             *  
+             */
+            
+            
             case 'showUpdate':
                 $out = Auto::getById($id);
                 $out = self::transformUpdate($out);
                 break;
 
+            /*
+             * Die Methode wird aufgerufen
+             * die fertig erstellten daten werden an §out als string übergeben
+             */
+            
             case 'showInsert':
                 $out = self::transformUpdate();
                 break;
 
+                  /*
+             * $daten = Array der vom User eigegeben Daten; $out = Objekt
+             * $daten wird an die Json Function json_decode übergeben und in eine PHP-Variable kovertiert
+             * $out wird als "neues" Auto angelegt mit den Daten aus den Array $daten befüllt
+             * Mit Fremd IDs z.B. 'auto_id=1' werden Inhalte z.B. 'Auto::name=Opel' aus ihren entsprechenden Klassen mit der Funktion getById geladen
+             * $out wird an die Funktion update von Auto geschickt und in die Datenbak geschrieben
+             * $out wird mit Auto Funktion getAll überschieben, sprich mit allen Autos
+             * $out wird wird mit der Funktion transform html gerecht überarbeitet
+             * So dass man nun die Listen allen Autos sieht.
+             */     
+            
+            
             case 'update' :
                 $autoFiltered = filter_input(INPUT_POST,'Auto',FILTER_SANITIZE_MAGIC_QUOTES);
                 $hersteller_idFiltered = filter_input(INPUT_POST,'hersteller_id',FILTER_SANITIZE_MAGIC_QUOTES);
@@ -46,6 +74,13 @@ class AutoController {
                 $out = self::transform($out);
                 break;
 
+            /*
+             * die Daten aus den Inputfeldern werden mit sanitize bearbeitet um Cross-Site Scripting zu unterbinden
+             * in $out wird ein neues Objekt von Abteilung als Objekt zugewiesen
+             * in Datenbankgespeichert
+             * Später wird die Liste der Objekte der Klasse ausgegeben
+             */
+            
             case 'insert' :
                 $autoFiltered = filter_input(INPUT_POST,'Auto',FILTER_SANITIZE_MAGIC_QUOTES);
                 $hersteller_idFiltered = filter_input(INPUT_POST,'hersteller_id',FILTER_SANITIZE_MAGIC_QUOTES);

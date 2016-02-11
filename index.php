@@ -27,11 +27,17 @@ $id = ($idFiltered !== NULL) ? $idFiltered : '0';
 try {
     $out = BaseController::load($action, $area, $id);
 } catch (Exception $exc) {
+    error_reporting(E_ALL - E_ERROR);
     $view = 'error';
-
-    //Fehler in Datei schreiben
+    function meinFehlerbehandler($fehlernummer, $fehlertext, $fehlerdatei, $fehlerzeile) {
+            echo"Frag Ossama";
+            file_put_contents('fehler.txt', "Dicker Fehler: [$fehlernummer] $fehlertext Fehler in Zeile $fehlerzeile in Datei $fehlerdatei\n",  FILE_APPEND);
+            }
+            set_error_handler("meinFehlerbehandler");
+    
     file_put_contents('logger' . DIRECTORY_SEPARATOR . 'phplogger.txt', date(DateTime::ATOM) . "\n" . $exc->getTraceAsString(), FILE_APPEND);
 }
+
 
 include 'view' . DIRECTORY_SEPARATOR . $view . '.php';
 
