@@ -7,6 +7,7 @@ interface Aenderbar
     public static function update($obj);
     public static function getById($id);
     public static function getAll();
+    public static function getNames();
 }
 
 ?>

@@ -5,7 +5,7 @@
  *
  * @author Teilnehmer
  */
-class AutoController {
+class AutoController implements DoAction {
 
     public static function doAction($action, $id) {
         switch ($action) {

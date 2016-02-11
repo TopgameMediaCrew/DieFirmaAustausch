@@ -5,7 +5,7 @@
  *
  * @author Teilnehmer
  */
-class HerstellerController {
+class HerstellerController implements DoAction {
 
     public static function doAction($action, $id) {
         switch ($action) {

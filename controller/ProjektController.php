@@ -5,7 +5,7 @@
  *
  * @author Teilnehmer
  */
-class ProjektController {
+class ProjektController implements DoAction{
 
     public static function doAction($action, $id) {
         switch ($action) {

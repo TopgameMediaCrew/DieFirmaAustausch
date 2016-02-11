@@ -5,7 +5,7 @@
  *
  * @author Teilnehmer
  */
-class AbteilungController {
+class AbteilungController implements DoAction {
 
     public static function doAction($action, $id) {
         switch ($action) {
