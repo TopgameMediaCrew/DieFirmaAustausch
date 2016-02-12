@@ -39,6 +39,5 @@
  */
 interface DoAction {
     public static function doAction($action, $id);
-   // public static function transform($out);
-    //public static function transformUpdate($out=NULL);
+
 }

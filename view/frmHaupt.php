@@ -60,7 +60,7 @@ include './view/header.php';
                     <li><a class="menuItem" href="#" id="menuMitarbeiterAbteilungVorgesetzter">Mitarbeiter mit Abteilung und Vorgesetzten</a></li>
                     <li><a class="menuItem" href="#" id="menuAusleiherAutoListe">Die Ausleihenliste der Autos mit Zeiten</a></li>
                     <li><a class="menuItem" href="#" id="menuAbteilungAusleihenListe">Die Ausleihenliste der Projekte mit Zeiten</a></li>
-                    <li><a class="menuItem" href="#" id="menuMitarbeiterZeiteZuProjekt">Zeit der Mitarbeiter im Projekt</a></li>
+                    <li><a class="menuItem" href="#" id="menuMitarbeiterZeitenProjekt">Zeit der Mitarbeiter im Projekt</a></li>
                     <li><a class="menuItem" href="#" id="menuProjektKosten">Kosten der Projekte Anzeigen</a></li>
                 </ul>
             </li>

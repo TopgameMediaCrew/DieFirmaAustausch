@@ -483,8 +483,8 @@ $(document).ready(function () {
             case 'menuProjektKosten':
                 options = ['showList', 'ProjektKosten', 'listeProjektKosten']
                 break;
-            case 'menuMitarbeiterZeiteZuProjekt':
-                options = ['showList', 'MitarbeiterZeiteZuProjekt', 'listeMitarbeiterZeitenProjekt']
+            case 'menuMitarbeiterZeitenProjekt':
+                options = ['showList', 'MitarbeiterZeitenProjekt', 'listeMitarbeiterZeitenProjekt']
                 break;
             case 'menuAbteilungAusleihenListe':
                 options = ['showList', 'AbteilungAusleihenListe', 'listeAbteilungAusleihenListe']
