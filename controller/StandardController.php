@@ -5,10 +5,12 @@
  * nicht löschen
  * @author Teilnehmer
  */
-class StandardController implements DoAction{
+class StandardController {
 
     public static function doAction($action, $id) {
         
     }
 
 }
+
+?>

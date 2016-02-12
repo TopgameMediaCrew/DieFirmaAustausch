@@ -1,4 +1,5 @@
 <?php
+
 /*
  * aus db werden Daten für Ausgabeliste(Tabelle) als String aufbereitet
  * case 'showList':
@@ -38,7 +39,6 @@
  */
 interface DoAction {
     public static function doAction($action, $id);
-    public static function transform($out);
-    public static function transformUpdate($out=NULL);
+   // public static function transform($out);
+    //public static function transformUpdate($out=NULL);
 }
-?>
