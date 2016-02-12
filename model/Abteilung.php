@@ -13,10 +13,6 @@ class Abteilung implements Aenderbar, JsonSerializable {
      * $name string max. 50 Zeichen lang 
      * 
      */
-    
-    
-    
-    
     private $id;
     private $name;
 
@@ -41,6 +37,16 @@ class Abteilung implements Aenderbar, JsonSerializable {
     public function getName() {
         return $this->name;
     }
+
+    /* liefert Array zurück
+     * 
+     * Array
+     * (
+     * [1] => Abteilung Object (
+     *        [id:Abteilung:private] => 1
+     *        [name:Abteilung:private] => IT
+     * )
+     */
 
     public static function getAll() {
         $pdo = DbConnect::connect();
@@ -85,7 +91,5 @@ class Abteilung implements Aenderbar, JsonSerializable {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $id]);
     }
-
-    
 
 }

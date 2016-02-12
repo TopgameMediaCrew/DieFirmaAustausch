@@ -11,7 +11,7 @@
  *
  * @author Teilnehmer
  */
-class AusleiherAutoListeController {
+class AusleiherAutoListeController implements DoAction {
     public static function doAction($action, $id) {
         switch ($action) {
              /*
@@ -33,6 +33,14 @@ class AusleiherAutoListeController {
                 break;
         }
         return $out;
+    }
+
+    public static function transform($out) {
+        
+    }
+
+    public static function transformUpdate($out = NULL) {
+        
     }
 
 }

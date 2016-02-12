@@ -11,7 +11,7 @@
  *
  * @author Teilnehmer
  */
-class ProjektKostenController {
+class ProjektKostenController implements DoAction {
     public static function doAction($action, $id) {
         switch ($action) {
              /*

@@ -7,11 +7,11 @@
  */
 
 /**
- * Description of MitarbeiterZeiteZuProjekt
+ * Description of MitarbeiterZeitenProjekt
  *
  * @author Teilnehmer
  */
-class MitarbeiterZeiteZuProjekt {
+class MitarbeiterZeitenProjekt {
     public static function getAll() {
         
         $pdo = DbConnect::connect();

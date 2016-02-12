@@ -7,11 +7,11 @@
  */
 
 /**
- * Description of MitarbeiterZeiteZuProjektController
+ * Description of MitarbeiterZeitenProjektController
  *
  * @author Teilnehmer
  */
-class MitarbeiterZeiteZuProjektController {
+class MitarbeiterZeitenProjektController implements DoAction {
    public static function doAction($action, $id) {
         switch ($action) {
              /*
@@ -22,7 +22,7 @@ class MitarbeiterZeiteZuProjektController {
              */
             
             case 'showList':
-                $out = MitarbeiterZeiteZuProjekt::getAll();
+                $out = MitarbeiterZeitenProjekt::getAll();
 //                echo 'mitte';
 //                echo '<pre>';
 //                print_r($out);
@@ -33,4 +33,13 @@ class MitarbeiterZeiteZuProjektController {
         }
         return $out;
     }
+
+    public static function transform($out) {
+        
+    }
+
+    public static function transformUpdate($out = NULL) {
+        
+    }
+
 }

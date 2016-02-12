@@ -1,150 +1,179 @@
-#cssmenu {
-  width: 95%;
-  margin: 0px 0px 0px 0px;
-  padding: 6px 6px 4px 6px;
-  height: 40px;
-  line-height: 100%;
-  border-radius: 24px;
-  -webkit-border-radius: 24px;
-  -moz-border-radius: 24px;
-  box-shadow: 2px 2px 3px #666666;
-  -webkit-box-shadow: 2px 2px 3px #666666;
-  -moz-box-shadow: 2px 2px 3px #666666;
-  background: #8B8B8B;
-  background: linear-gradient(top,  #00CCFF,  #76007A);
-  background: -ms-linear-gradient(top,  #00CCFF,  #76007A);
-  background: -webkit-gradient(linear, left top, left bottom, from(#00CCFF), to(#76007A));
-  background: -moz-linear-gradient(top,  #00CCFF,  #76007A);
-  border: inset 1px #6D6D6D;
-  position:relative;
-  z-index:999;
+/** {
+    margin:0;
+    padding:0;
 }
-#cssmenu li {
-  margin: 0px 0px 6px 0px;
-  padding: 0px 6px 0px 6px;
-  float: left;
-  position: relative;
-  list-style: none;
+
+header, nav, main, aside, footer {
+    display: block;
+}
+
+header {
+    text-align:center;
+    position: relative;
+    height: 50px;
+    padding: 16px 16px 8px;
+}
+
+header h1 {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+    letter-spacing: 5px;
+    font: 40px 'MisoRegular';
+}
+
+html {
+    height: 100%;
+    font-size: 100%;
+    font-family: normal small Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 480px;
+    height: 100%;
+    margin: 0em auto;
+    background: #00aa77;
+    background-image: url(../img/background.png);
+    background-repeat: repeat-x, repeat;
+}
+
+footer {
+    width: 480px;
+    position: absolute;
+    bottom: 0;
+    margin: 0em auto;
+    padding: 8px 16px 8px;
+    border-top: 1px solid #666666;
+    font-size: x-small;
+}
+
+footer p {
+    margin: 0;
+    line-height: normal;
+}
+
+footer a {
+    text-decoration: none;
+    color: #999999;
+}*/
+
+/*#menuleft {
+    margin: 0 auto;
+    width: 238px;
+    height: 380px;
+    padding: 8px 8px 8px 16px;
+}
+
+#content {
+    margin: 0 auto;
+    width: 674px;
+    height: 380px;
+
+    padding: 8px 16px 8px 8px;
+}
+
+#menuleft, #content {
+    float:none;
+}*/
+
+/* Base Styles */
+#cssmenu,
+#cssmenu ul,
+#cssmenu li,
+#cssmenu a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    font-weight: normal;
+    text-decoration: none;
+    line-height: 1;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    position: relative;
 }
 #cssmenu a {
-  font-weight: bold;
-  font-family: arial;
-  font-style: normal;
-  font-size: 12px;
-  color: #E7E5E5;
-  text-decoration: none;
-  display: block;
-  padding: 6px 20px 6px 20px;
-  margin: 0;
-  margin-bottom: 6px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  text-shadow: 2px 2px 3px #000000;
-}
-#cssmenu li ul li a {
-  margin: 0;
-}
-#cssmenu .active a, #cssmenu li:hover > a {
-  background: #0399D4;
-  background: linear-gradient(top,  #EBEBEB,  #A1A1A1);
-  background: -ms-linear-gradient(top,  #EBEBEB,  #A1A1A1);
-  background: -webkit-gradient(linear, left top, left bottom, from(#EBEBEB), to(#A1A1A1));
-  background: -moz-linear-gradient(top,  #EBEBEB,  #A1A1A1);
-  color: #444444;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-  text-shadow: 2px 2px 3px #FFFFFF;
-}
-#cssmenu ul li:hover a, #cssmenu li:hover li a {
-  background: none;
-  border: none;
-  color: #666;
-  -box-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-}
-#cssmenu ul a:hover {
-  background: #0399D4 !important;
-  background: linear-gradient(top,  #04ACEC,  #0186BA) !important;
-  background: -ms-linear-gradient(top,  #04ACEC,  #0186BA) !important;
-  background: -webkit-gradient(linear, left top, left bottom, from(#04ACEC), to(#0186BA)) !important;
-  background: -moz-linear-gradient(top,  #04ACEC,  #0186BA) !important;
-  color: #FFFFFF !important;
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  text-shadow: 2px 2px 3px #FFFFFF;
-}
-#cssmenu li:hover > ul {
-  display: block;
-}
-#cssmenu ul {
-  background: #DDDDDD;
-  background: linear-gradient(top,  #FFFFFF,  #CFCFCF);
-  background: -ms-linear-gradient(top,  #FFFFFF,  #CFCFCF);
-  background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CFCFCF));
-  background: -moz-linear-gradient(top,  #FFFFFF,  #CFCFCF);
-  display: none;
-  margin: 0;
-  padding: 0;
-  width: 185px;
-  position: absolute;
-  top: 30px;
-  left: 0;
-  border: solid 1px #B4B4B4;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-box-shadow: 2px 2px 3px #222222;
-  -moz-box-shadow: 2px 2px 3px #222222;
-  box-shadow: 2px 2px 3px #222222;
-}
-#cssmenu ul li {
-  float: none;
-  margin: 0;
-  padding: 0;
-}
-#cssmenu ul a {
-  padding:10px 0px 10px 15px;
-  color:#424242 !important;
-  font-size:12px;
-  font-style:normal;
-  font-family:arial;
-  font-weight: normal;
-  text-shadow: 2px 2px 3px #FFFFFF;
-}
-#cssmenu ul li:first-child > a {
-  border-top-left-radius: 10px;
-  -webkit-border-top-left-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  border-top-right-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  -moz-border-radius-topright: 10px;
-}
-#cssmenu ul li:last-child > a {
-  border-bottom-left-radius: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  border-bottom-right-radius: 10px;
-  -webkit-border-bottom-right-radius: 10px;
-  -moz-border-radius-bottomright: 10px;
-}
-#cssmenu:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
+    line-height: 1.3;
 }
 #cssmenu {
-  display: inline-block;
+    width: 230px;
+    background: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 3px;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
-  html[xmlns] #cssmenu {
-  display: block;
+#cssmenu > ul > li {
+    margin: 0 0 2px 0;
 }
-* html #cssmenu {
-  height: 1%;
+#cssmenu > ul > li:last-child {
+    margin: 0;
+}
+#cssmenu > ul > li > a {
+    font-size: 15px;
+    display: block;
+    color: #ffffff;
+    text-shadow: 0 1px 1px #000;
+    background: #565656;
+    background: -moz-linear-gradient(#565656 0%, #323232 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #565656), color-stop(100%, #323232));
+    background: -webkit-linear-gradient(#565656 0%, #323232 100%);
+    background: linear-gradient(#565656 0%, #323232 100%);
+    border: 1px solid #000;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+#cssmenu > ul > li > a > span {
+    display: block;
+    border: 1px solid #666666;
+    padding: 6px 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+#cssmenu > ul > li > a:hover {
+    text-decoration: none;
+}
+#cssmenu > ul > li.active {
+    border-bottom: none;
+}
+#cssmenu > ul > li.active > a {
+    background: #97be10;
+    background: -moz-linear-gradient(#97be10 0%, #79980d 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #97be10), color-stop(100%, #79980d));
+    background: -webkit-linear-gradient(#97be10 0%, #79980d 100%);
+    background: linear-gradient(#97be10 0%, #79980d 100%);
+    color: #fff;
+    text-shadow: 0 1px 1px #000;
+    border: 1px solid #79980d;
+}
+#cssmenu > ul > li.active > a span {
+    border: 1px solid #97be10;
+}
+#cssmenu > ul > li.has-sub > a span {
+    background: url(../img/icon_plus.png) 98% center no-repeat;
+}
+#cssmenu > ul > li.has-sub.active > a span {
+    background: url(../img/icon_minus.png) 98% center no-repeat;
+}
+ Sub menu 
+#cssmenu ul ul {
+    padding: 5px 12px;
+    display: none;
+}
+#cssmenu ul ul li {
+    padding: 3px 0;
+}
+#cssmenu ul ul a {
+    display: block;
+    color: #595959;
+    font-size: 13px;
+    font-weight: bold;
+}
+#cssmenu ul ul a:hover {
+    color: #79980d;
 }

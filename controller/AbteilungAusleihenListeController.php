@@ -1,38 +1,28 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+class AbteilungAusleihenListeController implements DoAction {
 
-/**
- * Description of AbteilungAusleihenListeController
- *
- * @author Teilnehmer
- */
-class AbteilungAusleihenListeController {
     public static function doAction($action, $id) {
-        switch ($action) {
-            
-            /*
-             * Methodenaufruf in der Klasse mit Rückgabewert, 
-             * welches an die Liste zurückgegeben wird und 
-             * mittels Builder dann in den #content div geladen wird.
-             * 
-             */
-            
-            
-            case 'showList':
-                $out = AbteilungAusleihenListe::getAll();
-//                echo 'mitte';
-//                echo '<pre>';
-//                print_r($out);
-//                echo '</pre>';
-                break;
-            default:
-                break;
+
+        /* spezielle SQL-Abfrage
+         * Methodenaufruf in der Klasse mit Rückgabewert, 
+         * welches an die Liste zurückgegeben wird .
+         * 
+         */
+        if ($action === 'showList') {
+            $out = AbteilungAusleihenListe::getAll();
+        } else {
+            throw new Exception('falscher Parameter in AbteilungAusleihenListeController::doAction()');
         }
         return $out;
     }
+
+    public static function transform($out) {
+        
+    }
+
+    public static function transformUpdate($out = NULL) {
+        
+    }
+
 }

@@ -1,5 +1,24 @@
 $(document).ready(function () {
-//    $('button').off('click');
+
+    if ($(window).width() <= 824) {
+        $("#menuleft").hide();
+        $('.menutopClick').off('click');
+        $('.menutopClick').click(function () {
+
+//        var txt = "";
+//        txt += "Document width/height: " + $(document).width();
+//        txt += "x" + $(document).height() + "\n";
+//        txt += "Window width/height: " + $(window).width();
+//        txt += "x" + $(window).height();
+//        alert(txt);
+
+            $("#menuleft").toggle();
+            
+        });
+    }
+
+
+    $('button').off('click');
     $('button').click(function () {
         var inputs = document.getElementsByTagName('input');
         var drops = document.getElementsByTagName('select');
@@ -25,11 +44,11 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        id: id
+                        updateausleiheid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertAusleihe') {
@@ -48,24 +67,24 @@ $(document).ready(function () {
                         von: vonDate,
                         bis: bisDate
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenAusleihe' && this.value === 'loeschen') {
-            var id = this.id;
+            var deleteausleiheid = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Ausleihe",
                         view: "listeAusleihe",
-                        id: id
+                        deleteausleiheid: deleteausleiheid
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // Projekt insert/update/delete
@@ -80,11 +99,11 @@ $(document).ready(function () {
                         area: "Projekt",
                         view: "listeProjekt",
                         Projekt: projekt,
-                        id: id
+                        updateprojektid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertProjekt') {
@@ -97,9 +116,9 @@ $(document).ready(function () {
                         view: "listeProjekt",
                         projekt: projekt
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenProjekt' && this.value === 'loeschen') {
@@ -110,11 +129,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Projekt",
                         view: "listeProjekt",
-                        id: id
+                        deleteprojektid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // Mitarbeiter insert/update/delete
@@ -141,11 +160,11 @@ $(document).ready(function () {
                         abteilung_id: abteilung_id,
                         stundenlohn: stundenlohn,
                         vorgesetzter_id: vorgesetzter_id,
-                        id: id
+                        updatemitarbeiterhersteller: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertMitarbeiter') {
@@ -170,24 +189,24 @@ $(document).ready(function () {
                         stundenlohn: stundenlohn,
                         vorgesetzter_id: vorgesetzter_id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenMitarbeiter' && this.value === 'loeschen') {
-            var id = this.id;
+            var deletemitarbeiterid = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Mitarbeiter",
                         view: "listeMitarbeiter",
-                        id: id
+                        deletemitarbeiterid: deletemitarbeiterid
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // Abteilung insert/update/delete
@@ -202,11 +221,11 @@ $(document).ready(function () {
                         area: "Abteilung",
                         view: "listeAbteilung",
                         Abteilung: abteilung,
-                        id: id
+                        updateabteilungid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertAbteilung') {
@@ -219,9 +238,9 @@ $(document).ready(function () {
                         view: "listeAbteilung",
                         abteilung: abteilung
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenAbteilung' && this.value === 'loeschen') {
@@ -232,11 +251,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Abteilung",
                         view: "listeAbteilung",
-                        id: id
+                        deleteabteilungid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // Hersteller insert/update/delete
@@ -251,11 +270,11 @@ $(document).ready(function () {
                         area: "Hersteller",
                         view: "listeHersteller",
                         Hersteller: hersteller,
-                        id: id
+                        updateherstellerid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertHersteller') {
@@ -268,9 +287,9 @@ $(document).ready(function () {
                         view: "listeHersteller",
                         hersteller: hersteller
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenHersteller' && this.value === 'loeschen') {
@@ -281,11 +300,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Hersteller",
                         view: "listeHersteller",
-                        id: id
+                        deleteherstellerid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // Auto insert/update/delete
@@ -304,11 +323,11 @@ $(document).ready(function () {
                         Auto: auto,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen,
-                        id: id
+                        updateautoid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertAuto') {
@@ -325,9 +344,9 @@ $(document).ready(function () {
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenAuto' && this.value === 'loeschen') {
@@ -338,11 +357,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Auto",
                         view: "listeAuto",
-                        id: id
+                        deleteautoid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // ProjektMitarbeiter insert/update/delete
@@ -363,11 +382,11 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        id: id
+                        updatemitarbeiterprojektid: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // insert
         if (this.className === 'insertProjektMitarbeiter') {
@@ -386,24 +405,24 @@ $(document).ready(function () {
                         von: vonDate,
                         bis: bisDate
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 // delete
         if (this.className === 'loeschenProjektMitarbeiter' && this.value === 'loeschen') {
-            var id = this.id;
+            var deleteprojektmitarbeiterid = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "ProjektMitarbeiter",
                         view: "listeProjektMitarbeiter",
-                        id: id
+                        deleteprojektmitarbeiterid: deleteprojektmitarbeiterid
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // für test.html
@@ -421,9 +440,9 @@ $(document).ready(function () {
                         view: view,
                         id: id
                     },
-            function (data, status) {
-                $('#content').html(data);
-            });
+                    function (data, status) {
+                        $('#content').html(data);
+                    });
         }
 
 // aufruf der unterschiedlichen formulare und views
@@ -436,9 +455,9 @@ $(document).ready(function () {
                     view: aTableEdit[2],
                     id: this.id
                 },
-        function (data, status) {
-            $('#content').html(data);
-        });
+                function (data, status) {
+                    $('#content').html(data);
+                });
     });
 
     $('a.menuItem').off('click');
@@ -451,33 +470,33 @@ $(document).ready(function () {
                     area: aMenuOptions[1],
                     view: aMenuOptions[2]
                 },
-        function (data, status) {
-            $('#content').html(data);
-        });
+                function (data, status) {
+                    $('#content').html(data);
+                });
     });
     function getMenuOptions(id) {
         var options = [];
         switch (id) {
 
             // jakubs sein zeug
-            
-             case 'menuProjektKosten':
-                options=['showList','ProjektKosten','listeProjektKosten']
+
+            case 'menuProjektKosten':
+                options = ['showList', 'ProjektKosten', 'listeProjektKosten']
                 break;
             case 'menuMitarbeiterZeiteZuProjekt':
-                options=['showList','MitarbeiterZeiteZuProjekt','listeMitarbeiterZeiteZuProjekt']
+                options = ['showList', 'MitarbeiterZeiteZuProjekt', 'listeMitarbeiterZeitenProjekt']
                 break;
             case 'menuAbteilungAusleihenListe':
-                options=['showList','AbteilungAusleihenListe','listeAbteilungAusleihenListe']
+                options = ['showList', 'AbteilungAusleihenListe', 'listeAbteilungAusleihenListe']
                 break;
             case 'menuAusleiherAutoListe':
-                options=['showList','AusleiherAutoListe','listeAusleiherAutoListe']
+                options = ['showList', 'AusleiherAutoListe', 'listeAusleiherAutoListe']
                 break;
 
 
 
-            // Show
-             case 'menuMitarbeiterAbteilungVorgesetzter':
+                // Show
+            case 'menuMitarbeiterAbteilungVorgesetzter':
                 options = ['showList', 'MitarbeiterAbteilungVorgesetzter', 'listeMitarbeiterAbteilungVorgesetzter'];
                 break;
             case 'menuMitarbeiterAnzeige' :
@@ -563,9 +582,9 @@ $(document).ready(function () {
     $('#cssmenu > ul > li > a').off('click');
     $('#cssmenu > ul > li > a').click(function () {
         $('#cssmenu li').removeClass('active');
-        
+
         $(this).closest('li').addClass('active');
-     
+
         var checkElement = $(this).next();
         if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
             $(this).closest('li').removeClass('active');
@@ -583,7 +602,6 @@ $(document).ready(function () {
     });
 
     // datepicker für geburtsdatum und vonTag und bisTag
-
     $('#geburtsdatum,#vonTag,#bisTag').datepicker({
         inline: true,
         showOtherMonths: true,

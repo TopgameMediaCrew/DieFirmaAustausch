@@ -1,0 +1,6 @@
+2016-02-12T14:18:09+01:00
+#0 C:\xampp\htdocs\DieFirmaAustausch\index.php(9): Autoloader::load('MitarbeiterZeit...')
+#1 [internal function]: {closure}('MitarbeiterZeit...')
+#2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('MitarbeiterZeit...')
+#3 C:\xampp\htdocs\DieFirmaAustausch\index.php(29): BaseController::load('showList', 'MitarbeiterZeit...', '0')
+#4 {main}

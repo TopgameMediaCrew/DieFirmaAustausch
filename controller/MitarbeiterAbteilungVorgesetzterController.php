@@ -1,5 +1,5 @@
 <?php
-class MitarbeiterAbteilungVorgesetzterController {
+class MitarbeiterAbteilungVorgesetzterController implements DoAction {
 
     public static function doAction($action, $id) {
         switch ($action) {
@@ -22,6 +22,14 @@ class MitarbeiterAbteilungVorgesetzterController {
                 break;
         }
         return $out;
+    }
+
+    public static function transform($out) {
+        
+    }
+
+    public static function transformUpdate($out = NULL) {
+        
     }
 
 }
