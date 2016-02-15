@@ -13,7 +13,7 @@ $(document).ready(function () {
 //        alert(txt);
 
             $("#menuleft").toggle();
-            
+
         });
     }
 
@@ -44,11 +44,11 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        updateausleiheid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertAusleihe') {
@@ -67,24 +67,24 @@ $(document).ready(function () {
                         von: vonDate,
                         bis: bisDate
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenAusleihe' && this.value === 'loeschen') {
-            var deleteausleiheid = this.id;
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Ausleihe",
                         view: "listeAusleihe",
-                        deleteausleiheid: deleteausleiheid
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // Projekt insert/update/delete
@@ -99,11 +99,11 @@ $(document).ready(function () {
                         area: "Projekt",
                         view: "listeProjekt",
                         Projekt: projekt,
-                        updateprojektid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertProjekt') {
@@ -116,9 +116,9 @@ $(document).ready(function () {
                         view: "listeProjekt",
                         projekt: projekt
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenProjekt' && this.value === 'loeschen') {
@@ -129,11 +129,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Projekt",
                         view: "listeProjekt",
-                        deleteprojektid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // Mitarbeiter insert/update/delete
@@ -160,11 +160,11 @@ $(document).ready(function () {
                         abteilung_id: abteilung_id,
                         stundenlohn: stundenlohn,
                         vorgesetzter_id: vorgesetzter_id,
-                        updatemitarbeiterhersteller: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertMitarbeiter') {
@@ -189,24 +189,24 @@ $(document).ready(function () {
                         stundenlohn: stundenlohn,
                         vorgesetzter_id: vorgesetzter_id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenMitarbeiter' && this.value === 'loeschen') {
-            var deletemitarbeiterid = this.id;
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "Mitarbeiter",
                         view: "listeMitarbeiter",
-                        deletemitarbeiterid: deletemitarbeiterid
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // Abteilung insert/update/delete
@@ -221,11 +221,11 @@ $(document).ready(function () {
                         area: "Abteilung",
                         view: "listeAbteilung",
                         Abteilung: abteilung,
-                        updateabteilungid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertAbteilung') {
@@ -238,9 +238,9 @@ $(document).ready(function () {
                         view: "listeAbteilung",
                         abteilung: abteilung
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenAbteilung' && this.value === 'loeschen') {
@@ -251,11 +251,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Abteilung",
                         view: "listeAbteilung",
-                        deleteabteilungid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // Hersteller insert/update/delete
@@ -270,26 +270,26 @@ $(document).ready(function () {
                         area: "Hersteller",
                         view: "listeHersteller",
                         Hersteller: hersteller,
-                        updateherstellerid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertHersteller') {
-            var hersteller = inputs['name'].value;
+            var id = inputs['name'].value;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "insert",
                         area: "Hersteller",
                         view: "listeHersteller",
-                        hersteller: hersteller
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenHersteller' && this.value === 'loeschen') {
@@ -300,11 +300,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Hersteller",
                         view: "listeHersteller",
-                        deleteherstellerid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // Auto insert/update/delete
@@ -323,11 +323,11 @@ $(document).ready(function () {
                         Auto: auto,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen,
-                        updateautoid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertAuto') {
@@ -344,9 +344,9 @@ $(document).ready(function () {
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenAuto' && this.value === 'loeschen') {
@@ -357,11 +357,11 @@ $(document).ready(function () {
                         action: "delete",
                         area: "Auto",
                         view: "listeAuto",
-                        deleteautoid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // ProjektMitarbeiter insert/update/delete
@@ -382,11 +382,11 @@ $(document).ready(function () {
                         mitarbeiter: mitarbeiter,
                         von: vonDate,
                         bis: bisDate,
-                        updatemitarbeiterprojektid: id
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // insert
         if (this.className === 'insertProjektMitarbeiter') {
@@ -405,33 +405,33 @@ $(document).ready(function () {
                         von: vonDate,
                         bis: bisDate
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 // delete
         if (this.className === 'loeschenProjektMitarbeiter' && this.value === 'loeschen') {
-            var deleteprojektmitarbeiterid = this.id;
+            var id = this.id;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "delete",
                         area: "ProjektMitarbeiter",
                         view: "listeProjektMitarbeiter",
-                        deleteprojektmitarbeiterid: deleteprojektmitarbeiterid
+                        id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // für test.html
 
         if (this.id === 'test') {
+            var id = inputs['id'].value;
             var action = inputs['action'].value;
             var area = inputs['area'].value;
             var view = inputs['view'].value;
-            var id = inputs['id'].value;
             $.post("index.php",
                     {
                         ajax: "true",
@@ -440,9 +440,9 @@ $(document).ready(function () {
                         view: view,
                         id: id
                     },
-                    function (data, status) {
-                        $('#content').html(data);
-                    });
+            function (data, status) {
+                $('#content').html(data);
+            });
         }
 
 // aufruf der unterschiedlichen formulare und views
@@ -455,9 +455,9 @@ $(document).ready(function () {
                     view: aTableEdit[2],
                     id: this.id
                 },
-                function (data, status) {
-                    $('#content').html(data);
-                });
+        function (data, status) {
+            $('#content').html(data);
+        });
     });
 
     $('a.menuItem').off('click');
@@ -470,9 +470,9 @@ $(document).ready(function () {
                     area: aMenuOptions[1],
                     view: aMenuOptions[2]
                 },
-                function (data, status) {
-                    $('#content').html(data);
-                });
+        function (data, status) {
+            $('#content').html(data);
+        });
     });
     function getMenuOptions(id) {
         var options = [];

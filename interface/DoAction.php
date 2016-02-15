@@ -37,7 +37,10 @@
  * und seite neu laden bzw. liste anzeigen.
  * case 'delete'
  */
-interface DoAction {
-    public static function doAction($action, $id);
 
+interface DoAction {
+
+    public static function doAction($action, $id);
 }
+
+?>

@@ -1,6 +1,6 @@
 <?php
 
-define('DEV', FALSE);
+define('DEV', TRUE);
 include './config.php';
 include './model/Autoloader.php';
 

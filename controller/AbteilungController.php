@@ -10,48 +10,19 @@ class AbteilungController implements DoAction {
     public static function doAction($action, $id) {
         switch ($action) {
 
-
-            /*
-             * aus db werden Daten für Ausgabeliste(Tabelle) als String aufgebereitet.
-             */
-
             case 'showList':
                 $out = Abteilung::getAll();
                 $out = self::transform($out);
                 break;
-            /*
-             *  $out Objekt; $id Integer
-             *  Aus der Klasse Abteilung wird die passende Abteilung anhand der übergebenen Id geladen.
-             *  Dafür wird die $id an dessen Funktion getById übegeben
-             *  das übegebene Object wird in die $out reingeschrieben
-             *  $out wird mit der eigenen Funktion transformUpdate bearbeitet
-             *  Das heißt html gerechtes Bearbeitungsformular wird mit den Object Daten gefüllt
-             *  
-             * aus db werden Daten für die UpdatEingabe(Tabelle) als String aufbereitet
-             * $id Integer(PK)
-             * $out: erst Objekt, dann String(Tabelle)
-             */
 
             case 'showUpdate':
                 $out = Abteilung::getById($id);
                 $out = self::transformUpdate($out);
                 break;
-            /*
-             * Die Methode wird aufgerufen
-             * die fertig erstellten daten werden an §out als string übergeben
-             */
-
 
             case 'showInsert':
                 $out = self::transformUpdate();
                 break;
-
-            /*
-             * User Daten werden gefiltert
-             * ein neues Objekt wird mit $id(PK) angelegt
-             * und in db upgedatet
-             */
-
 
             case 'update':
                 $abteilungFiltered = filter_input(INPUT_POST, 'Abteilung', FILTER_SANITIZE_MAGIC_QUOTES);
@@ -62,14 +33,6 @@ class AbteilungController implements DoAction {
                 $out = self::transform($out);
                 break;
 
-           
-
-            /*
-             * User Daten werden gefiltert
-             * ein neues Objekt wird mit $id(PK) angelegt
-             * und in db upgedatet
-             */
-
             case 'insert':
                 $abteilungFiltered = filter_input(INPUT_POST, 'abteilung', FILTER_SANITIZE_MAGIC_QUOTES);
                 $out = new Abteilung($abteilungFiltered, NULL);
@@ -77,24 +40,6 @@ class AbteilungController implements DoAction {
                 $out = Abteilung::getAll();
                 $out = self::transform($out);
                 break;
-
-            /*
-             * Übergabe des Primary Keys (über POST(['id'])
-             * @example
-             * Array
-             * (
-             * [ajax] => true
-             * [action] => delete
-             * [area] => Abteilung
-             * [view] => listeAbteilung
-             * [id] => 13
-             * )
-             * 
-             * danach methodenaufruf (löschen) in der jeweiligen Klasse,
-             * und seite neu laden bzw. liste anzeigen.
-             * 
-             * 
-             */
 
             case 'delete':
                 $deleteabteilungidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_MAGIC_QUOTES);
@@ -110,13 +55,13 @@ class AbteilungController implements DoAction {
         return $out;
     }
 
-    
     /*
      * @param Array $out - Array mit Objekten
      * @return string
      * 
      * für Anzeige in ListenForm
      */
+
     private static function transform($out) {
         $returnOut;
         $i = 0;
@@ -135,7 +80,7 @@ class AbteilungController implements DoAction {
      * 
      * für Anzeige in FormularForm
      */
-    
+
     private static function transformUpdate($out = NULL) {
         $returnOut = [];
         $linkeSpalte = [];
