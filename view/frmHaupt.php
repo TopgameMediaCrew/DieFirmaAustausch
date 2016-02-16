@@ -130,7 +130,7 @@ include './view/header.php';
                     </li>
                 </ul>
             </li>
-            <li class='has-sub'><a href='#' id="menuViews"><span>Views (workingname so dont cry)</span></a>
+            <li class='has-sub'><a href='#' id="menuViews"><span>Views </span></a>
                 <ul>
                     <li>
                         <a class="menuItem" href='#' id="menuMitarbeiterAbteilungVorgesetzter"><span>Mitarbeiter mit Abteilung und Vorgesetzten</span></a>
