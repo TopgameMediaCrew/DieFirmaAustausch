@@ -1,19 +1,16 @@
 $(document).ready(function () {
-    
-        if ($(window).width() <= 824) {
+
+     if ($(window).width() <= 824) {
             $("#menuleft").hide();
-            $('.menutopClick').off('click');
-            $('.menutopClick').click(function () {
+            $(".menutopClick").off('click');
+            $(".menutopClick").click(function () {
                 $("#menuleft").toggle();
-                $('.menutopClick').toggle();
+                $(".menutopClick").toggle();
                 if ($("#cssmenu").is(":visible")) {
-                    $('#content').toggle();
+                    $("#content").toggle();
                 }
             });
         }
-    
-    
-
 
 
     $('button').off('click');
@@ -227,14 +224,14 @@ $(document).ready(function () {
         }
 // insert
         if (this.className === 'insertAbteilung') {
-            var abteilung = inputs['abteilung'].value;
+            var name = inputs['abteilung'].value;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "insert",
                         area: "Abteilung",
                         view: "listeAbteilung",
-                        abteilung: abteilung
+                        name: name
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -310,7 +307,7 @@ $(document).ready(function () {
         if (this.className === 'updateAuto') {
             var id = inputs['id'].value;
             var hersteller_id = drops['hersteller'].value;
-            var auto = inputs['autoName'].value;
+            var name = inputs['autoName'].value;
             var kennzeichen = inputs['kennzeichen'].value;
             $.post("index.php",
                     {
@@ -318,7 +315,7 @@ $(document).ready(function () {
                         action: "update",
                         area: "Auto",
                         view: "listeAuto",
-                        Auto: auto,
+                        name: name,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen,
                         id: id
@@ -330,7 +327,7 @@ $(document).ready(function () {
 // insert
         if (this.className === 'insertAuto') {
             var hersteller_id = drops['hersteller'].value;
-            var auto = inputs['autoName'].value;
+            var name = inputs['autoName'].value;
             var kennzeichen = inputs['kennzeichen'].value;
             $.post("index.php",
                     {
@@ -338,7 +335,7 @@ $(document).ready(function () {
                         action: "insert",
                         area: "Auto",
                         view: "listeAuto",
-                        auto: auto,
+                        name: name,
                         hersteller_id: hersteller_id,
                         kennzeichen: kennzeichen
                     },
@@ -475,10 +472,7 @@ $(document).ready(function () {
                 $('#content').toggle();
 
             }
-
-
         });
-
     });
     function getMenuOptions(id) {
         var options = [];

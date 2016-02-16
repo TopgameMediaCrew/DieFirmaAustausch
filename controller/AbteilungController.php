@@ -34,9 +34,10 @@ class AbteilungController implements DoAction {
                 break;
 
             case 'insert':
-                $abteilungFiltered = filter_input(INPUT_POST, 'abteilung', FILTER_SANITIZE_MAGIC_QUOTES);
+                $abteilungFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
                 $out = new Abteilung($abteilungFiltered, NULL);
                 $out = Abteilung::insert($out);
+                                print_r($out);
                 $out = Abteilung::getAll();
                 $out = self::transform($out);
                 break;

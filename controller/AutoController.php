@@ -25,7 +25,7 @@ class AutoController implements DoAction {
                 break;
 
             case 'update' :
-                $autoFiltered = filter_input(INPUT_POST, 'Auto', FILTER_SANITIZE_MAGIC_QUOTES);
+                $autoFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
                 $hersteller_idFiltered = filter_input(INPUT_POST, 'hersteller_id', FILTER_SANITIZE_MAGIC_QUOTES);
                 $kennzeichenFiltered = filter_input(INPUT_POST, 'kennzeichen', FILTER_SANITIZE_MAGIC_QUOTES);
                 $updateautoidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -38,7 +38,7 @@ class AutoController implements DoAction {
                 break;
 
             case 'insert' :
-                $autoFiltered = filter_input(INPUT_POST, 'Auto', FILTER_SANITIZE_MAGIC_QUOTES);
+                $autoFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
                 $hersteller_idFiltered = filter_input(INPUT_POST, 'hersteller_id', FILTER_SANITIZE_MAGIC_QUOTES);
                 $kennzeichenFiltered = filter_input(INPUT_POST, 'kennzeichen', FILTER_SANITIZE_MAGIC_QUOTES);
 
@@ -99,11 +99,11 @@ class AutoController implements DoAction {
         // überführe $dbWerte in rechte Spalte
         $selected = NULL;
         if ($out !== NULL) {
-            if ($out->getAuto() !== NULL) {
-                $selected = $out->getAuto()->getId(); // Foreign Key
+            if ($out->getHersteller() !== NULL) {
+                $selected = $out->getHersteller()->getId(); // Foreign Key
             }
         }
-        $options = Option::buildOptions('Auto', $selected);
+        $options = Option::buildOptions('Hersteller', $selected);
 
         if ($out !== NULL) {
             array_push($rechteSpalte, HTML::buildDropDown('herstellerName', '1', $options, NULL, 'hersteller'));

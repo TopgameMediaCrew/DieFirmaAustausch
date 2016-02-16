@@ -149,6 +149,16 @@ include './view/header.php';
                     </li>
                 </ul>
             </li>
+             <li class='has-sub'><a href='#' id="Ticket"><span>Ticket</span></a>
+                <ul>
+                    <li>
+                        <a class="menuItem" href='#' id="menuTicketErstellen"><span>Ticket erstellen</span></a>
+                    </li>
+                    <li class='last'>
+                        <a class="menuItem" href='#' id="menuTicketAnzeigen"><span>Tickets anzeigen</span></a>
+                    </li>
+                </ul>
+            </li>
 
 
             <li class='last'><a href='#' id="menuKontakt"><span>Kontakt</span></a></li>

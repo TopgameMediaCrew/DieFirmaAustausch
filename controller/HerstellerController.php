@@ -92,7 +92,7 @@ class HerstellerController implements DoAction {
             $rechteSpalte[0] = HTML::buildInput('text', 'hersteller', $dbWerte['name'], NULL, 'name');
             array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'updateHersteller', 'OK'));
         } else {
-            $rechteSpalte[0] = HTML::buildInput('text', 'hersteller', '', NULL, 'name');
+            $rechteSpalte[0] = HTML::buildInput('text', 'name', '', NULL, 'name');
             array_push($rechteSpalte, HTML::buildButton('OK', 'ok', 'insertHersteller', 'OK'));
         }
         $returnOut = HTML::buildFormularTable($linkeSpalte, $rechteSpalte);
