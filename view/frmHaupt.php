@@ -73,7 +73,7 @@ include './view/header.php';
     <div id='cssmenu'>
         <ul>
             <li class='active'>
-                <a href='' id="menuHome"><span>Home</span></a>
+                <!--<a href='' id="menuHome"><span>Home</span></a>-->
             </li>
             <li class='has-sub'>
                 <a href='#' id="menuMitarbeiter"><span>Mitarbeiter</span></a>

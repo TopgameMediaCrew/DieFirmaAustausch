@@ -1,21 +1,19 @@
 $(document).ready(function () {
+    
+        if ($(window).width() <= 824) {
+            $("#menuleft").hide();
+            $('.menutopClick').off('click');
+            $('.menutopClick').click(function () {
+                $("#menuleft").toggle();
+                $('.menutopClick').toggle();
+                if ($("#cssmenu").is(":visible")) {
+                    $('#content').toggle();
+                }
+            });
+        }
+    
+    
 
-    if ($(window).width() <= 824) {
-        $("#menuleft").hide();
-        $('.menutopClick').off('click');
-        $('.menutopClick').click(function () {
-
-//        var txt = "";
-//        txt += "Document width/height: " + $(document).width();
-//        txt += "x" + $(document).height() + "\n";
-//        txt += "Window width/height: " + $(window).width();
-//        txt += "x" + $(window).height();
-//        alert(txt);
-
-            $("#menuleft").toggle();
-
-        });
-    }
 
 
     $('button').off('click');
@@ -278,14 +276,14 @@ $(document).ready(function () {
         }
 // insert
         if (this.className === 'insertHersteller') {
-            var id = inputs['name'].value;
+            var name = inputs['name'].value;
             $.post("index.php",
                     {
                         ajax: "true",
                         action: "insert",
                         area: "Hersteller",
                         view: "listeHersteller",
-                        id: id
+                        name: name
                     },
             function (data, status) {
                 $('#content').html(data);
@@ -472,7 +470,15 @@ $(document).ready(function () {
                 },
         function (data, status) {
             $('#content').html(data);
+            $('.menutopClick').toggle();
+            if ($('.menutopClick').is(":visible")) {
+                $('#content').toggle();
+
+            }
+
+
         });
+
     });
     function getMenuOptions(id) {
         var options = [];

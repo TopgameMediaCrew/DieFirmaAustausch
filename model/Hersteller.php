@@ -72,6 +72,9 @@ class Hersteller implements Aenderbar, JsonSerializable {
     }
 
     public static function insert($id) {
+//        echo '<pre>';
+//        print_r($id);
+//        echo '</pre>';
         $pdo = DbConnect::connect();
         $sql = "INSERT INTO hersteller(name) VALUES (:name)";
         $stmt = $pdo->prepare($sql);

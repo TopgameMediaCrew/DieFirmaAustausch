@@ -35,7 +35,7 @@ class HerstellerController implements DoAction {
                 break;
 
             case 'insert' :
-                $herstellerFiltered = filter_input(INPUT_POST, 'hersteller', FILTER_SANITIZE_MAGIC_QUOTES);
+                $herstellerFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
                 $out = new Hersteller($herstellerFiltered, NULL);
                 $out = Hersteller::insert($out);
                 $out = Hersteller::getAll();
