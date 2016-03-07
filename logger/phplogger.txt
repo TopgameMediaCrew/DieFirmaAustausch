@@ -20,3 +20,19 @@
 #2 C:\xampp\htdocs\DieFirmaAustausch\controller\BaseController.php(13): spl_autoload_call('MitarbeiterZeit...')
 #3 C:\xampp\htdocs\DieFirmaAustausch\index.php(29): BaseController::load('showList', 'MitarbeiterZeit...', '0')
 #4 {main}
+2016-02-17T15:09:09+01:00
+#0 C:\xampp\htdocs\DieFirma\model\Mitarbeiter.php(96): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirma\controller\MitarbeiterController.php(14): Mitarbeiter::getAll()
+#2 C:\xampp\htdocs\DieFirma\controller\BaseController.php(13): MitarbeiterController::doAction('showList', '0')
+#3 C:\xampp\htdocs\DieFirma\index.php(29): BaseController::load('showList', 'Mitarbeiter', '0')
+#4 {main}2016-03-07T10:04:00+01:00
+#0 C:\xampp\htdocs\DieFirma\model\Mitarbeiter.php(96): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirma\controller\MitarbeiterController.php(14): Mitarbeiter::getAll()
+#2 C:\xampp\htdocs\DieFirma\controller\BaseController.php(13): MitarbeiterController::doAction('showList', '0')
+#3 C:\xampp\htdocs\DieFirma\index.php(29): BaseController::load('showList', 'Mitarbeiter', '0')
+#4 {main}2016-03-07T10:04:22+01:00
+#0 C:\xampp\htdocs\DieFirma\model\Mitarbeiter.php(96): DbConnect::connect()
+#1 C:\xampp\htdocs\DieFirma\controller\MitarbeiterController.php(14): Mitarbeiter::getAll()
+#2 C:\xampp\htdocs\DieFirma\controller\BaseController.php(13): MitarbeiterController::doAction('showList', '0')
+#3 C:\xampp\htdocs\DieFirma\index.php(29): BaseController::load('showList', 'Mitarbeiter', '0')
+#4 {main}
