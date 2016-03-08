@@ -25,8 +25,8 @@ class AbteilungController implements DoAction {
                 break;
 
             case 'update':
-                $abteilungFiltered = filter_input(INPUT_POST, 'Abteilung', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateabteilungidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $abteilungFiltered = filter_input(INPUT_POST, 'Abteilung', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updateabteilungidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Abteilung($abteilungFiltered, $updateabteilungidFiltered);
                 $out = Abteilung::update($out);
                 $out = Abteilung::getAll();
@@ -34,7 +34,7 @@ class AbteilungController implements DoAction {
                 break;
 
             case 'insert':
-                $abteilungFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
+                $abteilungFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Abteilung($abteilungFiltered, NULL);
                 $out = Abteilung::insert($out);
                                 print_r($out);
@@ -43,7 +43,7 @@ class AbteilungController implements DoAction {
                 break;
 
             case 'delete':
-                $deleteabteilungidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_MAGIC_QUOTES);
+                $deleteabteilungidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deleteabteilungidFiltered;
                 $out = Abteilung::delete($out);
                 $out = Abteilung::getAll();

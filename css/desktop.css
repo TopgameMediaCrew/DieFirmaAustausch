@@ -363,13 +363,13 @@ canvas noscript{
 
 
 #menuleft {
-    width:253px;
+    width:235px;
     text-align:center;
     position: relative;
-    height: 328px;
+    /*height: 328px;*/
     margin: 0 auto;
     margin-bottom: 24px;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 /* Base Styles */

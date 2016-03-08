@@ -25,11 +25,11 @@ class AusleiheController implements DoAction {
                 break;
 
             case 'update' :
-                $fahrzeugFiltered = filter_input(INPUT_POST, 'fahrzeug', FILTER_SANITIZE_MAGIC_QUOTES);
-                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES);
-                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES);
-                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateausleiheidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $fahrzeugFiltered = filter_input(INPUT_POST, 'fahrzeug', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updateausleiheidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Ausleihe(Auto::getById($fahrzeugFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), $updateausleiheidFiltered);
                 $out = Ausleihe::update($out);
                 $out = Ausleihe::getAll();
@@ -37,10 +37,10 @@ class AusleiheController implements DoAction {
                 break;
 
             case 'insert' :
-                $fahrzeugFiltered = filter_input(INPUT_POST, 'fahrzeug', FILTER_SANITIZE_MAGIC_QUOTES);
-                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES);
-                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES);
-                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES);
+                $fahrzeugFiltered = filter_input(INPUT_POST, 'fahrzeug', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Ausleihe(Auto::getById($fahrzeugFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), NULL);
                 $out = Ausleihe::insert($out);
                 $out = Ausleihe::getAll();
@@ -48,7 +48,7 @@ class AusleiheController implements DoAction {
                 break;
 
             case 'delete' :
-                $deleteausleiheidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $deleteausleiheidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deleteausleiheidFiltered;
                 $out = Ausleihe::delete($out);
                 $out = Ausleihe::getAll();

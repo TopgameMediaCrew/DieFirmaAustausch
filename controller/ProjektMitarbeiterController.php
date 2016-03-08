@@ -25,11 +25,11 @@ class ProjektMitarbeiterController implements DoAction {
                 break;
 
             case 'update' :
-                $ProjektFiltered = filter_input(INPUT_POST, 'Projekt', FILTER_SANITIZE_MAGIC_QUOTES);
-                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES);
-                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES);
-                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updatemitarbeiterprojektidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $ProjektFiltered = filter_input(INPUT_POST, 'Projekt', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updatemitarbeiterprojektidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
 
 
                 $out = new ProjektMitarbeiter(Projekt::getById($ProjektFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), $updatemitarbeiterprojektidFiltered);
@@ -39,10 +39,10 @@ class ProjektMitarbeiterController implements DoAction {
                 break;
 
             case 'insert' :
-                $projektFiltered = filter_input(INPUT_POST, 'projekt', FILTER_SANITIZE_MAGIC_QUOTES);
-                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES);
-                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES);
-                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES);
+                $projektFiltered = filter_input(INPUT_POST, 'projekt', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $mitarbeiterFiltered = filter_input(INPUT_POST, 'mitarbeiter', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $vonFiltered = filter_input(INPUT_POST, 'von', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $bisFiltered = filter_input(INPUT_POST, 'bis', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
 
                 $out = new ProjektMitarbeiter(Projekt::getById($projektFiltered), Mitarbeiter::getById($mitarbeiterFiltered), HTML::dateAndTimeToDateTime($vonFiltered), HTML::dateAndTimeToDateTime($bisFiltered), NULL);
                 $out = ProjektMitarbeiter::insert($out);
@@ -51,7 +51,7 @@ class ProjektMitarbeiterController implements DoAction {
                 break;
 
             case 'delete' :
-                $deleteprojektmitarbeiteridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $deleteprojektmitarbeiteridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deleteprojektmitarbeiteridFiltered;
                 $out = ProjektMitarbeiter::delete($out);
                 $out = ProjektMitarbeiter::getAll();

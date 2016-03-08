@@ -25,8 +25,8 @@ class ProjektController implements DoAction {
                 break;
 
             case 'update' :
-                $ProjektFiltered = filter_input(INPUT_POST, 'Projekt', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateprojektidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $ProjektFiltered = filter_input(INPUT_POST, 'Projekt', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updateprojektidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Projekt($ProjektFiltered, $updateprojektidFiltered);
                 $out = Projekt::update($out);
                 $out = Projekt::getAll();
@@ -34,7 +34,7 @@ class ProjektController implements DoAction {
                 break;
 
             case 'insert' :
-                $projektFiltered = filter_input(INPUT_POST, 'projekt', FILTER_SANITIZE_MAGIC_QUOTES);
+                $projektFiltered = filter_input(INPUT_POST, 'projekt', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Projekt($projektFiltered, NULL);
                 $out = Projekt::insert($out);
                 $out = Projekt::getAll();
@@ -42,7 +42,7 @@ class ProjektController implements DoAction {
                 break;
 
             case 'delete' :
-                $deleteprojektidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $deleteprojektidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deleteprojektidFiltered;
                 $out = Projekt::delete($out);
                 $out = Projekt::getAll();

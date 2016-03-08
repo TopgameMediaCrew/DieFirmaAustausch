@@ -25,14 +25,14 @@ class MitarbeiterController implements DoAction {
                 break;
 
             case 'update':
-                $vorgesetzter_idFiltered = filter_input(INPUT_POST, 'vorgesetzter_id', FILTER_SANITIZE_MAGIC_QUOTES);
-                $vornameFiltered = filter_input(INPUT_POST, 'vorname', FILTER_SANITIZE_MAGIC_QUOTES);
-                $nachnameFiltered = filter_input(INPUT_POST, 'nachname', FILTER_SANITIZE_MAGIC_QUOTES);
-                $geschlechtFiltered = filter_input(INPUT_POST, 'geschlecht', FILTER_SANITIZE_MAGIC_QUOTES);
-                $geburtsdatumFiltered = filter_input(INPUT_POST, 'geburtsdatum', FILTER_SANITIZE_MAGIC_QUOTES);
-                $abteilung_idFiltered = filter_input(INPUT_POST, 'abteilung_id', FILTER_SANITIZE_MAGIC_QUOTES);
-                $stundenlohnFiltered = filter_input(INPUT_POST, 'stundenlohn', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updatemitarbeiterherstellerFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $vorgesetzter_idFiltered = filter_input(INPUT_POST, 'vorgesetzter_id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $vornameFiltered = filter_input(INPUT_POST, 'vorname', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $nachnameFiltered = filter_input(INPUT_POST, 'nachname', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $geschlechtFiltered = filter_input(INPUT_POST, 'geschlecht', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $geburtsdatumFiltered = filter_input(INPUT_POST, 'geburtsdatum', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $abteilung_idFiltered = filter_input(INPUT_POST, 'abteilung_id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $stundenlohnFiltered = filter_input(INPUT_POST, 'stundenlohn', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updatemitarbeiterherstellerFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
 
                 $vorgesetzter = ($vorgesetzter_idFiltered) ? Mitarbeiter::getById($vorgesetzter_idFiltered) : NULL;
                 $out = new Mitarbeiter($vornameFiltered, $nachnameFiltered, $geschlechtFiltered, HTML::germanToMysql($geburtsdatumFiltered), Abteilung::getById($abteilung_idFiltered), $stundenlohnFiltered, $vorgesetzter, $updatemitarbeiterherstellerFiltered);
@@ -42,13 +42,13 @@ class MitarbeiterController implements DoAction {
                 break;
 
             case 'insert':
-                $vorgesetzter_idFiltered = filter_input(INPUT_POST, 'vorgesetzter_id', FILTER_SANITIZE_MAGIC_QUOTES);
-                $vornameFiltered = filter_input(INPUT_POST, 'vorname', FILTER_SANITIZE_MAGIC_QUOTES);
+                $vorgesetzter_idFiltered = filter_input(INPUT_POST, 'vorgesetzter_id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $vornameFiltered = filter_input(INPUT_POST, 'vorname', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
                 $nachnameFiltered = filter_input(INPUT_POST, 'nachname', FILTER_SANITIZE_MAGIC_QUOTES);
-                $geschlechtFiltered = filter_input(INPUT_POST, 'geschlecht', FILTER_SANITIZE_MAGIC_QUOTES);
-                $geburtsdatumFiltered = filter_input(INPUT_POST, 'geburtsdatum', FILTER_SANITIZE_MAGIC_QUOTES);
-                $abteilung_idFiltered = filter_input(INPUT_POST, 'abteilung_id', FILTER_SANITIZE_MAGIC_QUOTES);
-                $stundenlohnFiltered = filter_input(INPUT_POST, 'stundenlohn', FILTER_SANITIZE_MAGIC_QUOTES);
+                $geschlechtFiltered = filter_input(INPUT_POST, 'geschlecht', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $geburtsdatumFiltered = filter_input(INPUT_POST, 'geburtsdatum', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $abteilung_idFiltered = filter_input(INPUT_POST, 'abteilung_id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $stundenlohnFiltered = filter_input(INPUT_POST, 'stundenlohn', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
 
                 $vorgesetzter = ($vorgesetzter_idFiltered) ? Mitarbeiter::getById($vorgesetzter_idFiltered) : NULL;
                 $out = new Mitarbeiter($vornameFiltered, $nachnameFiltered, $geschlechtFiltered, HTML::germanToMysql($geburtsdatumFiltered), Abteilung::getById($abteilung_idFiltered), $stundenlohnFiltered, $vorgesetzter, NULL);
@@ -58,7 +58,7 @@ class MitarbeiterController implements DoAction {
                 break;
 
             case 'delete':
-                $deletemitarbeiteridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $deletemitarbeiteridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deletemitarbeiteridFiltered;
                 $out = Mitarbeiter::delete($out);
                 $out = Mitarbeiter::getAll();

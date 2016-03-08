@@ -25,10 +25,10 @@ class AutoController implements DoAction {
                 break;
 
             case 'update' :
-                $autoFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
-                $hersteller_idFiltered = filter_input(INPUT_POST, 'hersteller_id', FILTER_SANITIZE_MAGIC_QUOTES);
-                $kennzeichenFiltered = filter_input(INPUT_POST, 'kennzeichen', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateautoidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $autoFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $hersteller_idFiltered = filter_input(INPUT_POST, 'hersteller_id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $kennzeichenFiltered = filter_input(INPUT_POST, 'kennzeichen', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updateautoidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
 
 
                 $out = new Auto($autoFiltered, Hersteller::getById($hersteller_idFiltered), $kennzeichenFiltered, $updateautoidFiltered);
@@ -38,9 +38,9 @@ class AutoController implements DoAction {
                 break;
 
             case 'insert' :
-                $autoFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
-                $hersteller_idFiltered = filter_input(INPUT_POST, 'hersteller_id', FILTER_SANITIZE_MAGIC_QUOTES);
-                $kennzeichenFiltered = filter_input(INPUT_POST, 'kennzeichen', FILTER_SANITIZE_MAGIC_QUOTES);
+                $autoFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $hersteller_idFiltered = filter_input(INPUT_POST, 'hersteller_id', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $kennzeichenFiltered = filter_input(INPUT_POST, 'kennzeichen', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
 
 
                 $out = new Auto($autoFiltered, Hersteller::getById($hersteller_idFiltered), $kennzeichenFiltered, NULL);
@@ -50,7 +50,7 @@ class AutoController implements DoAction {
                 break;
 
             case 'delete' :
-                $deleteautoidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $deleteautoidFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deleteautoidFiltered;
                 $out = Auto::delete($out);
                 $out = Auto::getAll();

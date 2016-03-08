@@ -25,8 +25,8 @@ class HerstellerController implements DoAction {
                 break;
 
             case 'update' :
-                $herstellerFiltered = filter_input(INPUT_POST, 'Hersteller', FILTER_SANITIZE_MAGIC_QUOTES);
-                $updateherstelleridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $herstellerFiltered = filter_input(INPUT_POST, 'Hersteller', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
+                $updateherstelleridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
 
                 $out = new Hersteller($herstellerFiltered, $updateherstelleridFiltered);
                 $out = Hersteller::update($out);
@@ -35,7 +35,7 @@ class HerstellerController implements DoAction {
                 break;
 
             case 'insert' :
-                $herstellerFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES);
+                $herstellerFiltered = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_MAGIC_QUOTES & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = new Hersteller($herstellerFiltered, NULL);
                 $out = Hersteller::insert($out);
                 $out = Hersteller::getAll();
@@ -43,7 +43,7 @@ class HerstellerController implements DoAction {
                 break;
 
             case 'delete' :
-                $deleteherstelleridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $deleteherstelleridFiltered = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT & FILTER_SANITIZE_SPECIAL_CHARS);
                 $out = $deleteherstelleridFiltered;
                 $out = Hersteller::delete($out);
                 $out = Hersteller::getAll();
